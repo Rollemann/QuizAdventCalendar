@@ -2,12 +2,12 @@ import React from 'react'
 
 const speachbubble = ({mirror}:{mirror:boolean}) => {
     
-    const pixelSize:number = 4;
+    const pixelSize:number = 3;
     const qube:string = `l ${pixelSize},0 l 0,${pixelSize}`;
-    const startX:number = 70;
+    const startX:number = 75;
     const width:number = 300;
     const height:number = 180;
-    const diagLength:number = 5;
+    const diagLength:number = 7;
 
     let diagLine:string = "";
     for(let i:number = 0; i < diagLength; ++i){

@@ -24,18 +24,21 @@ export default function RootLayout({
 
   const [showDialog, setShowDialog] = useState(false);
   const [mirrorDiag, setMirrorDiag] = useState(false);
+  const [dialogRight, setDialogRight] = useState("");
+
 
   const clickHandler = (mirror: boolean) => {
-    setShowDialog(!showDialog);
     setMirrorDiag(mirror);
   }
+
+
 
   return (
     <html lang="en">
       <body>
         <header className='flex fixed w-screen flex-col top-5'>
           <div className='flex justify-between top-5'>
-            <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
+            <div className='flex border-solid border-black border-2 w-1/4 justify-around' onClick={() => {setDialogRight("")}}>
               <span onClick={() => clickHandler(false)}>
                 <Rewards />
               </span>
@@ -43,12 +46,12 @@ export default function RootLayout({
                 <Ranking />
               </span>
             </div>
-            <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
+            <div className='flex border-solid border-black border-2 w-1/4 justify-around' onClick={() => {setDialogRight("self-end")}}>
               <Chat />
               <Rules />
             </div>
           </div>
-          <div className='w-1/4' onClick={() => { setShowDialog(!showDialog) }}>
+          <div className={`w-1/4 ${dialogRight}`} onClick={() => { setShowDialog(!showDialog) }}>
             {!showDialog && <Speachbubble mirror={mirrorDiag} />}
           </div>
         </header>
