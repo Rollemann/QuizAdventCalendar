@@ -1,9 +1,13 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Chat from "./components/chat"
 import Rules from "./components/rules"
-
+import { useState } from 'react'
+import Speachbubble from './components/speachbubble'
+import Rewards from './components/rewards'
+import Ranking from './components/ranking'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,15 +21,46 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const [showDialog, setShowDialog] = useState(false);
+  const [mirrorDiag, setMirrorDiag] = useState(false);
+
+  const clickHandler = (mirror: boolean) => {
+    setShowDialog(!showDialog);
+    setMirrorDiag(mirror);
+  }
+
   return (
     <html lang="en">
       <body>
-        <main className={inter.className}> {children} </main>
-        <header className='flex fixed w-screen justify-between top-5'>
-          <Chat />
-          <Rules />
+        <header className='flex fixed w-screen flex-col top-5'>
+          <div className='flex justify-between top-5'>
+            <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
+              <span onClick={() => clickHandler(false)}>
+                <Rewards />
+              </span>
+              <span onClick={() => clickHandler(true)}>
+                <Ranking />
+              </span>
+            </div>
+            <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
+              <Chat />
+              <Rules />
+            </div>
+          </div>
+          <div className='w-1/4' onClick={() => { setShowDialog(!showDialog) }}>
+            {!showDialog && <Speachbubble mirror={mirrorDiag} />}
+          </div>
         </header>
+        <main className={inter.className}> {children} </main>
       </body>
     </html>
   )
 }
+
+
+/* TODO:
+          <svg height={1000} width={1000} viewBox='0 0 1000 1000' xmlns='<http://www.w3.org/2000/svg>'>
+            <path strokeWidth={2} d="M100 100 L200 200 L300 300 Z" />
+          </svg>
+ */
