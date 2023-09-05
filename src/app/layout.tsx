@@ -35,7 +35,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <header className='flex fixed w-screen flex-col top-5'>
           <div className='flex justify-between top-5'>
             <div className='flex border-solid border-black border-2 w-1/4 justify-around' onClick={() => {setDialogRight("")}}>
@@ -55,7 +55,7 @@ export default function RootLayout({
             {!showDialog && <Speachbubble mirror={mirrorDiag} />}
           </div>
         </header>
-        <main className={inter.className}> {children} </main>
+        <main> {children} </main>
       </body>
     </html>
   )
