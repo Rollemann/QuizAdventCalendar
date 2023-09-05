@@ -2,12 +2,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Chat from "./components/chat"
-import Rules from "./components/rules"
+import Chat from "./components/menu/chat"
+import Rules from "./components/menu/rules"
 import { useState } from 'react'
 import Speachbubble from './components/speachbubble'
-import Rewards from './components/rewards'
-import Ranking from './components/ranking'
+import Rewards from './components/menu/rewards'
+import Ranking from './components/menu/ranking'
 
 const inter = Inter({ subsets: ['latin'] })
 
