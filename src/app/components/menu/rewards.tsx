@@ -1,7 +1,10 @@
-const rewards = () => {
+import { useSpeachBubbleContext } from "@/app/contexts/speachBubbleContext";
+
+const Rewards = () => {
+    const {speachBubble, setSpeachBubble} = useSpeachBubbleContext();
     return (
-        <button>Preise</button>
+        <button onClick={() => setSpeachBubble('rewards')}>Preise</button>
     )
 }
 
-export default rewards
+export default Rewards

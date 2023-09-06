@@ -1,7 +1,10 @@
-const ranking = () => {
+import { useSpeachBubbleContext } from "@/app/contexts/speachBubbleContext";
+
+const Ranking = () => {
+    const {speachBubble, setSpeachBubble} = useSpeachBubbleContext();
     return (
-        <button>Ranking</button>
+        <button onClick={() => setSpeachBubble('ranking')}>Ranking</button>
     )
 }
 
-export default ranking
+export default Ranking

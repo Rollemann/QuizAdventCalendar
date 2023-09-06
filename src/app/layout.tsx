@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Speachbubble from './components/speachbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
+import SpeachBubbleContextProvider from './contexts/speachBubbleContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,38 +23,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const [showDialog, setShowDialog] = useState(false);
-  const [mirrorDiag, setMirrorDiag] = useState(false);
-  const [dialogRight, setDialogRight] = useState("");
-
-
-  const clickHandler = (mirror: boolean) => {
-    setMirrorDiag(mirror);
-  }
-
-
-
   return (
     <html lang="en">
       <body className={inter.className}>
         <header className='flex fixed w-screen flex-col top-5'>
-          <div className='flex justify-between top-5'>
-            <div className='flex border-solid border-black border-2 w-1/4 justify-around' onClick={() => {setDialogRight("")}}>
-              <span onClick={() => clickHandler(false)}>
+          <SpeachBubbleContextProvider>
+            <div className='flex justify-between top-5'>
+              <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
                 <Rewards />
-              </span>
-              <span onClick={() => clickHandler(true)}>
                 <Ranking />
-              </span>
+              </div>
+              <div className='flex w-1/4 justify-around'>
+                <Chat />
+                <Rules />
+              </div>
             </div>
-            <div className='flex border-solid border-black border-2 w-1/4 justify-around' onClick={() => {setDialogRight("self-end")}}>
-              <Chat />
-              <Rules />
-            </div>
-          </div>
-          <div className={`w-1/4 ${dialogRight}`} onClick={() => { setShowDialog(!showDialog) }}>
-            {!showDialog && <Speachbubble mirror={mirrorDiag} />}
-          </div>
+            <Speachbubble />
+          </SpeachBubbleContextProvider>
         </header>
         <main> {children} </main>
       </body>
