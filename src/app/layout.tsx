@@ -28,7 +28,7 @@ export default function RootLayout({
         <header className='flex fixed w-screen flex-col top-5'>
           <SpeachBubbleContextProvider>
             <div className='flex justify-between h-20'>
-              <div className='flex border-solid border-black border-2 w-1/4 justify-around'>
+              <div className='flex w-1/4 justify-around'>
                 <Rewards />
                 <Ranking />
               </div>
