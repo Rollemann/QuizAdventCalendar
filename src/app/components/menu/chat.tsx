@@ -1,38 +1,40 @@
 import { useSpeachBubbleContext } from '@/app/contexts/speachBubbleContext'
+import { shapeDrawer } from "@/app/utilities/svgUtilities";
+import { Position } from "@/app/utilities/svgUtilities";
 
 const pixelSize: number = 10;
-const qube: string = `l ${pixelSize},0 l 0,${pixelSize}`;
-const startX: number = 75;
+const qube: string = `l ${pixelSize},0 l 0,${pixelSize} l -${pixelSize},0 Z`;
+const startX: number = 225;
 const width: number = 300;
 const height: number = 180;
-const diagLength: number = 4;
 
-let diagLine: string = "";
-for (let i: number = 0; i < diagLength; ++i) {
-    const offset: number = i * pixelSize;
-    diagLine += `M ${startX + offset},${offset} ${qube}`;
-}
+const speachBubbleIconStart: Position = { x: startX, y: height };
+const speachBubbleIconShape: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -18.5, -14, 30, 14, -7.5, 4.25];
+const speachBubbleIcon: string = shapeDrawer(speachBubbleIconStart, speachBubbleIconShape, pixelSize);
 
 const Chat = () => {
     const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
     return (
-        <svg viewBox={`0 0 ${width+10} ${height+10}`} onClick={() => setSpeachBubble('chat')} className='h-20'>
-            <path
-                transform={`rotate(180) translate(-${width + 10},-${height + 10})`}
+        <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={() => setSpeachBubble('chat')}>
+            <path // shadow
+                transform={`translate(15,15)`}
                 opacity={0.5}
-                fill='black' // TODO: Farbe anpassen zum Fragezeichen
-                d={`${diagLine} M ${startX + diagLength * pixelSize},${diagLength * pixelSize} L ${width - 10},${diagLength * pixelSize} L ${width - 10},${height} L 10,${height} L 10,${diagLength * pixelSize} L ${startX},${diagLength * pixelSize} L ${startX},0`}
+                fill='black'
+                d={speachBubbleIcon}
             />
-            <path
-                transform={`rotate(180) translate(-${width},-${height})`}
+            <path // icon
+                transform='translate(5,5)'
                 stroke='black'
                 strokeWidth={5}
                 fill='#909090'
-                d={`${diagLine} M ${startX + diagLength * pixelSize},${diagLength * pixelSize} L ${width - 10},${diagLength * pixelSize} L ${width - 10},${height} L 10,${height} L 10,${diagLength * pixelSize} L ${startX},${diagLength * pixelSize} L ${startX},0`}
+                d={speachBubbleIcon}
             />
-            <text x={110} y={height / 2} fontSize={100}>
-                ...
-            </text>
+            <path // 3 dots
+                stroke='black'
+                strokeWidth={1}
+                fill='black'
+                d={`M 120,80 ${qube} M 150,80 ${qube} M 180,80 ${qube}`}
+            />
         </svg>
     )
 }
