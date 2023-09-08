@@ -87,14 +87,13 @@ const Rewards = () => {
                 strokeWidth={10}
                 d="M 140,330 L 210,330"
             />
-
-            <path // handle
+            <path // handle left
                 stroke='black'
                 strokeWidth={10}
                 fillOpacity={0}
                 d={leftHandle}
             />
-            <path // handle
+            <path // handle right
                 stroke='black'
                 strokeWidth={10}
                 fillOpacity={0}
