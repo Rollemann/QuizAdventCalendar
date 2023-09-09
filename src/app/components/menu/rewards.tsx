@@ -36,8 +36,8 @@ const Rewards = () => {
         <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={() => setSpeachBubble('rewards')} className="cursor-pointer">
             <defs>
                 <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="yellow" />
-                    <stop offset="100%" stop-color="#CDAD00" />
+                    <stop offset="0%" stopColor="yellow" />
+                    <stop offset="100%" stopColor="#CDAD00" />
                 </linearGradient>
             </defs>
             <path // connector shadow

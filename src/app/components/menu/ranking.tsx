@@ -21,9 +21,9 @@ const Ranking = () => {
         <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={() => setSpeachBubble('ranking')} className="cursor-pointer">
             <defs>
                 <linearGradient id="GradientRanking">
-                    <stop offset="0%" stop-color="gold" />
-                    <stop offset="50%" stop-color="yellow"/>
-                    <stop offset="100%" stop-color="gold" />
+                    <stop offset="0%" stopColor="#EEC900" />
+                    <stop offset="50%" stopColor="yellow"/>
+                    <stop offset="100%" stopColor="#EEC900" />
                 </linearGradient>
             </defs>
             <path

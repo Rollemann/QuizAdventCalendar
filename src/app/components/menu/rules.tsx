@@ -17,13 +17,7 @@ const dot: string = shapeDrawer(dotStart, dotShape, pixelSize);
 const Rules = () => {
     const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={() => setSpeachBubble('rewards')} className="cursor-pointer">
-            <defs>
-                <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="yellow" />
-                    <stop offset="100%" stop-color="#CDAD00" />
-                </linearGradient>
-            </defs>
+        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={() => setSpeachBubble('rules')} className="cursor-pointer">
             <path // questionMark shadow
                 transform={`translate(15,15)`}
                 opacity={0.5}
