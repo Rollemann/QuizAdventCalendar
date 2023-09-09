@@ -1,17 +1,22 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { setup } from './utilities/setupGaem';
+import { setup } from './utilities/setupGame';
 import { gameLoop } from './utilities/gameLoop';
+
+export let canvas: HTMLCanvasElement | null;
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    let ctx: CanvasRenderingContext2D | null = setup(canvasRef.current);
-    if (ctx) {
-      gameLoop();
+    canvas = canvasRef.current;
+    if (canvas) {
+      let setupResult = setup();
+      if (setupResult){
+        let {ctx, sprites} = setupResult;
+        gameLoop(ctx, sprites);
+      }
     }
-
   }, [])
 
 
