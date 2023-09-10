@@ -1,5 +1,6 @@
 import { initSprites } from './initSprites';
 import { canvas } from '../page';
+import { initInputEvents } from './userInputs';
 
 export function setup(): {
     ctx: CanvasRenderingContext2D,
@@ -12,6 +13,7 @@ export function setup(): {
             ctx.canvas.height = canvas?.clientHeight || 1080;
             ctx.canvas.width = canvas?.clientWidth || 1920;
             const sprites = initSprites(ctx);
+            initInputEvents(canvas)
             return {
                 ctx: ctx,
                 sprites: sprites

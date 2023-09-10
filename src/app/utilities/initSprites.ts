@@ -1,14 +1,14 @@
-import { Sprite } from "./sprite";
+import { PlayerSprite } from "./sprites";
 
 export function initSprites(ctx: CanvasRenderingContext2D): {
-    player: Sprite
+    player: PlayerSprite
 } {
 
-    const player = new Sprite({
+    const player = new PlayerSprite({
         position: { x: 0, y: 0 },
         ctx: ctx,
         imageSrc: "./SantaSprite.png",
-        scale: 1
+        scale: 1.5
     });
 
 
