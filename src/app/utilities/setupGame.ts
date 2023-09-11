@@ -13,7 +13,7 @@ export function setup(): {
             ctx.canvas.height = canvas?.clientHeight || 1080;
             ctx.canvas.width = canvas?.clientWidth || 1920;
             const sprites = initSprites(ctx);
-            initInputEvents(canvas)
+            initInputEvents(sprites);
             return {
                 ctx: ctx,
                 sprites: sprites

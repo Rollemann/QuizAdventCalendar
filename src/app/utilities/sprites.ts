@@ -8,6 +8,11 @@ type PlayerSpriteProps = {
     scale: number
 }
 
+type Direction = 'left' | 'middle' | 'right';
+
+type Animation = 'idle' | 'falling' | 'landing' | 'walking' | null;
+
+
 const gravity: number = 0.3;
 
 export class PlayerSprite {
@@ -26,8 +31,8 @@ export class PlayerSprite {
     repeatAnimation: boolean = true;
     idleAfter: boolean = false;
 
-    direction: 'left' | 'middle' | 'right' = 'middle';
-    currentAnimation: 'idle' | 'falling' | 'landing' | 'walking' | null = null;
+    direction: Direction = 'middle';
+    currentAnimation: Animation = null;
 
     constructor(spriteProps: PlayerSpriteProps) {
         this.position = spriteProps.position || { x: 0, y: 0 };
@@ -69,6 +74,7 @@ export class PlayerSprite {
             }
         }
 
+        this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
         // Back to the Ground (canvas.height+3 to set him to the ground)
         if (canvas && this.position.y + ((this.image.height / this.maxAnimations) * this.scale) + this.velocity.y >= canvas.height + 3) {
@@ -78,7 +84,7 @@ export class PlayerSprite {
                 this.landingAnim();
             }
         }
-        else {            
+        else {
             this.velocity.y += gravity;
             this.fallingAnim();
         }
@@ -86,49 +92,106 @@ export class PlayerSprite {
 
     idleAnim() {
         if (this.currentAnimation != 'idle') {
-            this.currentFrame = 0;
-            this.frameRate = 20;
-            this.repeatAnimation = true;
-            this.idleAfter = false;
-            this.animationFrames = [
-                { x: 0, y: 2 },
-                { x: 1, y: 2 }
-            ];
-            this.currentAnimation = 'idle';
+            this.setupAnim(
+                20,
+                true,
+                false,
+                [
+                    { x: 0, y: 2 },
+                    { x: 1, y: 2 }
+                ],
+                'idle'
+            );
+            this.velocity.x = 0;
         }
     }
 
     fallingAnim() {
         if (this.currentAnimation != 'falling') {
-            this.currentFrame = 0;
-            this.frameRate = 5;
-            this.repeatAnimation = false;
-            this.idleAfter = false;
-            this.animationFrames = [
-                { x: 0, y: 2 },
-                { x: 1, y: 2 },
-                { x: 2, y: 2 },
-                { x: 3, y: 2 },
-                { x: 4, y: 2 },
-                { x: 5, y: 2 }
-            ];
-            this.currentAnimation = 'falling';
+            this.setupAnim(
+                5,
+                false,
+                false,
+                [
+                    { x: 0, y: 2 },
+                    { x: 1, y: 2 },
+                    { x: 2, y: 2 },
+                    { x: 3, y: 2 },
+                    { x: 4, y: 2 },
+                    { x: 5, y: 2 }
+                ],
+                'falling'
+            );
         }
     }
 
     landingAnim() {
         if (this.currentAnimation != 'landing') {
-            this.currentFrame = 0;
-            this.frameRate = 10;
-            this.repeatAnimation = false;
-            this.idleAfter = true;
-            this.animationFrames = [
-                { x: 4, y: 20 },
-                { x: 3, y: 20 },
-                { x: 2, y: 20 },
-                { x: 1, y: 20 }
-            ];
-            this.currentAnimation = 'landing';
+            this.setupAnim(
+                10,
+                false,
+                true,
+                [
+                    { x: 4, y: 20 },
+                    { x: 3, y: 20 },
+                    { x: 2, y: 20 },
+                    { x: 1, y: 20 }
+                ],
+                'landing'
+            );
+            this.velocity.x = 0;
         }
+    }
+
+    walkAnim(direction: Direction) {
+        this.currentFrame = 0;
+        let row: number = 0;
+        this.direction = direction;
+
+        switch (direction) {
+            case 'left':
+                this.velocity.x = -4;
+                row = 9;
+                break;
+            case 'right':
+                this.velocity.x = 4;
+                row = 11;
+                break;
+            default:
+                throw new Error("Impossible direction to move!");
+        }
+        this.setupAnim(
+            10,
+            true,
+            false,
+            [
+                { x: 0, y: row },
+                { x: 1, y: row },
+                { x: 2, y: row },
+                { x: 3, y: row },
+                { x: 4, y: row },
+                { x: 5, y: row },
+                { x: 6, y: row },
+                { x: 7, y: row },
+                { x: 8, y: row },
+
+            ],
+            'walking'
+        );
+    }
+
+    setupAnim(
+        frameRate: number,
+        repeatAnimation: boolean,
+        idleAfter: boolean,
+        animationFrames: Point[],
+        currentAnimation: Animation
+    ) {
+        this.currentFrame = 0;
+        this.frameRate = frameRate;
+        this.repeatAnimation = repeatAnimation;
+        this.idleAfter = idleAfter;
+        this.animationFrames = animationFrames;
+        this.currentAnimation = currentAnimation;
     }
 }

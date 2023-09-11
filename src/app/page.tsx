@@ -12,8 +12,8 @@ export default function Home() {
     canvas = canvasRef.current;
     if (canvas) {
       let setupResult = setup();
-      if (setupResult){
-        let {ctx, sprites} = setupResult;
+      if (setupResult) {
+        let { ctx, sprites } = setupResult;
         gameLoop(ctx, sprites);
       }
     }
