@@ -1,5 +1,7 @@
 import { PlayerSprite } from "./sprites";
 
+let currentKey: string;
+
 export function initInputEvents(sprites: {
     player: PlayerSprite
 }) {
@@ -9,13 +11,20 @@ export function initInputEvents(sprites: {
 
 function keydownHandler(e: KeyboardEvent, sprites: any) {
     if (e.key == 'a' || e.key == 'ArrowLeft') {
-        sprites.player.walkAnim('left');
+        sprites.player.walkLeft();
+        currentKey = e.key;
     }
     if (e.key == 'd' || e.key == 'ArrowRight') {
-        sprites.player.walkAnim('right');
+        sprites.player.walkRight();
+        currentKey = e.key;
+    }
+    if (e.key == "w" || e.key == " " || e.key == "ArrowUp") {
+        sprites.player.jump();
     }
 }
 
 function keyupHandler(e: KeyboardEvent, sprites: any) {
-    sprites.player.idleAnim();
+    if (e.key == currentKey) {
+        sprites.player.stop();
+    }
 }
