@@ -8,6 +8,17 @@ type PlayerSpriteProps = {
     scale: number
 }
 
+type AnimationSpriteProps = {
+    position: Point | null,
+    ctx: CanvasRenderingContext2D,
+    imageSrc: string,
+    scale: number,
+    maxFrames: number,
+    maxAnimations: number,
+    frameRate: number,
+    animationFrames: Point[]
+}
+
 type Direction = 'left' | 'middle' | 'right';
 
 type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | null;
@@ -64,7 +75,7 @@ export class PlayerSprite {
         this.time += 1;
 
         // Gravity (canvas.height+3 to set him to the ground)
-        if (canvas && this.position.y + ((this.image.height / this.maxAnimations) * this.scale) + this.velocity.y >= canvas.height + 3) {
+        if (canvas && this.position.y + ((this.image.height / this.maxAnimations - 2) * this.scale) + this.velocity.y >= canvas.height) {
             this.velocity.y = 0;
             this.position.y = (canvas.height + 3) - ((this.image.height / this.maxAnimations) * this.scale);
         }
@@ -278,5 +289,106 @@ export class PlayerSprite {
         else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') { // TODO: vielleicht Probleme mit "Interact"
             this.setIdleAnim();
         }
+    }
+}
+
+
+export class AnimationSprite {
+    position: Point;
+    ctx: CanvasRenderingContext2D;
+    time: number = 0;
+    image: HTMLImageElement = new Image();
+    scale: number;
+
+    currentFrame: number = 0;
+    maxFrames: number;
+    maxAnimations: number = 1;
+    animationFrames: Point[] = [];
+    frameRate: number;
+    staticFrame: Point | null;
+    isStatic: boolean = false;
+    currentFrames: Point[];
+
+    constructor(spriteProps: AnimationSpriteProps, staticFrame: Point | null = null) {
+        this.position = spriteProps.position || { x: 0, y: 0 };
+        this.ctx = spriteProps.ctx;
+        this.image.src = spriteProps.imageSrc;
+        this.scale = spriteProps.scale;
+        this.maxFrames = spriteProps.maxFrames;
+        this.maxAnimations = spriteProps.maxAnimations;
+        this.frameRate = spriteProps.frameRate;
+        this.animationFrames = spriteProps.animationFrames;
+        this.staticFrame = staticFrame;
+        
+        this.currentFrames = this.animationFrames;
+    };
+
+    draw() {
+        this.ctx.drawImage(
+            this.image,
+            this.currentFrames[this.currentFrame].x * (this.image.width / this.maxFrames),
+            this.currentFrames[this.currentFrame].y * (this.image.height / this.maxAnimations),
+            this.image.width / this.maxFrames,
+            this.image.height / this.maxAnimations,
+            this.position.x,
+            this.position.y,
+            (this.image.width / this.maxFrames) * this.scale,
+            (this.image.height / this.maxAnimations) * this.scale
+        )
+    }
+
+    update() {
+        this.time += 1;
+
+        // calculate currentFrame
+        if (this.time % this.frameRate == 0) {
+            this.currentFrame = (this.currentFrame + 1) % this.currentFrames.length;
+        }
+
+        this.draw();
+    }
+
+    setAnimation() {
+
+    }
+
+    toggleAnimation() {
+        if (this.staticFrame) {
+            this.isStatic = !this.isStatic;
+            this.currentFrame = 0;
+            if (this.isStatic) {
+                this.currentFrames = [this.staticFrame];
+            }
+            else {
+                this.currentFrames = this.animationFrames;
+            }
+
+        }
+    }
+}
+
+
+export class StaticSprite {
+    position: Point;
+    ctx: CanvasRenderingContext2D;
+    time: number = 0;
+    image: HTMLImageElement = new Image();
+    scale: number;
+
+    constructor(spriteProps: PlayerSpriteProps) {
+        this.position = spriteProps.position || { x: 0, y: 0 };
+        this.ctx = spriteProps.ctx;
+        this.image.src = spriteProps.imageSrc;
+        this.scale = spriteProps.scale;
+    };
+
+    draw() {
+        this.ctx.drawImage(
+            this.image,
+            this.position.x,
+            this.position.y,
+            this.image.width * this.scale,
+            this.image.height * this.scale
+        )
     }
 }

@@ -18,8 +18,11 @@ function keydownHandler(e: KeyboardEvent, sprites: any) {
         sprites.player.walkRight();
         currentKey = e.key;
     }
-    if (e.key == "w" || e.key == " " || e.key == "ArrowUp") {
+    if (e.key == 'w' || e.key == ' ' || e.key == 'ArrowUp') {
         sprites.player.jump();
+    }
+    if (e.key == 'f') {
+        sprites.candle.toggleAnimation();
     }
 }
 
