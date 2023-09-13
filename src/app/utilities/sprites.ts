@@ -19,6 +19,13 @@ type AnimationSpriteProps = {
     animationFrames: Point[]
 }
 
+type StaticSpriteProps = {
+    position: Point | null,
+    ctx: CanvasRenderingContext2D,
+    imageSrc: string,
+    scale: number
+}
+
 type Direction = 'left' | 'middle' | 'right';
 
 type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | null;
@@ -319,7 +326,7 @@ export class AnimationSprite {
         this.frameRate = spriteProps.frameRate;
         this.animationFrames = spriteProps.animationFrames;
         this.staticFrame = staticFrame;
-        
+
         this.currentFrames = this.animationFrames;
     };
 
@@ -348,10 +355,6 @@ export class AnimationSprite {
         this.draw();
     }
 
-    setAnimation() {
-
-    }
-
     toggleAnimation() {
         if (this.staticFrame) {
             this.isStatic = !this.isStatic;
@@ -375,7 +378,7 @@ export class StaticSprite {
     image: HTMLImageElement = new Image();
     scale: number;
 
-    constructor(spriteProps: PlayerSpriteProps) {
+    constructor(spriteProps: StaticSpriteProps) {
         this.position = spriteProps.position || { x: 0, y: 0 };
         this.ctx = spriteProps.ctx;
         this.image.src = spriteProps.imageSrc;
