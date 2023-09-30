@@ -406,7 +406,7 @@ export class AnimationSprite {
 
         this.ctx.font = "32px Retro Gaming";
         this.ctx.fillStyle = 'black'
-        this.ctx.fillText("e", xPos-12, yPos-18);
+        this.ctx.fillText("e", xPos-13, yPos-18);
     }
 }
 

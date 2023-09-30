@@ -1,5 +1,6 @@
 import { AnimationSprite, PlayerSprite, StaticSprite } from "./sprites";
 
+
 export function initSprites(ctx: CanvasRenderingContext2D): {
     player: PlayerSprite,
     candle: AnimationSprite,
@@ -32,7 +33,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const door1 = new AnimationSprite(
         {
-            position: { x: 200, y: 781 },
+            position: { x: 200, y: (ctx.canvas.height - 114) },
             ctx: ctx,
             imageSrc: './SpriteSheets/WoodDoorSheet.png',
             scale: 1,
@@ -48,7 +49,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const door2 = new AnimationSprite(
         {
-            position: { x: 350, y: 781 },
+            position: { x: 350, y: (ctx.canvas.height - 114) },
             ctx: ctx,
             imageSrc: './SpriteSheets/WoodDoorSheet.png',
             scale: 1,
