@@ -29,7 +29,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const platform = new StaticSprite(
         {
-            position: { x: 500, y: 750 },
+            position: { x: 500, y: 800 },
             ctx: ctx,
             imageSrc: './Questionmark.png',
             scale: 0.3

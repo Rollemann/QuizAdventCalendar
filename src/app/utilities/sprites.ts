@@ -1,6 +1,8 @@
 import { canvas } from "../page";
 type Point = { x: number, y: number };
 
+export type SpriteArea = {x: number, y: number, width: number, height: number};
+
 type PlayerSpriteProps = {
     position: Point | null,
     ctx: CanvasRenderingContext2D,
@@ -39,6 +41,8 @@ export class PlayerSprite {
     velocity: Point = { x: 0, y: 0 };
     time: number = 0;
     image: HTMLImageElement = new Image();
+    imgWidth: number;
+    imgHeight: number;
     scale: number;
     walkVelocity: number = 3;
     jumpVelocity: number = -10;
@@ -61,30 +65,32 @@ export class PlayerSprite {
         this.ctx = spriteProps.ctx;
         this.image.src = spriteProps.imageSrc;
         this.scale = spriteProps.scale;
+        this.imgWidth = this.image.width / this.maxFrames;
+        this.imgHeight = this.image.height / this.maxAnimations
         this.setIdleAnim();
     };
 
     draw() {
         this.ctx.drawImage(
             this.image,
-            this.animationFrames[this.currentFrame].x * (this.image.width / this.maxFrames),
-            this.animationFrames[this.currentFrame].y * (this.image.height / this.maxAnimations),
-            this.image.width / this.maxFrames,
-            this.image.height / this.maxAnimations,
+            this.animationFrames[this.currentFrame].x * this.imgWidth,
+            this.animationFrames[this.currentFrame].y * this.imgHeight,
+            this.imgWidth,
+            this.imgHeight,
             this.position.x,
             this.position.y,
-            (this.image.width / this.maxFrames) * this.scale,
-            (this.image.height / this.maxAnimations) * this.scale
+            this.imgWidth * this.scale,
+            this.imgHeight * this.scale
         )
     }
 
-    update() {
+    update(): SpriteArea {
         this.time += 1;
 
         // Gravity (canvas.height+3 to set him to the ground)
-        if (canvas && this.position.y + ((this.image.height / this.maxAnimations - 2) * this.scale) + this.velocity.y >= canvas.height) {
+        if (canvas && this.position.y + ((this.imgHeight - 2) * this.scale) + this.velocity.y >= canvas.height) {
             this.velocity.y = 0;
-            this.position.y = (canvas.height + 3) - ((this.image.height / this.maxAnimations) * this.scale);
+            this.position.y = (canvas.height + 3) - (this.imgHeight * this.scale);
         }
         else {
             this.velocity.y += gravity;
@@ -107,8 +113,7 @@ export class PlayerSprite {
                 this.currentFrame = (this.currentFrame + 1) >= this.animationFrames.length ? this.currentFrame : this.currentFrame + 1;
             }
         }
-
-        this.draw();
+        return { x: this.position.x, y: this.position.y, width: this.imgWidth * this.scale, height: (this.imgHeight - 2) * this.scale };
     }
 
     setIdleAnim() {
@@ -385,7 +390,7 @@ export class StaticSprite {
         this.scale = spriteProps.scale;
     };
 
-    draw() {
+    draw(): SpriteArea {
         this.ctx.drawImage(
             this.image,
             this.position.x,
@@ -393,5 +398,6 @@ export class StaticSprite {
             this.image.width * this.scale,
             this.image.height * this.scale
         )
+        return { x: this.position.x, y: this.position.y, width: this.image.width * this.scale, height: this.image.height * this.scale };
     }
 }
