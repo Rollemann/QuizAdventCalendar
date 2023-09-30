@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 
-
+@font-face {
+  font-family: 'Retro Gaming';
+  src: url('../../public/Retro Gaming.ttf');
+}
 
 /*
 :root {
