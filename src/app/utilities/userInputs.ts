@@ -10,24 +10,26 @@ export function initInputEvents(sprites: {
 }
 
 function keydownHandler(e: KeyboardEvent, sprites: any) {
-    if (e.key == 'a' || e.key == 'ArrowLeft') {
+    const pressedKey  = e.key.toLowerCase();
+    if (pressedKey == 'a' || pressedKey == 'arrowleft') {
         sprites.player.walkLeft();
-        currentKey = e.key;
+        currentKey = pressedKey;
     }
-    if (e.key == 'd' || e.key == 'ArrowRight') {
+    if (pressedKey == 'd' || pressedKey == 'arrowright') {
         sprites.player.walkRight();
-        currentKey = e.key;
+        currentKey = pressedKey;
     }
-    if (e.key == 'w' || e.key == ' ' || e.key == 'ArrowUp') {
+    if (pressedKey == 'w' || pressedKey == ' ' || pressedKey == 'arrowup') {
         sprites.player.jump();
     }
-    if (e.key == 'f') {
+    if (pressedKey.toLowerCase() == 'f') {
         sprites.candle.toggleAnimation();
     }
 }
 
 function keyupHandler(e: KeyboardEvent, sprites: any) {
-    if (e.key == currentKey) {
-        sprites.player.stop();
+    const pressedKey  = e.key.toLowerCase();
+    if (pressedKey == currentKey) {
+        sprites.player.stop();        
     }
 }

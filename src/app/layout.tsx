@@ -8,6 +8,7 @@ import Speachbubble from './components/speachbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
 import SpeachBubbleContextProvider from './contexts/speachBubbleContext'
+import Login from './components/menu/login'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,21 +26,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className='flex fixed w-screen flex-col top-5'>
-          <SpeachBubbleContextProvider>
-            <div className='flex justify-between h-20'>
-              <div className='flex w-1/4 justify-around'>
-                <Rewards />
-                <Ranking />
+        <SpeachBubbleContextProvider>
+          <header className='flex fixed w-screen flex-col top-5'>
+            <div className='flex flex-row h-20'>
+              <div className='flex justify-between w-11/12'>
+                <div className='flex w-1/4 justify-around'>
+                  <Rewards />
+                  <Ranking />
+                </div>
+                <div className='flex w-1/4 justify-around'>
+                  <Chat />
+                  <Rules />
+                </div>
               </div>
-              <div className='flex w-1/4 justify-around'>
-                <Chat />
-                <Rules />
-              </div>
+              <Login />
             </div>
-            <Speachbubble />
-          </SpeachBubbleContextProvider>
-        </header>
+            <div className='flex flex-col w-11/12'>
+              <Speachbubble />
+            </div>
+          </header>
+        </SpeachBubbleContextProvider>
         <main> {children} </main>
       </body>
     </html>
