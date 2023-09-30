@@ -4,7 +4,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
     player: PlayerSprite,
     candle: AnimationSprite,
     platform: StaticSprite,
-    door: AnimationSprite
+    doors: AnimationSprite[],
 } {
 
     const player = new PlayerSprite({
@@ -30,9 +30,25 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
         { x: 5, y: 0 }
     )
 
-    const door = new AnimationSprite(
+    const door1 = new AnimationSprite(
         {
             position: { x: 200, y: 781 },
+            ctx: ctx,
+            imageSrc: './SpriteSheets/WoodDoorSheet.png',
+            scale: 1,
+            maxFrames: 6,
+            maxAnimations: 1,
+            frameRate: 10,
+            animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+            repeatAnimation: false,
+            startStatic: true
+        },
+        { x: 0, y: 0 }
+    )
+
+    const door2 = new AnimationSprite(
+        {
+            position: { x: 350, y: 781 },
             ctx: ctx,
             imageSrc: './SpriteSheets/WoodDoorSheet.png',
             scale: 1,
@@ -59,6 +75,6 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
         player: player,
         candle: candle,
         platform: platform,
-        door: door
+        doors: [door1, door2]
     }
 }

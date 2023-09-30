@@ -396,10 +396,17 @@ export class AnimationSprite {
     }
 
     showEButton() {
-        this.ctx.font = "30px Retro Gaming";
         const xPos = this.position.x + (this.image.width / this.maxFrames * this.scale)/2;
-        const yPos = this.position.y - 10;
-        this.ctx.fillText("e", xPos, yPos);
+        const yPos = this.position.y;
+        this.ctx.beginPath();
+        this.ctx.arc(xPos, yPos-25, 20, 0, 2*Math.PI);
+        this.ctx.fillStyle = 'lightGrey'
+        this.ctx.fill();
+        this.ctx.stroke();
+
+        this.ctx.font = "32px Retro Gaming";
+        this.ctx.fillStyle = 'black'
+        this.ctx.fillText("e", xPos-12, yPos-18);
     }
 }
 

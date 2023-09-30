@@ -1,4 +1,4 @@
-import { PlayerSprite } from "./sprites";
+import { AnimationSprite, PlayerSprite } from "./sprites";
 
 let currentKey: string;
 
@@ -10,7 +10,7 @@ export function initInputEvents(sprites: {
 }
 
 function keydownHandler(e: KeyboardEvent, sprites: any) {
-    const pressedKey  = e.key.toLowerCase();
+    const pressedKey = e.key.toLowerCase();
     if (pressedKey == 'a' || pressedKey == 'arrowleft') {
         sprites.player.walkLeft();
         currentKey = pressedKey;
@@ -26,13 +26,15 @@ function keydownHandler(e: KeyboardEvent, sprites: any) {
         sprites.candle.toggleAnimation();
     }
     if (pressedKey.toLowerCase() == 'e') {
-        sprites.door.toggleAnimation();
+        sprites.doors.forEach((door: AnimationSprite) => {
+            door.toggleAnimation();
+        });
     }
 }
 
 function keyupHandler(e: KeyboardEvent, sprites: any) {
-    const pressedKey  = e.key.toLowerCase();
+    const pressedKey = e.key.toLowerCase();
     if (pressedKey == currentKey) {
-        sprites.player.stop();        
+        sprites.player.stop();
     }
 }

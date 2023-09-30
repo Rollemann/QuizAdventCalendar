@@ -1,6 +1,6 @@
 import { canvas } from "../page";
 import { collisionCheck } from "./collisionCheck";
-import { SpriteArea } from "./sprites";
+import { AnimationSprite, SpriteArea } from "./sprites";
 
 export function gameLoop(ctx: CanvasRenderingContext2D, sprites: any) {
     if (canvas) {
@@ -19,7 +19,9 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: any) {
         // update Player
         playerArea = sprites.player.update();
 
-        sprites.door.updateInteratable(playerArea);
+        sprites.doors.forEach((door: AnimationSprite) => {
+           door.updateInteratable(playerArea); 
+        });
         // collision check
         //collisionCheck(playerArea, solidObjectAreas);
 
