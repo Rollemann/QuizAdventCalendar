@@ -1,7 +1,7 @@
 import { canvas } from "../page";
 type Point = { x: number, y: number };
 
-export type SpriteArea = {x: number, y: number, width: number, height: number};
+export type SpriteArea = { x: number, y: number, width: number, height: number };
 
 type PlayerSpriteProps = {
     position: Point | null,
@@ -18,7 +18,9 @@ type AnimationSpriteProps = {
     maxFrames: number,
     maxAnimations: number,
     frameRate: number,
-    animationFrames: Point[]
+    animationFrames: Point[],
+    repeatAnimation: boolean,
+    startStatic: boolean
 }
 
 type StaticSpriteProps = {
@@ -320,6 +322,7 @@ export class AnimationSprite {
     staticFrame: Point | null;
     isStatic: boolean = false;
     currentFrames: Point[];
+    repeatAnimation: boolean;
 
     constructor(spriteProps: AnimationSpriteProps, staticFrame: Point | null = null) {
         this.position = spriteProps.position || { x: 0, y: 0 };
@@ -331,8 +334,10 @@ export class AnimationSprite {
         this.frameRate = spriteProps.frameRate;
         this.animationFrames = spriteProps.animationFrames;
         this.staticFrame = staticFrame;
+        this.repeatAnimation = spriteProps.repeatAnimation;
+        this.isStatic = spriteProps.startStatic;
 
-        this.currentFrames = this.animationFrames;
+        this.currentFrames = (this.isStatic && this.staticFrame) ? [this.staticFrame] : this.animationFrames;
     };
 
     draw() {
@@ -354,7 +359,12 @@ export class AnimationSprite {
 
         // calculate currentFrame
         if (this.time % this.frameRate == 0) {
-            this.currentFrame = (this.currentFrame + 1) % this.currentFrames.length;
+            if (this.repeatAnimation) {
+                this.currentFrame = (this.currentFrame + 1) % this.currentFrames.length;
+            }
+            else {
+                this.currentFrame = ((this.currentFrame + 1) < this.currentFrames.length) ? (this.currentFrame + 1) : this.currentFrame;
+            }
         }
 
         this.draw();

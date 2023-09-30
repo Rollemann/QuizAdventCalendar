@@ -25,6 +25,9 @@ function keydownHandler(e: KeyboardEvent, sprites: any) {
     if (pressedKey.toLowerCase() == 'f') {
         sprites.candle.toggleAnimation();
     }
+    if (pressedKey.toLowerCase() == 'e') {
+        sprites.door.toggleAnimation();
+    }
 }
 
 function keyupHandler(e: KeyboardEvent, sprites: any) {
