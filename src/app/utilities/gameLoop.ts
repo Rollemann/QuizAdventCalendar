@@ -19,9 +19,9 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: any) {
         // update Player
         playerArea = sprites.player.update();
 
-        sprites.door.update();
+        sprites.door.updateInteratable(playerArea);
         // collision check
-        collisionCheck(playerArea, solidObjectAreas);
+        //collisionCheck(playerArea, solidObjectAreas);
 
         // draw player
         sprites.player.draw();

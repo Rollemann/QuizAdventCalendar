@@ -1,4 +1,5 @@
 import { canvas } from "../page";
+import { collisionCheck } from "./collisionCheck";
 type Point = { x: number, y: number };
 
 export type SpriteArea = { x: number, y: number, width: number, height: number };
@@ -323,6 +324,7 @@ export class AnimationSprite {
     isStatic: boolean = false;
     currentFrames: Point[];
     repeatAnimation: boolean;
+    interactable: boolean = true;
 
     constructor(spriteProps: AnimationSpriteProps, staticFrame: Point | null = null) {
         this.position = spriteProps.position || { x: 0, y: 0 };
@@ -370,8 +372,17 @@ export class AnimationSprite {
         this.draw();
     }
 
+    updateInteratable(playerArea: SpriteArea) {
+        this.update();
+        this.interactable = false;
+        if (collisionCheck(playerArea, [{ x: this.position.x + 20, y: this.position.y, width: this.image.width / this.maxFrames * this.scale - 40, height: this.image.height / this.maxAnimations * this.scale }]) != null) {
+            this.showEButton();
+            this.interactable = true;
+        }
+    }
+
     toggleAnimation() {
-        if (this.staticFrame) {
+        if (this.staticFrame && this.interactable) {
             this.isStatic = !this.isStatic;
             this.currentFrame = 0;
             if (this.isStatic) {
@@ -382,6 +393,13 @@ export class AnimationSprite {
             }
 
         }
+    }
+
+    showEButton() {
+        this.ctx.font = "30px Retro Gaming";
+        const xPos = this.position.x + (this.image.width / this.maxFrames * this.scale)/2;
+        const yPos = this.position.y - 10;
+        this.ctx.fillText("e", xPos, yPos);
     }
 }
 
