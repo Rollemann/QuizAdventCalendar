@@ -18,7 +18,7 @@ const Login = () => {
     return (
         <svg viewBox={`0 0 ${width + 30} ${height + 15}`} className="cursor-pointer">
             <path
-                transform={`translate(10,10)`}
+                transform={`translate(8,8)`}
                 opacity={0.5}
                 fill='black'
                 d={border}
@@ -31,7 +31,7 @@ const Login = () => {
                 d={border}
             />
             <path
-                transform={`translate(10,10)`}
+                transform={`translate(8,8)`}
                 opacity={0.5}
                 stroke='black'
                 strokeWidth={2}
