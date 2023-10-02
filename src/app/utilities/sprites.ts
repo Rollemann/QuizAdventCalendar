@@ -58,6 +58,8 @@ export class PlayerSprite {
     frameRate: number = 20;
     repeatAnimation: boolean = true;
     idleAfter: boolean = false;
+    hitBox: SpriteArea;
+    solidHitbox: SpriteArea;
 
     direction: Direction = 'middle';
     newDirection: Direction = "middle";
@@ -71,6 +73,9 @@ export class PlayerSprite {
         this.imgWidth = this.image.width / this.maxFrames;
         this.imgHeight = this.image.height / this.maxAnimations
         this.setIdleAnim();
+
+        this.hitBox = { x: (this.position.x + 15) * this.scale, y: this.position.y + ( 7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 10) * this.scale };
+        this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
     };
 
     draw() {
@@ -85,12 +90,24 @@ export class PlayerSprite {
             this.imgWidth * this.scale,
             this.imgHeight * this.scale
         )
+
+        this.ctx.strokeStyle = "red"
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        this.ctx.strokeStyle = "blue"
+        this.ctx.strokeRect(this.solidHitbox.x, this.solidHitbox.y, this.solidHitbox.width, this.solidHitbox.height);
+        /* TODO: das raus. Das ist das Grid 
+        for(let i:number = 0; i < 80*16*9; ++i){
+            let posX:number = (i*16)%1280;
+            let posY:number = Math.floor(i/80)*9;
+            this.ctx.strokeStyle = "red"
+            this.ctx.strokeRect(posX, posY, 16,9);              
+        } */
+
     }
 
     update(): SpriteArea {
-        console.log(this.position.y + this.imgHeight*this.scale);
-        
         this.time += 1;
+
 
         // Gravity (canvas.height+3 to set him to the ground)
         if (canvas && this.position.y + ((this.imgHeight - 2) * this.scale) + this.velocity.y >= canvas.height) {
@@ -118,6 +135,11 @@ export class PlayerSprite {
                 this.currentFrame = (this.currentFrame + 1) >= this.animationFrames.length ? this.currentFrame : this.currentFrame + 1;
             }
         }
+
+        // hitbox anzeigen
+        this.hitBox = { x: this.position.x + (15 * this.scale), y: this.position.y + ( 7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 9) * this.scale };
+        this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+
         return { x: this.position.x, y: this.position.y, width: this.imgWidth * this.scale, height: (this.imgHeight - 2) * this.scale };
     }
 
@@ -398,17 +420,17 @@ export class AnimationSprite {
     }
 
     showEButton() {
-        const xPos = this.position.x + (this.image.width / this.maxFrames * this.scale)/2;
+        const xPos = this.position.x + (this.image.width / this.maxFrames * this.scale) / 2;
         const yPos = this.position.y;
         this.ctx.beginPath();
-        this.ctx.arc(xPos, yPos-25, 20, 0, 2*Math.PI);
+        this.ctx.arc(xPos, yPos - 25, 20, 0, 2 * Math.PI);
         this.ctx.fillStyle = 'lightGrey'
         this.ctx.fill();
         this.ctx.stroke();
 
         this.ctx.font = "32px Retro Gaming";
         this.ctx.fillStyle = 'black'
-        this.ctx.fillText("e", xPos-13, yPos-18);
+        this.ctx.fillText("e", xPos - 13, yPos - 18);
     }
 }
 
