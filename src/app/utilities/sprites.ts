@@ -88,6 +88,8 @@ export class PlayerSprite {
     }
 
     update(): SpriteArea {
+        console.log(this.position.y + this.imgHeight*this.scale);
+        
         this.time += 1;
 
         // Gravity (canvas.height+3 to set him to the ground)

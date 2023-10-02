@@ -21,6 +21,6 @@ export default function Home() {
 
 
   return (
-    <canvas ref={canvasRef} className='border-solid border-black border-2 bg-slate-300 w-screen h-screen' />
+    <canvas ref={canvasRef} className='border-solid border-black border-2 bg-slate-300' />
   )
 }

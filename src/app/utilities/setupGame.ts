@@ -8,10 +8,13 @@ export function setup(): {
 } | null {
 
     if (canvas) {
+        canvas.style.height = window.innerHeight.toString() + "px";
+        canvas.style.width = (16 * (window.innerHeight / 9)).toString() + "px";
+        // TODO das hier oben
         let ctx: CanvasRenderingContext2D | null = canvas.getContext("2d");
         if (ctx) {
-            ctx.canvas.height = canvas?.clientHeight || 1080;
-            ctx.canvas.width = canvas?.clientWidth || 1920;
+            ctx.canvas.width = 1280;
+            ctx.canvas.height = 720;
             const sprites = initSprites(ctx);
             initInputEvents(sprites);
             return {

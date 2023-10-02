@@ -1,6 +1,6 @@
 import { useSpeachBubbleContext } from '@/app/contexts/speachBubbleContext'
-import { shapeDrawer } from "@/app/utilities/svgUtilities";
-import { Position } from "@/app/utilities/svgUtilities";
+import { shapeDrawer } from "@/app/utilities/svgDrawer";
+import { Position } from "@/app/utilities/svgDrawer";
 
 const pixelSize: number = 10;
 const qube: string = `l ${pixelSize},0 l 0,${pixelSize} l -${pixelSize},0 Z`;

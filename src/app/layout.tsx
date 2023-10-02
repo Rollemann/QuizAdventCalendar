@@ -46,7 +46,7 @@ export default function RootLayout({
             </div>
           </header>
         </SpeachBubbleContextProvider>
-        <main> {children} </main>
+        <main className='flex justify-center'> {children} </main>
       </body>
     </html>
   )
