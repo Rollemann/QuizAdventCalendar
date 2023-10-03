@@ -36,7 +36,8 @@ type Direction = 'left' | 'middle' | 'right';
 type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | null;
 
 
-const gravity: number = 0.3;
+const GRAVITY: number = 0.3;
+const GROUND: number = 720;
 
 export class PlayerSprite {
     position: Point;
@@ -58,6 +59,7 @@ export class PlayerSprite {
     frameRate: number = 20;
     repeatAnimation: boolean = true;
     idleAfter: boolean = false;
+    hitBoxOffset: SpriteArea;
     hitBox: SpriteArea;
     solidHitbox: SpriteArea;
 
@@ -74,7 +76,8 @@ export class PlayerSprite {
         this.imgHeight = this.image.height / this.maxAnimations
         this.setIdleAnim();
 
-        this.hitBox = { x: (this.position.x + 15) * this.scale, y: this.position.y + ( 7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 10) * this.scale };
+        this.hitBoxOffset = { x: (15 * this.scale), y: (7 * this.scale), width: -(30 * this.scale), height: - (9 * this.scale) };
+        this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
         this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
     };
 
@@ -91,56 +94,57 @@ export class PlayerSprite {
             this.imgHeight * this.scale
         )
 
+        // TODO Hitboxen raus
         this.ctx.strokeStyle = "red"
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
         this.ctx.strokeStyle = "blue"
         this.ctx.strokeRect(this.solidHitbox.x, this.solidHitbox.y, this.solidHitbox.width, this.solidHitbox.height);
-        /* TODO: das raus. Das ist das Grid 
-        for(let i:number = 0; i < 80*16*9; ++i){
-            let posX:number = (i*16)%1280;
-            let posY:number = Math.floor(i/80)*9;
-            this.ctx.strokeStyle = "red"
-            this.ctx.strokeRect(posX, posY, 16,9);              
-        } */
-
     }
 
-    update(): SpriteArea {
+    update(solidObjectAreas: SpriteArea[]): SpriteArea {
         this.time += 1;
+        if (canvas) {
+            this.velocity.y += GRAVITY;
+            this.position.x += this.velocity.x;
+            this.position.y += this.velocity.y;
+            this.hitBox = { x: this.position.x + (15 * this.scale), y: this.position.y + (7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 9) * this.scale };
+            this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
 
-
-        // Gravity (canvas.height+3 to set him to the ground)
-        if (canvas && this.position.y + ((this.imgHeight - 2) * this.scale) + this.velocity.y >= canvas.height) {
-            this.velocity.y = 0;
-            this.position.y = (canvas.height + 3) - (this.imgHeight * this.scale);
-        }
-        else {
-            this.velocity.y += gravity;
-        }
-
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-
-        this.updateAnimation();
-
-        // calculate currentFrame 
-        if (this.time % this.frameRate == 0) {
-            if (this.idleAfter && (this.currentFrame + 1) >= this.animationFrames.length) {
-                this.setIdleAnim();
+            // Check left and right border and stop player 
+            if (this.hitBox.x < 0) {
+                this.position.x = -this.hitBoxOffset.x;
             }
-            else if (this.repeatAnimation) {
-                this.currentFrame = (this.currentFrame + 1) % this.animationFrames.length;
+            else if (this.hitBox.x + this.hitBox.width > canvas.width) {
+                this.position.x = canvas.width-this.hitBox.width-this.hitBoxOffset.x;
             }
-            else {
-                this.currentFrame = (this.currentFrame + 1) >= this.animationFrames.length ? this.currentFrame : this.currentFrame + 1;
+
+            const collIndex = collisionCheck(this.solidHitbox, solidObjectAreas)
+            if(collIndex >= 0 && this.velocity.y > 0){
+                this.position.y = solidObjectAreas[collIndex].y - this.hitBox.height - this.hitBoxOffset.y
+                this.velocity.y = 0;
             }
+
+            this.updateAnimation();
+
+            // calculate currentFrame 
+            if (this.time % this.frameRate == 0) {
+                if (this.idleAfter && (this.currentFrame + 1) >= this.animationFrames.length) {
+                    this.setIdleAnim();
+                }
+                else if (this.repeatAnimation) {
+                    this.currentFrame = (this.currentFrame + 1) % this.animationFrames.length;
+                }
+                else {
+                    this.currentFrame = (this.currentFrame + 1) >= this.animationFrames.length ? this.currentFrame : this.currentFrame + 1;
+                }
+            }
+
+            // hitbox anzeigen
+            this.hitBox = { x: this.position.x + (15 * this.scale), y: this.position.y + (7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 9) * this.scale };
+            this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+
         }
-
-        // hitbox anzeigen
-        this.hitBox = { x: this.position.x + (15 * this.scale), y: this.position.y + ( 7 * this.scale), width: (this.imgWidth - 30) * this.scale, height: (this.imgHeight - 9) * this.scale };
-        this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
-
-        return { x: this.position.x, y: this.position.y, width: this.imgWidth * this.scale, height: (this.imgHeight - 2) * this.scale };
+        return this.hitBox;
     }
 
     setIdleAnim() {
@@ -399,7 +403,7 @@ export class AnimationSprite {
     updateInteratable(playerArea: SpriteArea) {
         this.update();
         this.interactable = false;
-        if (collisionCheck(playerArea, [{ x: this.position.x + 20, y: this.position.y, width: this.image.width / this.maxFrames * this.scale - 40, height: this.image.height / this.maxAnimations * this.scale }]) != null) {
+        if (collisionCheck(playerArea, [{ x: this.position.x + 20, y: this.position.y, width: this.image.width / this.maxFrames * this.scale - 40, height: this.image.height / this.maxAnimations * this.scale }]) >= 0) {
             this.showEButton();
             this.interactable = true;
         }
@@ -422,6 +426,7 @@ export class AnimationSprite {
     showEButton() {
         const xPos = this.position.x + (this.image.width / this.maxFrames * this.scale) / 2;
         const yPos = this.position.y;
+        this.ctx.strokeStyle = "black";
         this.ctx.beginPath();
         this.ctx.arc(xPos, yPos - 25, 20, 0, 2 * Math.PI);
         this.ctx.fillStyle = 'lightGrey'
@@ -450,13 +455,18 @@ export class StaticSprite {
     };
 
     draw(): SpriteArea {
-        this.ctx.drawImage(
+        /* this.ctx.drawImage(
             this.image,
             this.position.x,
             this.position.y,
             this.image.width * this.scale,
             this.image.height * this.scale
-        )
+        ) */
+        if (canvas) {
+            this.ctx.strokeStyle = "green";
+            this.ctx.strokeRect(this.position.x, this.position.y, canvas.width, 10);
+            return { x: this.position.x, y: this.position.y, width: canvas.width, height: 10 };
+        }
         return { x: this.position.x, y: this.position.y, width: this.image.width * this.scale, height: this.image.height * this.scale };
     }
 }

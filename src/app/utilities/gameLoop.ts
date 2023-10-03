@@ -1,5 +1,4 @@
 import { canvas } from "../page";
-import { collisionCheck } from "./collisionCheck";
 import { AnimationSprite, SpriteArea } from "./sprites";
 
 export function gameLoop(ctx: CanvasRenderingContext2D, sprites: any) {
@@ -17,15 +16,12 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: any) {
         sprites.candle.update();
 
         // update Player
-        playerArea = sprites.player.update();
+        playerArea = sprites.player.update(solidObjectAreas);
 
         sprites.doors.forEach((door: AnimationSprite) => {
-           door.updateInteratable(playerArea); 
+           door.updateInteratable(playerArea);
         });
-        // collision check
-        //collisionCheck(playerArea, solidObjectAreas);
 
-        // draw player
         sprites.player.draw();
     }
 }

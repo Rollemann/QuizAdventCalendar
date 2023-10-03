@@ -33,7 +33,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const door1 = new AnimationSprite(
         {
-            position: { x: 200, y: (ctx.canvas.height - 114) },
+            position: { x: 200, y: (ctx.canvas.height - 124) },
             ctx: ctx,
             imageSrc: './SpriteSheets/WoodDoorSheet.png',
             scale: 1,
@@ -49,7 +49,7 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const door2 = new AnimationSprite(
         {
-            position: { x: 350, y: (ctx.canvas.height - 114) },
+            position: { x: 350, y: (ctx.canvas.height - 124) },
             ctx: ctx,
             imageSrc: './SpriteSheets/WoodDoorSheet.png',
             scale: 1,
@@ -65,10 +65,10 @@ export function initSprites(ctx: CanvasRenderingContext2D): {
 
     const platform = new StaticSprite(
         {
-            position: { x: 500, y: 800 },
+            position: { x: 0, y: 710 },
             ctx: ctx,
             imageSrc: './Questionmark.png',
-            scale: 0.3
+            scale: 1
         })
 
 
