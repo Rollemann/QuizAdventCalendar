@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { setup } from './utilities/setupGame';
-import { gameLoop } from './utilities/gameLoop';
+import { setup } from './gamePlay/setupGame';
+import { gameLoop } from './gamePlay/gameLoop';
 
 export let canvas: HTMLCanvasElement | null;
 

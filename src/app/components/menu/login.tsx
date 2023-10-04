@@ -1,5 +1,5 @@
-import { shapeDrawer } from "@/app/utilities/svgDrawer";
-import { Position } from "@/app/utilities/svgDrawer";
+import { shapeDrawer } from "@/app/components/svgDrawer";
+import { Position } from "@/app/components/svgDrawer";
 
 const pixelSize: number = 10;
 const startX: number = 40;

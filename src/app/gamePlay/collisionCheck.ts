@@ -1,4 +1,4 @@
-import { SpriteArea } from "./sprites";
+import { SpriteArea } from "./sprites/typesForSprites";
 
 export function collisionCheck(playerArea: SpriteArea, solidObjectAreas: SpriteArea[]): number {
     for (let i: number = 0; i < solidObjectAreas.length; ++i) {
