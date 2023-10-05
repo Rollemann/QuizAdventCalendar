@@ -11,7 +11,7 @@ type PlayerSpriteProps = {
 
 type Direction = 'left' | 'middle' | 'right';
 
-type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | null;
+type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | null;
 
 const GRAVITY: number = 0.3;
 
@@ -254,6 +254,45 @@ export class PlayerSprite {
         }
     }
 
+    setEnterDoorAnim() {
+        if (this.currentAnimation != "enterDoor") {
+            this.setupAnim(
+                10,
+                false,
+                true,
+                "middle",
+                [
+                    { x: 0, y: 12 },
+                    { x: 1, y: 12 },
+                    { x: 2, y: 12 },
+                    { x: 3, y: 12 },
+                    { x: 4, y: 12 },
+                    { x: 5, y: 12 },
+                    { x: 0, y: 8 },
+                    { x: 1, y: 8 },
+                    { x: 2, y: 8 },
+                    { x: 3, y: 8 },
+                    { x: 4, y: 8 },
+                    { x: 5, y: 8 },
+                    { x: 6, y: 8 },
+                    { x: 7, y: 8 },
+                    { x: 8, y: 8 },
+                    { x: 0, y: 8 },
+                    { x: 1, y: 8 },
+                    { x: 2, y: 8 },
+                    { x: 3, y: 8 },
+                    { x: 4, y: 8 },
+                    { x: 5, y: 8 },
+                    { x: 6, y: 8 },
+                    { x: 7, y: 8 },
+                    { x: 8, y: 8 },
+
+                ],
+                "enterDoor"
+            )
+        }
+    }
+
     setupAnim(
         frameRate: number,
         repeatAnimation: boolean,
@@ -291,6 +330,11 @@ export class PlayerSprite {
     stop() {
         this.velocity.x = 0;
         this.newDirection = 'middle';
+    }
+
+    enterDoor(){
+        this.velocity.x = 0;
+        this.setEnterDoorAnim();
     }
 
     updateAnimation() {

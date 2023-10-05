@@ -21,16 +21,17 @@ export type AnimationSprites = {
 
 export type InitializedSprites = {
     player: PlayerSprite,
-    lights: AnimationSprite[],
-    doors: AnimationSprite[],
-    items: AnimationSprite[] | null, // TODO null raus
-    platforms: StaticSprite[],
+    levels: nonePlayerSprites[],
 };
 
-
-
-
-
+export type nonePlayerSprites = {
+    statics: StaticSprite[],
+    animated: {
+        doors: AnimationSprite[],
+        lights: AnimationSprite[],
+        items: AnimationSprite[] | null, // TODO null raus
+    }
+}
 
 
 

@@ -1,6 +1,6 @@
 import { SpriteArea } from "./typesForSprites";
 
-type StaticSpriteProps = {
+export type StaticSpriteProps = {
     area: SpriteArea,
     ctx: CanvasRenderingContext2D,
     imageSrc: string,

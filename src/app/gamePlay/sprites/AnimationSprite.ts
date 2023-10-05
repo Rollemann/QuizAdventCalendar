@@ -1,7 +1,7 @@
 import { collisionCheck } from "../collisionCheck";
 import { Point, SpriteArea } from "./typesForSprites";
 
-type AnimationSpriteProps = {
+export type AnimationSpriteProps = {
     position: Point | null,
     ctx: CanvasRenderingContext2D,
     imageSrc: string,
@@ -12,7 +12,7 @@ type AnimationSpriteProps = {
     animationFrames: Point[],
     repeatAnimation: boolean,
     startStatic: boolean,
-    dayNumber: string | null,
+    dayNumber: number | null,
     hitBoxOffset: SpriteArea
 }
 
@@ -34,7 +34,7 @@ export class AnimationSprite {
     currentFrames: Point[];
     repeatAnimation: boolean;
     interactable: boolean = true;
-    dayNumber: string | null;
+    dayNumber: number | null;
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
 
@@ -107,8 +107,14 @@ export class AnimationSprite {
         }
     }
 
-    toggleAnimation() {
+    toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
+            if (this.dayNumber) {
+                const date = new Date();
+                if (date.getDate() < this.dayNumber) {
+                    return false;
+                }
+            }
             this.isStatic = !this.isStatic;
             this.currentFrame = 0;
             if (this.isStatic) {
@@ -117,8 +123,9 @@ export class AnimationSprite {
             else {
                 this.currentFrames = this.animationFrames;
             }
-
+            return true;
         }
+        return false;
     }
 
     showEButton() {
@@ -140,9 +147,9 @@ export class AnimationSprite {
         if (this.dayNumber && this.isStatic) {
             this.ctx.font = "32px Retro Gaming";
             this.ctx.fillStyle = 'black';
-            const numberW = this.ctx.measureText(this.dayNumber).width;
+            const numberW = this.ctx.measureText(this.dayNumber.toString()).width;
             const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
-            this.ctx.fillText(this.dayNumber, posX, this.position.y + (45 * this.scale));
+            this.ctx.fillText(this.dayNumber.toString(), posX, this.position.y + (45 * this.scale));
         }
     }
 }

@@ -1,12 +1,13 @@
 import { AnimationSprite } from "./AnimationSprite";
 import { PlayerSprite } from "./PlayerSprite";
-import { StaticSprite } from "./StaticSprite";
-import { AnimationSprites, InitializedSprites, Point } from "./typesForSprites";
+import { StaticSprite, StaticSpriteProps } from "./StaticSprite";
+import { allStaticSpritesProps } from "./allStaticSprites";
+import { AnimationSprites, InitializedSprites, Point, SpriteArea } from "./typesForSprites";
 
 
 export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
 
-    const platforms = createStaticSprites(ctx);
+    const platforms: StaticSprite[][] = createStaticSprites(ctx);
 
     const animationSprites: AnimationSprites = createAnimationSprites(ctx);
 
@@ -14,16 +15,41 @@ export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
 
     return {
         player: player,
-        lights: animationSprites.lights,
-        doors: animationSprites.doors,
-        items: animationSprites.items,
-        platforms: platforms
+        levels: [
+            {
+                statics: platforms[0],
+                animated: {
+                    doors: animationSprites.doors,
+                    lights: animationSprites.lights,
+                    items: animationSprites.items
+                }
+            },
+            {
+                statics: platforms[1],
+                animated: {
+                    doors: animationSprites.doors,
+                    lights: animationSprites.lights,
+                    items: animationSprites.items
+                }
+            }
+        ]
     }
 }
 
-function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprite[] {
-    let platforms = []
-    platforms.push(new StaticSprite(
+function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprite[][] {
+    let levels: StaticSprite[][] = [];
+
+    const allStaticProps: StaticSpriteProps[][] = allStaticSpritesProps(ctx);
+    for (let i = 0; i < allStaticProps.length; ++i) {
+        let platforms: StaticSprite[] = [];
+        for (let j = 0; j < allStaticProps.length; ++j) {
+            platforms.push(new StaticSprite(allStaticProps[i][j]));
+        }
+        levels.push(platforms);
+    }
+
+
+    /* platforms.push(new StaticSprite(
         {
             area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
             ctx: ctx,
@@ -31,15 +57,60 @@ function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprite[] {
             scale: 1
         }));
 
+    const mainWidth = 80;
+    const mainHeight = 10;
+    const allPlatforms: SpriteArea[] = [
+        { x: 275, y: 544, width: mainWidth, height: mainHeight },
+        { x: 425, y: 544, width: mainWidth, height: mainHeight },
+        { x: 575, y: 544, width: mainWidth, height: mainHeight },
+        { x: 725, y: 544, width: mainWidth, height: mainHeight },
+        { x: 875, y: 544, width: mainWidth, height: mainHeight },
+        { x: 1025, y: 544, width: mainWidth, height: mainHeight },
+        { x: 200, y: 378, width: mainWidth, height: mainHeight },
+        { x: 350, y: 378, width: mainWidth, height: mainHeight },
+        { x: 500, y: 378, width: mainWidth, height: mainHeight },
+        { x: 650, y: 378, width: mainWidth, height: mainHeight },
+        { x: 800, y: 378, width: mainWidth, height: mainHeight },
+        { x: 950, y: 378, width: mainWidth, height: mainHeight },
+        { x: 275, y: 212, width: mainWidth, height: mainHeight },
+        { x: 425, y: 212, width: mainWidth, height: mainHeight },
+        { x: 575, y: 212, width: mainWidth, height: mainHeight },
+        { x: 725, y: 212, width: mainWidth, height: mainHeight },
+        { x: 875, y: 212, width: mainWidth, height: mainHeight },
+        { x: 1025, y: 212, width: mainWidth, height: mainHeight },
+
+    ]
+    allPlatforms.forEach((platformArea: SpriteArea) => {
+        platforms.push(new StaticSprite(
+            {
+                area: platformArea,
+                ctx: ctx,
+                imageSrc: './Questionmark.png',
+                scale: 1
+            }));
+    });
+
+    levels.push(platforms);
+    platforms = [];
+
     platforms.push(new StaticSprite(
         {
-            area: { x: 0, y: 540, width: 100, height: 10 },
+            area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
+            ctx: ctx,
+            imageSrc: './Questionmark.png',
+            scale: 1
+        }));
+    platforms.push(new StaticSprite(
+        {
+            area: { x: 275, y: 544, width: mainWidth, height: mainHeight },
             ctx: ctx,
             imageSrc: './Questionmark.png',
             scale: 1
         }));
 
-    return platforms;
+    levels.push(platforms); */
+
+    return levels;
 }
 
 function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites {
@@ -127,7 +198,7 @@ function createDoors(ctx: CanvasRenderingContext2D): AnimationSprite[] {
                 animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                 repeatAnimation: false,
                 startStatic: true,
-                dayNumber: i.toString(),
+                dayNumber: i,
                 hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 }
             },
             { x: 0, y: 0 }
