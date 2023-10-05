@@ -1,4 +1,4 @@
-import { AnimationSprite } from "./AnimationSprite";
+import { AnimationSprite, AnimationSpriteProps } from "./AnimationSprite";
 import { PlayerSprite } from "./PlayerSprite";
 import { StaticSprite } from "./StaticSprite";
 
@@ -16,7 +16,7 @@ export type SpriteArea = {
 export type AnimationSprites = {
     lights: AnimationSprite[],
     doors: AnimationSprite[],
-    items: AnimationSprite[] | null // TODO null raus
+    items: AnimationSprite[]
 };
 
 export type InitializedSprites = {
@@ -26,12 +26,12 @@ export type InitializedSprites = {
 
 export type nonePlayerSprites = {
     statics: StaticSprite[],
-    animated: {
-        doors: AnimationSprite[],
-        lights: AnimationSprite[],
-        items: AnimationSprite[] | null, // TODO null raus
-    }
+    animated: AnimationSprites
 }
 
-
+export type AnimationTypesProps = {
+    lights: AnimationSpriteProps[],
+    doors: AnimationSpriteProps[],
+    items: AnimationSpriteProps[],
+}
 

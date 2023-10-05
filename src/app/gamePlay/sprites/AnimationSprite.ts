@@ -13,7 +13,8 @@ export type AnimationSpriteProps = {
     repeatAnimation: boolean,
     startStatic: boolean,
     dayNumber: number | null,
-    hitBoxOffset: SpriteArea
+    hitBoxOffset: SpriteArea,
+    staticFrame: Point | null
 }
 
 
@@ -41,7 +42,7 @@ export class AnimationSprite {
     imgWidth: number;
     imgHeight: number;
 
-    constructor(spriteProps: AnimationSpriteProps, staticFrame: Point | null = null) {
+    constructor(spriteProps: AnimationSpriteProps) {
         this.position = spriteProps.position || { x: 0, y: 0 };
         this.ctx = spriteProps.ctx;
         this.image.src = spriteProps.imageSrc;
@@ -50,7 +51,7 @@ export class AnimationSprite {
         this.maxAnimations = spriteProps.maxAnimations;
         this.frameRate = spriteProps.frameRate;
         this.animationFrames = spriteProps.animationFrames;
-        this.staticFrame = staticFrame;
+        this.staticFrame = spriteProps.staticFrame;
         this.repeatAnimation = spriteProps.repeatAnimation;
         this.isStatic = spriteProps.startStatic;
         this.dayNumber = spriteProps.dayNumber;
