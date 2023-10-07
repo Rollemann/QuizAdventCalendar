@@ -16,7 +16,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: null,
+                    dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 }
                 },
@@ -31,7 +31,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: null,
+                    dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 }
 
@@ -416,7 +416,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: null,
+                    dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 }
 
@@ -432,7 +432,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: null,
+                    dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 }
 
@@ -450,7 +450,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: 13,
+                    dayNumber: 0,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 }
                 }

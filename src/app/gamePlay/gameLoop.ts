@@ -2,8 +2,8 @@ import { canvas } from "../page";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { StaticSprite } from "./sprites/StaticSprite";
 import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
+import { currentLevel } from "./switchLevel";
 
-export let currentLevel = 0;
 export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites) {
     if (canvas) {
         window.requestAnimationFrame(() => gameLoop(ctx, sprites));

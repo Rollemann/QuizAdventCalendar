@@ -1,9 +1,9 @@
-import { currentLevel } from "./gameLoop";
 import { AnimationSprite } from "./sprites/AnimationSprite";
+import { inputsDisabled } from "./sprites/PlayerSprite";
 import { InitializedSprites } from "./sprites/typesForSprites";
+import { currentLevel } from "./switchLevel";
 
 let currentKey: string;
-let blockInput: boolean = false;
 
 export function initInputEvents(sprites: InitializedSprites) {
     document.addEventListener('keydown', (e: KeyboardEvent) => keydownHandler(e, sprites));
@@ -12,7 +12,7 @@ export function initInputEvents(sprites: InitializedSprites) {
 
 
 function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
-    if (!blockInput) {
+    if (!inputsDisabled) {
         const pressedKey = e.key.toLowerCase();
         if (pressedKey == 'a' || pressedKey == 'arrowleft') {
             sprites.player.walkLeft();
@@ -33,8 +33,7 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
         if (pressedKey.toLowerCase() == 'e') {
             sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
                 if (door.toggleAnimation()) {
-                    sprites.player.enterDoor();
-                    blockInput = true;
+                    sprites.player.enterDoor(door.dayNumber);
                 }
             });
         }

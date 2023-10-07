@@ -12,7 +12,7 @@ export type AnimationSpriteProps = {
     animationFrames: Point[],
     repeatAnimation: boolean,
     startStatic: boolean,
-    dayNumber: number | null,
+    dayNumber: number,
     hitBoxOffset: SpriteArea,
     staticFrame: Point | null
 }
@@ -35,7 +35,7 @@ export class AnimationSprite {
     currentFrames: Point[];
     repeatAnimation: boolean;
     interactable: boolean = true;
-    dayNumber: number | null;
+    dayNumber: number;
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
 
@@ -110,7 +110,7 @@ export class AnimationSprite {
 
     toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
-            if (this.dayNumber) {
+            if (this.dayNumber > 0) {
                 const date = new Date();
                 if (date.getDate() < this.dayNumber) {
                     return false;
@@ -145,7 +145,7 @@ export class AnimationSprite {
     }
 
     drawDayNumber() {
-        if (this.dayNumber && this.isStatic) {
+        if (this.dayNumber > 0 && this.isStatic) {
             this.ctx.font = "32px Retro Gaming";
             this.ctx.fillStyle = 'black';
             const numberW = this.ctx.measureText(this.dayNumber.toString()).width;

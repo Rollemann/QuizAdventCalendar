@@ -1,6 +1,7 @@
 import { canvas } from "@/app/page";
 import { Point, SpriteArea } from "./typesForSprites";
 import { collisionCheck } from "../collisionCheck";
+import { switchLevel } from "../switchLevel";
 
 type PlayerSpriteProps = {
     position: Point | null,
@@ -15,6 +16,8 @@ type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | null
 
 const GRAVITY: number = 0.3;
 
+export let inputsDisabled = false;
+
 export class PlayerSprite {
     position: Point;
     ctx: CanvasRenderingContext2D;
@@ -26,7 +29,6 @@ export class PlayerSprite {
     scale: number;
     walkVelocity: number = 3;
     jumpVelocity: number = -10;
-
 
     currentFrame: number = 0;
     maxFrames: number = 13;
@@ -106,6 +108,7 @@ export class PlayerSprite {
             if (this.time % this.frameRate == 0) {
                 if (this.idleAfter && (this.currentFrame + 1) >= this.animationFrames.length) {
                     this.setIdleAnim();
+                    inputsDisabled = false;
                 }
                 else if (this.repeatAnimation) {
                     this.currentFrame = (this.currentFrame + 1) % this.animationFrames.length;
@@ -332,8 +335,10 @@ export class PlayerSprite {
         this.newDirection = 'middle';
     }
 
-    enterDoor(){
+    enterDoor(doorNumber: number) {
         this.velocity.x = 0;
+        inputsDisabled = true;
+        switchLevel(doorNumber);
         this.setEnterDoorAnim();
     }
 
