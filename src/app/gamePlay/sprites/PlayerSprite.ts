@@ -1,7 +1,6 @@
 import { canvas } from "@/app/page";
 import { Point, SpriteArea } from "./typesForSprites";
 import { collisionCheck } from "../collisionCheck";
-import { switchLevel } from "../switchLevel";
 
 type PlayerSpriteProps = {
     position: Point | null,
@@ -17,6 +16,9 @@ type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | null
 const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
+export let blackOutLevel: boolean = false;
+export let currentLevel: number = 0;
+
 
 export class PlayerSprite {
     position: Point;
@@ -36,10 +38,12 @@ export class PlayerSprite {
     animationFrames: Point[] = [];
     frameRate: number = 20;
     repeatAnimation: boolean = true;
-    idleAfter: boolean = false;
+    actionAfter: boolean = false;
+    actionFunctionAfter: () => void = () => { }
     hitBoxOffset: SpriteArea;
     hitBox: SpriteArea;
     solidHitbox: SpriteArea;
+    nextLevel: number = 0;
 
     direction: Direction = 'middle';
     newDirection: Direction = "middle";
@@ -106,9 +110,8 @@ export class PlayerSprite {
 
             // calculate currentFrame 
             if (this.time % this.frameRate == 0) {
-                if (this.idleAfter && (this.currentFrame + 1) >= this.animationFrames.length) {
-                    this.setIdleAnim();
-                    inputsDisabled = false;
+                if (this.actionAfter && (this.currentFrame + 1) >= this.animationFrames.length) {
+                    this.actionFunctionAfter();
                 }
                 else if (this.repeatAnimation) {
                     this.currentFrame = (this.currentFrame + 1) % this.animationFrames.length;
@@ -285,11 +288,6 @@ export class PlayerSprite {
                     { x: 2, y: 8 },
                     { x: 3, y: 8 },
                     { x: 4, y: 8 },
-                    { x: 5, y: 8 },
-                    { x: 6, y: 8 },
-                    { x: 7, y: 8 },
-                    { x: 8, y: 8 },
-
                 ],
                 "enterDoor"
             )
@@ -299,7 +297,7 @@ export class PlayerSprite {
     setupAnim(
         frameRate: number,
         repeatAnimation: boolean,
-        idleAfter: boolean,
+        actionAfter: boolean,
         direction: Direction,
         animationFrames: Point[],
         currentAnimation: Animation
@@ -307,7 +305,7 @@ export class PlayerSprite {
         this.currentFrame = 0;
         this.frameRate = frameRate;
         this.repeatAnimation = repeatAnimation;
-        this.idleAfter = idleAfter;
+        this.actionAfter = actionAfter;
         this.direction = direction;
         this.animationFrames = animationFrames;
         this.currentAnimation = currentAnimation;
@@ -338,13 +336,24 @@ export class PlayerSprite {
     enterDoor(doorNumber: number) {
         this.velocity.x = 0;
         inputsDisabled = true;
-        switchLevel(doorNumber);
+        blackOutLevel = true;
+        this.nextLevel = doorNumber;
+
+        this.actionFunctionAfter = () => {
+            inputsDisabled = false;
+            blackOutLevel = false;
+            currentLevel = this.nextLevel;
+            this.position.x = 0
+            this.position.y = this.ctx.canvas.height - (this.imgHeight * this.scale)
+            this.setIdleAnim();
+        };
         this.setEnterDoorAnim();
     }
 
     updateAnimation() {
         if (this.velocity.y == 0 && this.currentAnimation == 'jumping') {
             this.setLandingAnim();
+            this.actionFunctionAfter = () => { this.setIdleAnim(); };
         }
         else if (this.velocity.y != 0) {
             this.setJumpAnim();

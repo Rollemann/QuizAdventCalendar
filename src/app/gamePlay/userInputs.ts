@@ -1,7 +1,6 @@
 import { AnimationSprite } from "./sprites/AnimationSprite";
-import { inputsDisabled } from "./sprites/PlayerSprite";
+import { currentLevel, inputsDisabled } from "./sprites/PlayerSprite";
 import { InitializedSprites } from "./sprites/typesForSprites";
-import { currentLevel } from "./switchLevel";
 
 let currentKey: string;
 

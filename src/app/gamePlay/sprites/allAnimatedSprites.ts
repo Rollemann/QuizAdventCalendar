@@ -440,7 +440,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             doors: [
                 {
-                    position: { x: 1025, y: (ctx.canvas.height - 290) },
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/WoodDoorSheet.png',
                     scale: 1,
