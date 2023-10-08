@@ -11,7 +11,7 @@ type PlayerSpriteProps = {
 
 type Direction = 'left' | 'middle' | 'right';
 
-type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | null;
+type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | 'die' | null;
 
 const GRAVITY: number = 0.3;
 
@@ -44,6 +44,7 @@ export class PlayerSprite {
     hitBox: SpriteArea;
     solidHitbox: SpriteArea;
     nextLevel: number = 0;
+    startPos: Point;
 
     direction: Direction = 'middle';
     newDirection: Direction = "middle";
@@ -61,6 +62,7 @@ export class PlayerSprite {
         this.hitBoxOffset = { x: (15 * this.scale), y: (7 * this.scale), width: -(30 * this.scale), height: - (9 * this.scale) };
         this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
         this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+        this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
     };
 
     draw() {
@@ -261,37 +263,54 @@ export class PlayerSprite {
     }
 
     setEnterDoorAnim() {
-        if (this.currentAnimation != "enterDoor") {
-            this.setupAnim(
-                10,
-                false,
-                true,
-                "middle",
-                [
-                    { x: 0, y: 12 },
-                    { x: 1, y: 12 },
-                    { x: 2, y: 12 },
-                    { x: 3, y: 12 },
-                    { x: 4, y: 12 },
-                    { x: 5, y: 12 },
-                    { x: 0, y: 8 },
-                    { x: 1, y: 8 },
-                    { x: 2, y: 8 },
-                    { x: 3, y: 8 },
-                    { x: 4, y: 8 },
-                    { x: 5, y: 8 },
-                    { x: 6, y: 8 },
-                    { x: 7, y: 8 },
-                    { x: 8, y: 8 },
-                    { x: 0, y: 8 },
-                    { x: 1, y: 8 },
-                    { x: 2, y: 8 },
-                    { x: 3, y: 8 },
-                    { x: 4, y: 8 },
-                ],
-                "enterDoor"
-            )
-        }
+        this.setupAnim(
+            10,
+            false,
+            true,
+            "middle",
+            [
+                { x: 0, y: 12 },
+                { x: 1, y: 12 },
+                { x: 2, y: 12 },
+                { x: 3, y: 12 },
+                { x: 4, y: 12 },
+                { x: 5, y: 12 },
+                { x: 0, y: 8 },
+                { x: 1, y: 8 },
+                { x: 2, y: 8 },
+                { x: 3, y: 8 },
+                { x: 4, y: 8 },
+                { x: 5, y: 8 },
+                { x: 6, y: 8 },
+                { x: 7, y: 8 },
+                { x: 8, y: 8 },
+                { x: 0, y: 8 },
+                { x: 1, y: 8 },
+                { x: 2, y: 8 },
+                { x: 3, y: 8 },
+                { x: 4, y: 8 },
+            ],
+            "enterDoor"
+        )
+    }
+
+    setDieAnim() {
+        this.setupAnim(
+            10,
+            false,
+            true,
+            "middle",
+            [
+                { x: 0, y: 20 },
+                { x: 1, y: 20 },
+                { x: 2, y: 20 },
+                { x: 3, y: 20 },
+                { x: 4, y: 20 },
+                { x: 5, y: 20 },
+
+            ],
+            "die"
+        )
     }
 
     setupAnim(
@@ -343,11 +362,23 @@ export class PlayerSprite {
             inputsDisabled = false;
             blackOutLevel = false;
             currentLevel = this.nextLevel;
-            this.position.x = 0
-            this.position.y = this.ctx.canvas.height - (this.imgHeight * this.scale)
+            this.position.x = this.startPos.x;
+            this.position.y = this.startPos.y;
             this.setIdleAnim();
         };
         this.setEnterDoorAnim();
+    }
+
+    die() {
+        this.velocity.x = 0;
+        inputsDisabled = true;
+
+        this.actionFunctionAfter = () => {
+            inputsDisabled = false;
+            this.position.x = this.startPos.x;
+            this.position.y = this.startPos.y;
+        }
+
     }
 
     updateAnimation() {
