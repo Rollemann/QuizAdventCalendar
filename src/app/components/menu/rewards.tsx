@@ -32,8 +32,13 @@ const rightHandle: string = shapeDrawer(rightHandleStart, rightHandleShape, pixe
 
 const Rewards = () => {
     const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+
+    function toggleSpeachBubble() {
+        speachBubble == 'rewards' ? setSpeachBubble(null) : setSpeachBubble('rewards');
+    }
+
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={() => setSpeachBubble('rewards')} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeachBubble} className="cursor-pointer">
             <defs>
                 <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
                     <stop offset="0%" stopColor="yellow" />

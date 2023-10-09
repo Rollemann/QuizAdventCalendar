@@ -16,13 +16,18 @@ const number1Shape: number[] = [7, -2, -2, -8, -3, 1, -2, 2, 2, 5, -2, 2];
 const number1: string = shapeDrawer(number1Start, number1Shape, pixelSize);
 
 const Ranking = () => {
-    const {speachBubble, setSpeachBubble} = useSpeachBubbleContext();
+    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+
+    function toggleSpeachBubble() {
+        speachBubble == 'ranking' ? setSpeachBubble(null) : setSpeachBubble('ranking');
+    }
+
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={() => setSpeachBubble('ranking')} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={toggleSpeachBubble} className="cursor-pointer">
             <defs>
                 <linearGradient id="GradientRanking">
                     <stop offset="0%" stopColor="#EEC900" />
-                    <stop offset="50%" stopColor="yellow"/>
+                    <stop offset="50%" stopColor="yellow" />
                     <stop offset="100%" stopColor="#EEC900" />
                 </linearGradient>
             </defs>

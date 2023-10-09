@@ -14,8 +14,13 @@ const speachBubbleIcon: string = shapeDrawer(speachBubbleIconStart, speachBubble
 
 const Chat = () => {
     const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+
+    function toggleSpeachBubble() {
+        speachBubble == 'chat' ? setSpeachBubble(null) : setSpeachBubble('chat');
+    }
+
     return (
-        <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={() => setSpeachBubble('chat')} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={toggleSpeachBubble} className="cursor-pointer">
             <path // shadow
                 transform={`translate(15,15)`}
                 opacity={0.5}
