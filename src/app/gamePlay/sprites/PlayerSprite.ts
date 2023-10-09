@@ -45,6 +45,7 @@ export class PlayerSprite {
     solidHitbox: SpriteArea;
     nextLevel: number = 0;
     startPos: Point;
+    
 
     direction: Direction = 'middle';
     newDirection: Direction = "middle";
@@ -296,7 +297,7 @@ export class PlayerSprite {
 
     setDieAnim() {
         this.setupAnim(
-            10,
+            3,
             false,
             true,
             "middle",
@@ -306,6 +307,12 @@ export class PlayerSprite {
                 { x: 2, y: 20 },
                 { x: 3, y: 20 },
                 { x: 4, y: 20 },
+                { x: 5, y: 20 },
+                { x: 5, y: 20 },
+                { x: 5, y: 20 },
+                { x: 5, y: 20 },
+                { x: 5, y: 20 },
+                { x: 5, y: 20 },
                 { x: 5, y: 20 },
 
             ],
@@ -370,15 +377,18 @@ export class PlayerSprite {
     }
 
     die() {
-        this.velocity.x = 0;
-        inputsDisabled = true;
+        if (this.currentAnimation != "die") {
+            this.velocity.x = 0;
+            inputsDisabled = true;
 
-        this.actionFunctionAfter = () => {
-            inputsDisabled = false;
-            this.position.x = this.startPos.x;
-            this.position.y = this.startPos.y;
+            this.actionFunctionAfter = () => {
+                inputsDisabled = false;
+                this.position.x = this.startPos.x;
+                this.position.y = this.startPos.y;
+                this.setIdleAnim();
+            }
+            this.setDieAnim();
         }
-
     }
 
     updateAnimation() {

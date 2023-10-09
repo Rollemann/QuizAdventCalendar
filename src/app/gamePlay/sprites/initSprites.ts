@@ -52,9 +52,10 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
     for (let i = 0; i < allAnimationProps.length; ++i) {
         const currentAnimationProps = allAnimationProps[i];
         let lights = createAnimationSpriteType(currentAnimationProps.lights);
-        let doors =  createAnimationSpriteType(currentAnimationProps.doors);
-        let items =  createAnimationSpriteType(currentAnimationProps.items);
-        levels.push({ lights: lights, doors: doors, items: items })
+        let doors = createAnimationSpriteType(currentAnimationProps.doors);
+        let items = createAnimationSpriteType(currentAnimationProps.items);
+        let traps = createAnimationSpriteType(currentAnimationProps.traps);
+        levels.push({ lights: lights, doors: doors, items: items, traps: traps })
     }
 
     return levels;

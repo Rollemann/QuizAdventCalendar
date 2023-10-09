@@ -1,5 +1,6 @@
 import { collisionCheck } from "../collisionCheck";
-import { Point, SpriteArea } from "./typesForSprites";
+import { PlayerSprite } from "./PlayerSprite";
+import { MoveProps, Point, SpriteArea } from "./typesForSprites";
 
 export type AnimationSpriteProps = {
     position: Point | null,
@@ -14,7 +15,8 @@ export type AnimationSpriteProps = {
     startStatic: boolean,
     dayNumber: number,
     hitBoxOffset: SpriteArea,
-    staticFrame: Point | null
+    staticFrame: Point | null,
+    moveProps: MoveProps
 }
 
 
@@ -38,6 +40,8 @@ export class AnimationSprite {
     dayNumber: number;
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
+    moveProps: MoveProps;
+    startPos: Point;
 
     imgWidth: number;
     imgHeight: number;
@@ -56,7 +60,9 @@ export class AnimationSprite {
         this.isStatic = spriteProps.startStatic;
         this.dayNumber = spriteProps.dayNumber;
         this.hitBoxOffset = spriteProps.hitBoxOffset;
+        this.moveProps = spriteProps.moveProps;
 
+        this.startPos = { x: this.position.x, y: this.position.y };
         this.imgWidth = this.image.width / this.maxFrames;
         this.imgHeight = this.image.height / this.maxAnimations;
         this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
@@ -96,15 +102,32 @@ export class AnimationSprite {
             }
         }
 
+        const inXrange = this.position.x + this.moveProps.velocityX <= this.startPos.x + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.startPos.x;
+        this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
+        this.position.x = this.position.x + this.moveProps.velocityX;
+
+        const inYrange = this.position.y + this.moveProps.velocityY <= this.startPos.y + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.startPos.y;
+        this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
+        this.position.y = this.position.y + this.moveProps.velocityY;
+
+        this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
+
         this.draw();
     }
 
-    updateInteratable(playerArea: SpriteArea) {
+    updateInteractable(playerArea: SpriteArea) {
         this.update();
         this.interactable = false;
         if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
             this.showEButton();
             this.interactable = true;
+        }
+    }
+
+    updateDieable(playerArea: SpriteArea, player: PlayerSprite) {
+        this.update();
+        if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
+            player.die();
         }
     }
 

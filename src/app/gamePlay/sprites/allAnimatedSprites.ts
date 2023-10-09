@@ -18,7 +18,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: false,
                     dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 5, y: 0 }
+                    staticFrame: { x: 5, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 130, y: 100 },
@@ -33,7 +34,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: false,
                     dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 5, y: 0 }
+                    staticFrame: { x: 5, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
 
                 }
             ],
@@ -51,7 +53,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 1,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 425, y: (ctx.canvas.height - 622) },
@@ -66,7 +69,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 2,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 950, y: (ctx.canvas.height - 124) },
@@ -81,7 +85,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 3,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 350, y: (ctx.canvas.height - 456) },
@@ -96,7 +101,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 4,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 650, y: (ctx.canvas.height - 124) },
@@ -111,7 +117,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 5,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 275, y: (ctx.canvas.height - 290) },
@@ -126,7 +133,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 6,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 875, y: (ctx.canvas.height - 290) },
@@ -141,7 +149,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 7,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 200, y: (ctx.canvas.height - 124) },
@@ -156,7 +165,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 8,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 650, y: (ctx.canvas.height - 456) },
@@ -171,7 +181,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 9,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 800, y: (ctx.canvas.height - 456) },
@@ -186,7 +197,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 10,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 275, y: (ctx.canvas.height - 622) },
@@ -201,7 +213,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 11,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 575, y: (ctx.canvas.height - 622) },
@@ -216,7 +229,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 12,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 290) },
@@ -231,7 +245,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 13,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 425, y: (ctx.canvas.height - 290) },
@@ -246,7 +261,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 14,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 725, y: (ctx.canvas.height - 622) },
@@ -261,7 +277,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 15,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 575, y: (ctx.canvas.height - 290) },
@@ -276,7 +293,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 16,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 500, y: (ctx.canvas.height - 456) },
@@ -291,7 +309,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 17,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 875, y: (ctx.canvas.height - 622) },
@@ -306,7 +325,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 18,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 200, y: (ctx.canvas.height - 456) },
@@ -321,7 +341,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 19,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 950, y: (ctx.canvas.height - 456) },
@@ -336,7 +357,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 20,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 800, y: (ctx.canvas.height - 124) },
@@ -351,7 +373,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 21,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 622) },
@@ -366,7 +389,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 22,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 725, y: (ctx.canvas.height - 290) },
@@ -381,7 +405,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 23,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 350, y: (ctx.canvas.height - 124) },
@@ -396,12 +421,14 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 24,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 }
             ],
             items: [
 
-            ]
+            ],
+            traps: []
         },
         {
             lights: [
@@ -418,8 +445,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: false,
                     dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 5, y: 0 }
-
+                    staticFrame: { x: 5, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
                 {
                     position: { x: 130, y: 100 },
@@ -434,8 +461,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: false,
                     dayNumber: -1,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 5, y: 0 }
-
+                    staticFrame: { x: 5, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 },
             ],
             doors: [
@@ -452,29 +479,31 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     startStatic: true,
                     dayNumber: 0,
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
-                    staticFrame: { x: 0, y: 0 }
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
                 }
             ],
             items: [
 
+            ],
+            traps: [
+                {
+                    position: { x: 300, y: ctx.canvas.height - 20 },
+                    ctx: ctx,
+                    imageSrc: './Questionmark.png',
+                    scale: 0.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: false,
+                    dayNumber: -1,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { velocityX: 1, velocityY: 0, rangeX: 100, rangeY: 0 }
+                },
             ]
         }
     ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

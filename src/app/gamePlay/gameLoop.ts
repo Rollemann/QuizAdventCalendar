@@ -26,8 +26,13 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         // update Player
         let playerArea: SpriteArea = sprites.player.update(solidObjectAreas);
 
+        // update Animated and depending on player position
         sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
-            door.updateInteratable(playerArea);
+            door.updateInteractable(playerArea);
+        });
+
+        sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
+            trap.updateDieable(playerArea, sprites.player);
         });
 
         sprites.player.draw();
