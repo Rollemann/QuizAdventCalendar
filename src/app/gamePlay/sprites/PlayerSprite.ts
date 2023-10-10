@@ -45,7 +45,8 @@ export class PlayerSprite {
     solidHitbox: SpriteArea;
     nextLevel: number = 0;
     startPos: Point;
-    
+    animationBlocked: boolean = false;
+
 
     direction: Direction = 'middle';
     newDirection: Direction = "middle";
@@ -361,13 +362,16 @@ export class PlayerSprite {
 
     enterDoor(doorNumber: number) {
         this.velocity.x = 0;
+        this.velocity.y = 0;
         inputsDisabled = true;
         blackOutLevel = true;
         this.nextLevel = doorNumber;
+        this.animationBlocked = true;
 
         this.actionFunctionAfter = () => {
             inputsDisabled = false;
             blackOutLevel = false;
+            this.animationBlocked = false;
             currentLevel = this.nextLevel;
             this.position.x = this.startPos.x;
             this.position.y = this.startPos.y;
@@ -380,30 +384,38 @@ export class PlayerSprite {
         if (this.currentAnimation != "die") {
             this.velocity.x = 0;
             inputsDisabled = true;
+            this.animationBlocked = true;
 
             this.actionFunctionAfter = () => {
                 inputsDisabled = false;
                 this.position.x = this.startPos.x;
                 this.position.y = this.startPos.y;
+                this.animationBlocked = false;
                 this.setIdleAnim();
             }
             this.setDieAnim();
         }
     }
 
+    openTreasure() {
+
+    }
+
     updateAnimation() {
-        if (this.velocity.y == 0 && this.currentAnimation == 'jumping') {
-            this.setLandingAnim();
-            this.actionFunctionAfter = () => { this.setIdleAnim(); };
-        }
-        else if (this.velocity.y != 0) {
-            this.setJumpAnim();
-        }
-        else if (this.velocity.x != 0) {
-            this.setWalkAnim();
-        }
-        else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') { // TODO: vielleicht Probleme mit "Interact"
-            this.setIdleAnim();
+        if (!this.animationBlocked) {
+            if (this.velocity.y == 0 && this.currentAnimation == 'jumping') {
+                this.setLandingAnim();
+                this.actionFunctionAfter = () => { this.setIdleAnim(); };
+            }
+            else if (this.velocity.y != 0) {
+                this.setJumpAnim();
+            }
+            else if (this.velocity.x != 0) {
+                this.setWalkAnim();
+            }
+            else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') { // TODO: vielleicht Probleme mit "Interact"
+                this.setIdleAnim();
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ export type AnimationSpriteProps = {
     dayNumber: number,
     hitBoxOffset: SpriteArea,
     staticFrame: Point | null,
-    moveProps: MoveProps
+    moveProps: MoveProps | null;
 }
 
 
@@ -40,7 +40,7 @@ export class AnimationSprite {
     dayNumber: number;
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
-    moveProps: MoveProps;
+    moveProps: MoveProps | null;
     startPos: Point;
 
     imgWidth: number;
@@ -85,6 +85,7 @@ export class AnimationSprite {
 
         this.drawDayNumber();
 
+        //TODO Hitbox raus
         this.ctx.strokeStyle = "yellow";
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
     }
@@ -102,15 +103,17 @@ export class AnimationSprite {
             }
         }
 
-        const inXrange = this.position.x + this.moveProps.velocityX <= this.startPos.x + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.startPos.x;
-        this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
-        this.position.x = this.position.x + this.moveProps.velocityX;
+        if (this.moveProps) {
+            const inXrange = this.position.x + this.moveProps.velocityX <= this.startPos.x + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.startPos.x;
+            this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
+            this.position.x = this.position.x + this.moveProps.velocityX;
 
-        const inYrange = this.position.y + this.moveProps.velocityY <= this.startPos.y + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.startPos.y;
-        this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
-        this.position.y = this.position.y + this.moveProps.velocityY;
+            const inYrange = this.position.y + this.moveProps.velocityY <= this.startPos.y + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.startPos.y;
+            this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
+            this.position.y = this.position.y + this.moveProps.velocityY;
 
-        this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
+            this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
+        }
 
         this.draw();
     }
@@ -124,7 +127,7 @@ export class AnimationSprite {
         }
     }
 
-    updateDieable(playerArea: SpriteArea, player: PlayerSprite) {
+    updateKillable(playerArea: SpriteArea, player: PlayerSprite) {
         this.update();
         if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
             player.die();

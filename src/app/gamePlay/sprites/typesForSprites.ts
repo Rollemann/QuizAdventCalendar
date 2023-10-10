@@ -17,7 +17,8 @@ export type AnimationSprites = {
     lights: AnimationSprite[],
     doors: AnimationSprite[],
     items: AnimationSprite[],
-    traps: AnimationSprite[]
+    traps: AnimationSprite[],
+    treasures: AnimationSprite[]
 };
 
 export type InitializedSprites = {
@@ -35,6 +36,7 @@ export type AnimationTypesProps = {
     doors: AnimationSpriteProps[],
     items: AnimationSpriteProps[],
     traps: AnimationSpriteProps[],
+    treasures: AnimationSpriteProps[]
 }
 
 export type MoveProps = {

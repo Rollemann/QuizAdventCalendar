@@ -32,7 +32,11 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         });
 
         sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
-            trap.updateDieable(playerArea, sprites.player);
+            trap.updateKillable(playerArea, sprites.player);
+        });
+
+        sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
+            treasure.updateInteractable(playerArea)
         });
 
         sprites.player.draw();

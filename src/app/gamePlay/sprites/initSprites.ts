@@ -55,7 +55,8 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
         let doors = createAnimationSpriteType(currentAnimationProps.doors);
         let items = createAnimationSpriteType(currentAnimationProps.items);
         let traps = createAnimationSpriteType(currentAnimationProps.traps);
-        levels.push({ lights: lights, doors: doors, items: items, traps: traps })
+        let treasures = createAnimationSpriteType(currentAnimationProps.treasures);
+        levels.push({ lights: lights, doors: doors, items: items, traps: traps, treasures: treasures })
     }
 
     return levels;

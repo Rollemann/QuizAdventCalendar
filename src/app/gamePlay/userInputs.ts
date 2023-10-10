@@ -35,6 +35,11 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
                     sprites.player.enterDoor(door.dayNumber);
                 }
             });
+            sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
+                if (treasure.toggleAnimation()) {
+                    sprites.player.openTreasure();
+                }
+            });
         }
     }
 }
