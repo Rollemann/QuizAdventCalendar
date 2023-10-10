@@ -16,7 +16,7 @@ for (let i: number = 0; i < diagLength; ++i) {
 }
 
 const Speachbubble = () => {
-    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+    const { speachBubble, setSpeachBubble, speachBubbleContent, setSpeachBubbleContent } = useSpeachBubbleContext();
 
     let mirror: boolean = false;
     let position: Position = '';

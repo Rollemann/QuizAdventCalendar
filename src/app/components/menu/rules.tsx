@@ -14,12 +14,21 @@ const dotStart: Position = { x: 75, y: 235 };
 const dotShape: number[] = [5, 1, 1, 3, -1, 1, -5, -1, -1, -3, 1, -1];
 const dot: string = shapeDrawer(dotStart, dotShape, pixelSize);
 
-const Rules = () => {
+async function getRules() {
+    const res = await fetch('http://localhost:8090/api/collections/test/records?page=1', {cache:"no-cache"});
+    const data = await res.json();
+    return data.items;
+}
+
+export default async function Rules () {
     const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
 
     function toggleSpeachBubble() {
         speachBubble == 'rules' ? setSpeachBubble(null) : setSpeachBubble('rules');
     }
+
+    console.log(await getRules());
+    
 
     return (
         <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeachBubble} className="cursor-pointer">
@@ -50,5 +59,3 @@ const Rules = () => {
         </svg>
     )
 }
-
-export default Rules
