@@ -11,7 +11,7 @@ type PlayerSpriteProps = {
 
 type Direction = 'left' | 'middle' | 'right';
 
-type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | 'die' | null;
+type Animation = 'idle' | 'landing' | 'walking' | 'jumping' | 'enterDoor' | 'die' | 'openTreasure' | null;
 
 const GRAVITY: number = 0.3;
 
@@ -42,7 +42,6 @@ export class PlayerSprite {
     actionFunctionAfter: () => void = () => { }
     hitBoxOffset: SpriteArea;
     hitBox: SpriteArea;
-    solidHitbox: SpriteArea;
     nextLevel: number = 0;
     startPos: Point;
     animationBlocked: boolean = false;
@@ -63,7 +62,6 @@ export class PlayerSprite {
 
         this.hitBoxOffset = { x: (15 * this.scale), y: (7 * this.scale), width: -(30 * this.scale), height: - (9 * this.scale) };
         this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
-        this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
         this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
     };
 
@@ -81,10 +79,8 @@ export class PlayerSprite {
         )
 
         // TODO Hitboxen raus
-        this.ctx.strokeStyle = "red"
+        this.ctx.strokeStyle = "red";
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
-        this.ctx.strokeStyle = "blue"
-        this.ctx.strokeRect(this.solidHitbox.x, this.solidHitbox.y, this.solidHitbox.width, this.solidHitbox.height);
     }
 
     update(solidObjectAreas: SpriteArea[]): SpriteArea {
@@ -94,7 +90,6 @@ export class PlayerSprite {
             this.position.x += this.velocity.x;
             this.position.y += this.velocity.y;
             this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
-            this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
 
             // Check left and right border and stop player 
             if (this.hitBox.x < 0) {
@@ -104,9 +99,9 @@ export class PlayerSprite {
                 this.position.x = canvas.width - this.hitBox.width - this.hitBoxOffset.x;
             }
 
-            const collIndex = collisionCheck(this.solidHitbox, solidObjectAreas)
+            const collIndex = collisionCheck({ x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity }, solidObjectAreas)
             if (collIndex >= 0 && this.velocity.y > 0) {
-                this.position.y = solidObjectAreas[collIndex].y - this.hitBox.height - this.hitBoxOffset.y
+                this.position.y = solidObjectAreas[collIndex].y - this.hitBox.height - this.hitBoxOffset.y;
                 this.velocity.y = 0;
             }
 
@@ -126,7 +121,7 @@ export class PlayerSprite {
             }
 
             this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
-            this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+            //this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
         }
         return this.hitBox;
     }
@@ -227,7 +222,7 @@ export class PlayerSprite {
     }
 
     setWalkAnim() {
-        if (this.newDirection != this.direction) {
+        if (this.newDirection != this.direction || this.currentAnimation != "walking") {
             this.direction = this.newDirection;
             this.currentFrame = 0;
             let row: number;
@@ -321,6 +316,31 @@ export class PlayerSprite {
         )
     }
 
+    setOpenTreasureAnim() {
+        this.setupAnim(
+            10,
+            false,
+            true,
+            "middle",
+            [
+                { x: 1, y: 0 },
+                { x: 2, y: 0 },
+                { x: 1, y: 0 },
+                { x: 2, y: 0 },
+                { x: 3, y: 0 },
+                { x: 4, y: 0 },
+                { x: 5, y: 0 },
+                { x: 5, y: 1 },
+                { x: 5, y: 2 },
+                { x: 5, y: 3 },
+                { x: 5, y: 0 },
+                { x: 5, y: 1 },
+                { x: 5, y: 2 },
+            ],
+            "openTreasure"
+        )
+    }
+
     setupAnim(
         frameRate: number,
         repeatAnimation: boolean,
@@ -398,12 +418,21 @@ export class PlayerSprite {
     }
 
     openTreasure() {
+        this.velocity.x = 0;
+        inputsDisabled = true;
+        this.animationBlocked = true;
 
+        this.actionFunctionAfter = () => {
+            inputsDisabled = false;
+            this.animationBlocked = false;
+            this.setIdleAnim();
+        }
+        this.setOpenTreasureAnim();
     }
 
     updateAnimation() {
         if (!this.animationBlocked) {
-            if (this.velocity.y == 0 && this.currentAnimation == 'jumping') {
+            if (this.velocity.y == 0 && this.currentAnimation == 'jumping' && this.velocity.x == 0) {
                 this.setLandingAnim();
                 this.actionFunctionAfter = () => { this.setIdleAnim(); };
             }
