@@ -40,7 +40,7 @@ export class PlayerSprite {
     actionAfter: boolean = false;
     actionFunctionAfter: () => void = () => { }
     hitBoxOffset: SpriteArea;
-    hitBox: SpriteArea;
+    hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
     nextLevel: number = 0;
     startPos: Point;
     animationBlocked: boolean = false;
@@ -60,7 +60,7 @@ export class PlayerSprite {
         this.setIdleAnim();
 
         this.hitBoxOffset = { x: (15 * this.scale), y: (7 * this.scale), width: -(30 * this.scale), height: - (9 * this.scale) };
-        this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
+        this.updateHitBox();
         this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
     };
 
@@ -87,7 +87,7 @@ export class PlayerSprite {
         this.velocity.y += GRAVITY;
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
-        this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
+        this.updateHitBox();
 
         this.adjustPositionOnCollision(solidObjectAreas)
 
@@ -106,8 +106,7 @@ export class PlayerSprite {
             }
         }
 
-        this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
-        //this.solidHitbox = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+        this.updateHitBox();
         return this.hitBox;
     }
 
@@ -437,9 +436,11 @@ export class PlayerSprite {
         // left and right canvas border
         if (this.hitBox.x < 0) {
             this.position.x = -this.hitBoxOffset.x;
+            this.updateHitBox();
         }
         else if (this.hitBox.x + this.hitBox.width > this.ctx.canvas.width) {
             this.position.x = this.ctx.canvas.width - this.hitBox.width - this.hitBoxOffset.x;
+            this.updateHitBox();
         }
 
         // top collision
@@ -449,14 +450,38 @@ export class PlayerSprite {
         if (topCollIndex >= 0) {
             this.position.y = solidAreas.wallAreas[topCollIndex].y + solidAreas.wallAreas[topCollIndex].height - this.hitBoxOffset.y;
             this.velocity.y = 0;
+            this.updateHitBox();
         }
 
-        
+        // side collision
+        const leftHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height + this.jumpVelocity };
+        const leftCollIndex = collisionCheck(leftHitBox, solidAreas.wallAreas);
+        if (leftCollIndex >= 0) {
+            const wall = solidAreas.wallAreas[leftCollIndex];
+            this.position.x = wall.x + wall.width - this.hitBoxOffset.x;
+            this.updateHitBox();
+        }
+        else {
+            const rightHitBox: SpriteArea = { x: this.hitBox.x + this.hitBox.width - hitBoxW, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height + this.jumpVelocity };
+            const rightCollIndex = collisionCheck(rightHitBox, solidAreas.wallAreas);
+            if (rightCollIndex >= 0) {
+                const wall = solidAreas.wallAreas[rightCollIndex];
+                this.position.x = wall.x - this.hitBox.width - this.hitBoxOffset.x;
+                this.updateHitBox();
+            }
+        }
+
+
 
         const collIndex = collisionCheck({ x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity }, solidAreas.groundAreas)
         if (collIndex >= 0 && this.velocity.y > 0) {
             this.position.y = solidAreas.groundAreas[collIndex].y - this.hitBox.height - this.hitBoxOffset.y;
             this.velocity.y = 0;
+            this.updateHitBox();
         }
+    }
+
+    updateHitBox() {
+        this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
     }
 }
