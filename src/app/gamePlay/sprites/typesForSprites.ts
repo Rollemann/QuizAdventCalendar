@@ -1,6 +1,6 @@
 import { AnimationSprite, AnimationSpriteProps } from "./AnimationSprite";
 import { PlayerSprite } from "./PlayerSprite";
-import { StaticSprite } from "./StaticSprite";
+import { StaticSprite, StaticSpriteProps } from "./StaticSprite";
 
 export type Point = {
     x: number,
@@ -13,6 +13,26 @@ export type SpriteArea = {
     height: number
 };
 
+export type InitializedSprites = {
+    player: PlayerSprite,
+    levels: nonePlayerSprites[],
+};
+
+export type nonePlayerSprites = {
+    statics: StaticSprites,
+    animated: AnimationSprites
+}
+
+export type StaticSprites = {
+    grounds: StaticSprite[],
+    walls: StaticSprite[],
+}
+
+export type StaticTypesProps = {
+    grounds: StaticSpriteProps[],
+    walls: StaticSpriteProps[],
+}
+
 export type AnimationSprites = {
     lights: AnimationSprite[],
     doors: AnimationSprite[],
@@ -20,16 +40,6 @@ export type AnimationSprites = {
     traps: AnimationSprite[],
     treasures: AnimationSprite[]
 };
-
-export type InitializedSprites = {
-    player: PlayerSprite,
-    levels: nonePlayerSprites[],
-};
-
-export type nonePlayerSprites = {
-    statics: StaticSprite[],
-    animated: AnimationSprites
-}
 
 export type AnimationTypesProps = {
     lights: AnimationSpriteProps[],

@@ -3,12 +3,12 @@ import { PlayerSprite } from "./PlayerSprite";
 import { StaticSprite, StaticSpriteProps } from "./StaticSprite";
 import { allAnimationSpritesProps } from "./allAnimatedSprites";
 import { allStaticSpritesProps } from "./allStaticSprites";
-import { AnimationSprites, InitializedSprites, nonePlayerSprites } from "./typesForSprites";
+import { AnimationSprites, AnimationTypesProps, InitializedSprites, StaticSprites, StaticTypesProps, nonePlayerSprites } from "./typesForSprites";
 
 
 export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
 
-    const staticSprites: StaticSprite[][] = createStaticSprites(ctx);
+    const staticSprites: StaticSprites[] = createStaticSprites(ctx);
 
     const animationSprites: AnimationSprites[] = createAnimationSprites(ctx);
 
@@ -30,27 +30,27 @@ export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
     }
 }
 
-function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprite[][] {
-    let levels: StaticSprite[][] = [];
+function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprites[] {
+    let levels: StaticSprites[] = [];
 
-    const allStaticProps: StaticSpriteProps[][] = allStaticSpritesProps(ctx);
+    const allStaticProps: StaticTypesProps[] = allStaticSpritesProps(ctx);
     for (let i = 0; i < allStaticProps.length; ++i) {
-        let platforms: StaticSprite[] = [];
-        for (let j = 0; j < allStaticProps[i].length; ++j) {
-            platforms.push(new StaticSprite(allStaticProps[i][j]));
+        for (let j = 0; j < allStaticProps.length; ++j) {
+            let currentStaticProps: StaticTypesProps = allStaticProps[i];
+            let grounds = createStaticSpriteType(currentStaticProps.grounds) 
+            let walls = createStaticSpriteType(currentStaticProps.walls) 
+            levels.push({grounds: grounds, walls: walls});
         }
-        levels.push(platforms);
     }
     return levels;
 }
 
 function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites[] {
-    const allAnimationProps = allAnimationSpritesProps(ctx);
     let levels: AnimationSprites[] = [];
-
-
+    
+    const allAnimationProps: AnimationTypesProps[] = allAnimationSpritesProps(ctx);
     for (let i = 0; i < allAnimationProps.length; ++i) {
-        const currentAnimationProps = allAnimationProps[i];
+        const currentAnimationProps: AnimationTypesProps = allAnimationProps[i];
         let lights = createAnimationSpriteType(currentAnimationProps.lights);
         let doors = createAnimationSpriteType(currentAnimationProps.doors);
         let items = createAnimationSpriteType(currentAnimationProps.items);
@@ -58,7 +58,6 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
         let treasures = createAnimationSpriteType(currentAnimationProps.treasures);
         levels.push({ lights: lights, doors: doors, items: items, traps: traps, treasures: treasures })
     }
-
     return levels;
 }
 
@@ -66,6 +65,14 @@ function createAnimationSpriteType(properties: AnimationSpriteProps[]): Animatio
     let allObjects: AnimationSprite[] = [];
     properties.forEach((property: AnimationSpriteProps) => {
         allObjects.push(new AnimationSprite(property))
+    });
+    return allObjects;
+}
+
+function createStaticSpriteType(properties: StaticSpriteProps[]): StaticSprite[] {
+    let allObjects: StaticSprite[] = [];
+    properties.forEach((property: StaticSpriteProps) => {
+        allObjects.push(new StaticSprite(property))
     });
     return allObjects;
 }
