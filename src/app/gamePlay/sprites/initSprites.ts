@@ -35,19 +35,17 @@ function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprites[] {
 
     const allStaticProps: StaticTypesProps[] = allStaticSpritesProps(ctx);
     for (let i = 0; i < allStaticProps.length; ++i) {
-        for (let j = 0; j < allStaticProps.length; ++j) {
-            let currentStaticProps: StaticTypesProps = allStaticProps[i];
-            let grounds = createStaticSpriteType(currentStaticProps.grounds) 
-            let walls = createStaticSpriteType(currentStaticProps.walls) 
-            levels.push({grounds: grounds, walls: walls});
-        }
+        const currentStaticProps: StaticTypesProps = allStaticProps[i];
+        let grounds = createStaticSpriteType(currentStaticProps.grounds)
+        let walls = createStaticSpriteType(currentStaticProps.walls)
+        levels.push({ grounds: grounds, walls: walls });
     }
     return levels;
 }
 
 function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites[] {
     let levels: AnimationSprites[] = [];
-    
+
     const allAnimationProps: AnimationTypesProps[] = allAnimationSpritesProps(ctx);
     for (let i = 0; i < allAnimationProps.length; ++i) {
         const currentAnimationProps: AnimationTypesProps = allAnimationProps[i];

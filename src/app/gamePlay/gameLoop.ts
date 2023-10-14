@@ -11,15 +11,17 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         window.requestAnimationFrame(() => gameLoop(ctx, sprites));
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        console.log( currentLevel);
+        
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
 
         // update Statics
-        sprites.levels[currentLevel].statics.grounds.forEach((platform: StaticSprite) => {
-            groundAreas.push(platform.update());
+        sprites.levels[currentLevel].statics.grounds.forEach((ground: StaticSprite) => {
+            groundAreas.push(ground.update());
         });
-        sprites.levels[currentLevel].statics.walls.forEach((platform: StaticSprite) => {
-            wallAreas.push(platform.update());
+        sprites.levels[currentLevel].statics.walls.forEach((wall: StaticSprite) => {
+            wallAreas.push(wall.update());
         });
 
         // update Animated

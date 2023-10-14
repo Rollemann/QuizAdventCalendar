@@ -13,7 +13,7 @@ export class StaticSprite {
     ctx: CanvasRenderingContext2D;
     time: number = 0;
     image: HTMLImageElement = new Image();
-    scale: number;
+    scale: number; // TODO: kann wahrscheinlich raus
     moveProps: MoveProps | null;
     startPos: Point;
 
@@ -28,13 +28,17 @@ export class StaticSprite {
     };
 
     draw() {
-        /* this.ctx.drawImage(
+        this.ctx.drawImage(
             this.image,
-            this.position.x,
-            this.position.y,
-            this.image.width * this.scale,
-            this.image.height * this.scale
-        ) */
+            0,
+            0,
+            this.area.width,
+            this.image.height,
+            this.area.x,
+            this.area.y,
+            this.area.width * this.scale,
+            this.area.height * this.scale
+        )
         this.ctx.strokeStyle = "green";
         this.ctx.strokeRect(this.area.x, this.area.y, this.area.width, this.area.height);
     }

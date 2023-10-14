@@ -1,7 +1,7 @@
 import { StaticTypesProps } from "./typesForSprites";
 
 export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticTypesProps[] {
-    const mainWidth = 80;
+    const mainWidth = 90;
     const mainHeight = 10;
     return [
         {
@@ -9,138 +9,138 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                 {
                     area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
                 },
                 {
-                    area: { x: 275, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 270, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
-                    scale: 1,
-                    moveProps: null
-
-                },
-                {
-                    area: { x: 425, y: 544, width: mainWidth, height: mainHeight },
-                    ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 },
                 {
-                    area: { x: 575, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 420, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 },
                 {
-                    area: { x: 725, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 570, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 },
                 {
-                    area: { x: 875, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 720, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 },
                 {
-                    area: { x: 1025, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 870, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null
+
+                },
+                {
+                    area: { x: 1020, y: 544, width: mainWidth, height: mainHeight },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 200, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 195, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 350, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 345, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 500, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 495, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 650, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 645, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 800, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 795, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 950, y: 378, width: mainWidth, height: mainHeight },
+                    area: { x: 945, y: 378, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 275, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 270, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 425, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 420, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 575, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 570, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 725, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 720, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 875, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 870, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
                 }, {
-                    area: { x: 1025, y: 212, width: mainWidth, height: mainHeight },
+                    area: { x: 1020, y: 212, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
 
@@ -150,7 +150,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                 {
                     area: { x: 100, y: 600, width: 50, height: 10 },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: {velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 100}
                 },
@@ -161,14 +161,14 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                 {
                     area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
                 },
                 {
-                    area: { x: 275, y: 544, width: mainWidth, height: mainHeight },
+                    area: { x: 270, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
-                    imageSrc: './Questionmark.png',
+                    imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null
                 }
