@@ -11,8 +11,6 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         window.requestAnimationFrame(() => gameLoop(ctx, sprites));
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        console.log( currentLevel);
-        
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
 
