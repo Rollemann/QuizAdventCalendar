@@ -110,7 +110,13 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                 },
             ],
             walls: [
-
+                {
+                    area: { x: 100, y: 600, width: 50, height: 10 },
+                    ctx: ctx,
+                    imageSrc: './Questionmark.png',
+                    scale: 1,
+                    moveProps: {velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 100}
+                },
             ]
         },
         {
@@ -119,13 +125,15 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
                     ctx: ctx,
                     imageSrc: './Questionmark.png',
-                    scale: 1
+                    scale: 1,
+                    moveProps: null
                 },
                 {
                     area: { x: 275, y: 544, width: mainWidth, height: mainHeight },
                     ctx: ctx,
                     imageSrc: './Questionmark.png',
-                    scale: 1
+                    scale: 1,
+                    moveProps: null
                 }
             ],
             walls: [

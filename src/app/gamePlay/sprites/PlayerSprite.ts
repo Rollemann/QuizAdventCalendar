@@ -44,6 +44,7 @@ export class PlayerSprite {
     nextLevel: number = 0;
     startPos: Point;
     animationBlocked: boolean = false;
+    landingVelocity: number = 0;
 
 
     direction: Direction = 'middle';
@@ -78,8 +79,15 @@ export class PlayerSprite {
         )
 
         // TODO Hitboxen raus
+        const hitBoxW = 10;
         this.ctx.strokeStyle = "red";
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        /* this.ctx.strokeStyle = "blue";
+        this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
+        this.ctx.strokeStyle = "yellow";
+        this.ctx.strokeRect(this.hitBox.x + hitBoxW, this.hitBox.y, this.hitBox.width - (2 * hitBoxW), hitBoxW);
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height + this.jumpVelocity, this.hitBox.width, -this.jumpVelocity); */
     }
 
     update(solidObjectAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }): SpriteArea {
@@ -87,6 +95,7 @@ export class PlayerSprite {
         this.velocity.y += GRAVITY;
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
+        this.landingVelocity = Math.abs(this.velocity.y);
         this.updateHitBox();
 
         this.adjustPositionOnCollision(solidObjectAreas)
@@ -414,24 +423,6 @@ export class PlayerSprite {
         this.setOpenTreasureAnim();
     }
 
-    updateAnimation() {
-        if (!this.animationBlocked) {
-            if (this.velocity.y == 0 && this.currentAnimation == 'jumping' && this.velocity.x == 0) {
-                this.setLandingAnim();
-                this.actionFunctionAfter = () => { this.setIdleAnim(); };
-            }
-            else if (this.velocity.y != 0) {
-                this.setJumpAnim();
-            }
-            else if (this.velocity.x != 0) {
-                this.setWalkAnim();
-            }
-            else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') { // TODO: vielleicht Probleme mit "Interact"
-                this.setIdleAnim();
-            }
-        }
-    }
-
     adjustPositionOnCollision(solidAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }) {
         // left and right canvas border
         if (this.hitBox.x < 0) {
@@ -472,16 +463,43 @@ export class PlayerSprite {
         }
 
 
-
-        const collIndex = collisionCheck({ x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity }, solidAreas.groundAreas)
-        if (collIndex >= 0 && this.velocity.y > 0) {
-            this.position.y = solidAreas.groundAreas[collIndex].y - this.hitBox.height - this.hitBoxOffset.y;
+        // bottom collision
+        const bottomHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+        const bottomCollIndexGround = collisionCheck(bottomHitBox, solidAreas.groundAreas);
+        if (bottomCollIndexGround >= 0 && this.velocity.y > 0) {
+            this.position.y = solidAreas.groundAreas[bottomCollIndexGround].y - this.hitBox.height - this.hitBoxOffset.y;
             this.velocity.y = 0;
             this.updateHitBox();
+        }
+        else {
+            const bottomCollIndexWall = collisionCheck(bottomHitBox, solidAreas.wallAreas);
+            if (bottomCollIndexWall >= 0 && this.velocity.y > 0) {
+                this.position.y = solidAreas.wallAreas[bottomCollIndexWall].y - this.hitBox.height - this.hitBoxOffset.y;
+                this.velocity.y = 0;
+                this.updateHitBox();
+            }
         }
     }
 
     updateHitBox() {
         this.hitBox = { x: this.position.x + this.hitBoxOffset.x, y: this.position.y + this.hitBoxOffset.y, width: this.imgWidth * this.scale + this.hitBoxOffset.width, height: this.imgHeight * this.scale + this.hitBoxOffset.height };
+    }
+
+    updateAnimation() {
+        if (!this.animationBlocked) {
+            if (this.velocity.y == 0 && this.currentAnimation == 'jumping' && this.velocity.x == 0 && this.landingVelocity > 2) {
+                this.setLandingAnim();
+                this.actionFunctionAfter = () => { this.setIdleAnim(); };
+            }
+            else if (this.velocity.y != 0 && this.landingVelocity >= 2) {
+                this.setJumpAnim();
+            }
+            else if (this.velocity.x != 0 && this.velocity.y == 0) {
+                this.setWalkAnim();
+            }
+            else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') {
+                this.setIdleAnim();
+            }
+        }
     }
 }

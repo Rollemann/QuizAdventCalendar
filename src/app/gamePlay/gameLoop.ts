@@ -14,12 +14,12 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
 
-        // draw Statics
+        // update Statics
         sprites.levels[currentLevel].statics.grounds.forEach((platform: StaticSprite) => {
-            groundAreas.push(platform.draw());
+            groundAreas.push(platform.update());
         });
         sprites.levels[currentLevel].statics.walls.forEach((platform: StaticSprite) => {
-            wallAreas.push(platform.draw());
+            wallAreas.push(platform.update());
         });
 
         // update Animated
