@@ -32,7 +32,7 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
         if (pressedKey.toLowerCase() == 'e') {
             sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
                 if (door.toggleAnimation()) {
-                    sprites.player.enterDoor(door.dayNumber);
+                    sprites.player.enterDoor(door.dayNumber.value);
                 }
             });
             sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {

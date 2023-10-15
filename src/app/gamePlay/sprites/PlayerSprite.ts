@@ -60,7 +60,7 @@ export class PlayerSprite {
         this.imgHeight = this.image.height / this.maxAnimations;
         this.setIdleAnim();
 
-        this.hitBoxOffset = { x: (15 * this.scale), y: (7 * this.scale), width: -(30 * this.scale), height: - (9 * this.scale) };
+        this.hitBoxOffset = { x: (20 * this.scale), y: (7 * this.scale), width: -(40 * this.scale), height: - (9 * this.scale) };
         this.updateHitBox();
         this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
     };
@@ -81,7 +81,7 @@ export class PlayerSprite {
         // TODO Hitboxen raus
         const hitBoxW = 10;
         this.ctx.strokeStyle = "red";
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
         /* this.ctx.strokeStyle = "blue";
         this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);

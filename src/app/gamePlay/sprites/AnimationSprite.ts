@@ -2,6 +2,14 @@ import { collisionCheck } from "../collisionCheck";
 import { PlayerSprite } from "./PlayerSprite";
 import { MoveProps, Point, SpriteArea } from "./typesForSprites";
 
+type DayNumber = {
+    isDisplayed: boolean
+    value: number,
+    size: number,
+    color: 'black',
+    yOffset: number
+}
+
 export type AnimationSpriteProps = {
     position: Point | null,
     ctx: CanvasRenderingContext2D,
@@ -13,7 +21,7 @@ export type AnimationSpriteProps = {
     animationFrames: Point[],
     repeatAnimation: boolean,
     startStatic: boolean,
-    dayNumber: number,
+    dayNumber: DayNumber,
     hitBoxOffset: SpriteArea,
     staticFrame: Point | null,
     moveProps: MoveProps | null;
@@ -37,7 +45,7 @@ export class AnimationSprite {
     currentFrames: Point[];
     repeatAnimation: boolean;
     interactable: boolean = true;
-    dayNumber: number;
+    dayNumber: DayNumber;
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
     moveProps: MoveProps | null;
@@ -136,9 +144,9 @@ export class AnimationSprite {
 
     toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
-            if (this.dayNumber > 0) {
+            if (this.dayNumber.value > 0) {
                 const date = new Date();
-                if (date.getDate() < this.dayNumber) {
+                if (date.getDate() < this.dayNumber.value) {
                     return false;
                 }
             }
@@ -171,12 +179,13 @@ export class AnimationSprite {
     }
 
     drawDayNumber() {
-        if (this.dayNumber > 0 && this.isStatic) {
-            this.ctx.font = "32px Retro Gaming";
-            this.ctx.fillStyle = 'black';
-            const numberW = this.ctx.measureText(this.dayNumber.toString()).width;
+        if (this.dayNumber.isDisplayed && this.isStatic) {
+            const text = this.dayNumber.value == 0? 'Main' : this.dayNumber.value.toString();   
+            this.ctx.font = `${this.dayNumber.size}px Retro Gaming`;
+            this.ctx.fillStyle = this.dayNumber.color;
+            const numberW = this.ctx.measureText(text).width;
             const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
-            this.ctx.fillText(this.dayNumber.toString(), posX, this.position.y + (45 * this.scale));
+            this.ctx.fillText(text, posX, this.position.y + (this.dayNumber.yOffset * this.scale));
         }
     }
 }
