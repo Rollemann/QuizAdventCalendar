@@ -497,7 +497,7 @@ export class PlayerSprite {
             else if (this.velocity.x != 0 && this.velocity.y == 0) {
                 this.setWalkAnim();
             }
-            else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation == 'walking') {
+            else if (this.velocity.x == 0 && this.velocity.y == 0 && this.currentAnimation != 'landing') {
                 this.setIdleAnim();
             }
         }
