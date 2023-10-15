@@ -5,7 +5,8 @@ export type StaticSpriteProps = {
     ctx: CanvasRenderingContext2D,
     imageSrc: string,
     scale: number,
-    moveProps: MoveProps | null;
+    moveProps: MoveProps | null,
+    hitBoxOffset: SpriteArea
 }
 
 export class StaticSprite {
@@ -16,6 +17,8 @@ export class StaticSprite {
     scale: number; // TODO: kann wahrscheinlich raus
     moveProps: MoveProps | null;
     startPos: Point;
+    hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
+    hitBoxOffset: SpriteArea;
 
 
     constructor(spriteProps: StaticSpriteProps) {
@@ -25,6 +28,9 @@ export class StaticSprite {
         this.scale = spriteProps.scale;
         this.moveProps = spriteProps.moveProps;
         this.startPos = { x: this.area.x, y: this.area.y };
+        this.hitBoxOffset = spriteProps.hitBoxOffset;
+
+        this.updateHitBox();
     };
 
     draw() {
@@ -40,7 +46,7 @@ export class StaticSprite {
             this.area.height * this.scale
         )
         this.ctx.strokeStyle = "green";
-        this.ctx.strokeRect(this.area.x, this.area.y, this.area.width, this.area.height);
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
     }
 
     update(): SpriteArea {
@@ -52,8 +58,13 @@ export class StaticSprite {
             const inYrange = this.area.y + this.moveProps.velocityY <= this.startPos.y + this.moveProps.rangeY && this.area.y + this.moveProps.velocityY >= this.startPos.y;
             this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
             this.area.y = this.area.y + this.moveProps.velocityY;
+            this.updateHitBox();
         }
         this.draw()
-        return { x: this.area.x, y: this.area.y, width: this.area.width, height: this.area.height };
+        return this.hitBox;
+    }
+
+    updateHitBox() {
+        this.hitBox = { x: this.area.x + this.hitBoxOffset.x, y: this.area.y + this.hitBoxOffset.y, width: this.area.width * this.scale + this.hitBoxOffset.width, height: this.area.height * this.scale + this.hitBoxOffset.height };
     }
 }
