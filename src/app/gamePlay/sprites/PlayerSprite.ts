@@ -17,7 +17,7 @@ const GRAVITY: number = 0.3;
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
 export let currentLevel: number = 1;
-
+const allowedJumps: number = 1;
 
 export class PlayerSprite {
     position: Point;
@@ -45,6 +45,7 @@ export class PlayerSprite {
     startPos: Point;
     animationBlocked: boolean = false;
     landingVelocity: number = 0;
+    jumpCounter: number = allowedJumps;
 
 
     direction: Direction = 'middle';
@@ -82,12 +83,12 @@ export class PlayerSprite {
         const hitBoxW = 10;
         this.ctx.strokeStyle = "red";
         //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
-        /* this.ctx.strokeStyle = "blue";
+        this.ctx.strokeStyle = "blue";
         this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
         this.ctx.strokeStyle = "yellow";
         this.ctx.strokeRect(this.hitBox.x + hitBoxW, this.hitBox.y, this.hitBox.width - (2 * hitBoxW), hitBoxW);
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height + this.jumpVelocity, this.hitBox.width, -this.jumpVelocity); */
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height + this.jumpVelocity, this.hitBox.width, -this.jumpVelocity);
     }
 
     update(solidObjectAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }): SpriteArea {
@@ -363,8 +364,9 @@ export class PlayerSprite {
     }
 
     jump() {
-        if (this.velocity.y == 0) {
+        if (this.jumpCounter > 0) {
             this.velocity.y = this.jumpVelocity;
+            --this.jumpCounter;
         }
     }
 
@@ -435,7 +437,7 @@ export class PlayerSprite {
         }
 
         // top collision
-        const hitBoxW: number = 10;
+        const hitBoxW: number = 12;
         const topHitBox: SpriteArea = { x: this.hitBox.x + hitBoxW, y: this.hitBox.y, width: this.hitBox.width - (2 * hitBoxW), height: hitBoxW };
         const topCollIndex = collisionCheck(topHitBox, solidAreas.wallAreas);
         if (topCollIndex >= 0) {
@@ -470,6 +472,7 @@ export class PlayerSprite {
             this.position.y = solidAreas.groundAreas[bottomCollIndexGround].y - this.hitBox.height - this.hitBoxOffset.y;
             this.velocity.y = 0;
             this.updateHitBox();
+            this.jumpCounter = allowedJumps;
         }
         else {
             const bottomCollIndexWall = collisionCheck(bottomHitBox, solidAreas.wallAreas);
@@ -477,6 +480,7 @@ export class PlayerSprite {
                 this.position.y = solidAreas.wallAreas[bottomCollIndexWall].y - this.hitBox.height - this.hitBoxOffset.y;
                 this.velocity.y = 0;
                 this.updateHitBox();
+                this.jumpCounter = allowedJumps;
             }
         }
     }
