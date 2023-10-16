@@ -28,6 +28,7 @@ export type AnimationSpriteProps = {
 }
 
 
+
 export class AnimationSprite {
     position: Point;
     ctx: CanvasRenderingContext2D;
@@ -49,7 +50,6 @@ export class AnimationSprite {
     hitBox: SpriteArea;
     hitBoxOffset: SpriteArea;
     moveProps: MoveProps | null;
-    startPos: Point;
 
     imgWidth: number;
     imgHeight: number;
@@ -70,7 +70,6 @@ export class AnimationSprite {
         this.hitBoxOffset = spriteProps.hitBoxOffset;
         this.moveProps = spriteProps.moveProps;
 
-        this.startPos = { x: this.position.x, y: this.position.y };
         this.imgWidth = this.image.width / this.maxFrames;
         this.imgHeight = this.image.height / this.maxAnimations;
         this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
@@ -111,14 +110,19 @@ export class AnimationSprite {
             }
         }
 
-        if (this.moveProps) {
-            const inXrange = this.position.x + this.moveProps.velocityX <= this.startPos.x + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.startPos.x;
+        if (this.moveProps && this.moveProps.move) {
+            const inXrange = this.position.x + this.moveProps.velocityX <= this.moveProps.startX + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.moveProps.startX;
             this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
             this.position.x = this.position.x + this.moveProps.velocityX;
 
-            const inYrange = this.position.y + this.moveProps.velocityY <= this.startPos.y + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.startPos.y;
+            const inYrange = this.position.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.moveProps.startY;
             this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
             this.position.y = this.position.y + this.moveProps.velocityY;
+
+            if (this.moveProps.drawLine) {
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.moveProps.startX + (this.imgWidth * this.scale) / 2, this.moveProps.startY + (this.imgHeight * this.scale) / 2, this.moveProps.rangeX, this.moveProps.rangeY);
+            }
 
             this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
         }
@@ -139,6 +143,13 @@ export class AnimationSprite {
         this.update();
         if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
             player.die();
+        }
+    }
+
+    toggleMoveable(){
+        if(this.moveProps){
+            this.moveProps.move = !this.moveProps.move;
+            this.isStatic = ! this.isStatic;
         }
     }
 
@@ -180,7 +191,7 @@ export class AnimationSprite {
 
     drawDayNumber() {
         if (this.dayNumber.isDisplayed && this.isStatic) {
-            const text = this.dayNumber.value == 0? 'Main' : this.dayNumber.value.toString();   
+            const text = this.dayNumber.value == 0 ? 'Main' : this.dayNumber.value.toString();
             this.ctx.font = `${this.dayNumber.size}px Retro Gaming`;
             this.ctx.fillStyle = this.dayNumber.color;
             const numberW = this.ctx.measureText(text).width;

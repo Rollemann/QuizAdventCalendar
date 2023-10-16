@@ -50,8 +50,12 @@ export type AnimationTypesProps = {
 }
 
 export type MoveProps = {
+    startX: number,
+    startY: number,
     velocityX: number,
     velocityY: number,
     rangeX: number,
-    rangeY: number
+    rangeY: number,
+    drawLine: boolean,
+    move: boolean
 }

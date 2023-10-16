@@ -16,7 +16,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
@@ -32,7 +32,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
@@ -51,7 +51,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 1, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -67,7 +67,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 2, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 2, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -83,7 +83,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 3, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 3, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -99,7 +99,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 4, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 4, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -115,7 +115,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 5, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 5, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -131,7 +131,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 6, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 6, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -147,7 +147,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 7, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 7, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -163,7 +163,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 8, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 8, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -179,7 +179,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 9, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 9, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -195,7 +195,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 10, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 10, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -211,7 +211,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 11, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 11, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -227,7 +227,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 12, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 12, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -243,7 +243,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 13, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 13, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -259,7 +259,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 14, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 14, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -275,7 +275,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 15, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 15, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -291,7 +291,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 16, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 16, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -307,7 +307,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 17, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 17, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -323,7 +323,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 18, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 18, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -339,7 +339,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 19, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 19, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -355,7 +355,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 20, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 20, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -371,7 +371,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 21, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 21, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -387,7 +387,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 22, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 22, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -403,7 +403,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 23, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 23, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -419,7 +419,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 24, color: "black", size: 32, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 24, color: "black", size: 32, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -444,7 +444,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
@@ -460,7 +460,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
@@ -478,7 +478,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45},
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
                     hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
@@ -496,29 +496,29 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     maxFrames: 5,
                     maxAnimations: 1,
                     frameRate: 2,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 }],
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
-                    startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { velocityX: 2, velocityY: 0, rangeX: 100, rangeY: 0 }
+                    moveProps: { startX: 300, startY: 700, velocityX: 2, velocityY: 0, rangeX: 100, rangeY: 0, drawLine: false, move: false }
                 },
                 {
-                    position: { x: 335, y: 700 },
+                    position: { x: 335, y: 650 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/sawSprite.png',
                     scale: 0.1,
                     maxFrames: 5,
                     maxAnimations: 1,
                     frameRate: 2,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 }],
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { velocityX: 2, velocityY: 0, rangeX: 100, rangeY: 0 }
+                    moveProps: { startX: 335, startY: 650, velocityX: 2, velocityY: 0, rangeX: 100, rangeY: 0, drawLine: true, move: true }
                 },
                 {
                     position: { x: 600, y: 690 },
@@ -528,13 +528,13 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     maxFrames: 13,
                     maxAnimations: 1,
                     frameRate: 5,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 },{ x: 5, y: 0 },{ x: 6, y: 0 },{ x: 7, y: 0 },{ x: 8, y: 0 },{ x: 9, y: 0 },{ x: 10, y: 0 },{ x: 11, y: 0 },{ x: 12, y: 0 }],
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }, { x: 12, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
+                    moveProps: null
                 },
                 {
                     position: { x: 630, y: 690 },
@@ -544,13 +544,13 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     maxFrames: 13,
                     maxAnimations: 1,
                     frameRate: 5,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 },{ x: 5, y: 0 },{ x: 6, y: 0 },{ x: 7, y: 0 },{ x: 8, y: 0 },{ x: 9, y: 0 },{ x: 10, y: 0 },{ x: 11, y: 0 },{ x: 12, y: 0 }],
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }, { x: 12, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: {isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0},
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { velocityX: 0, velocityY: 0, rangeX: 0, rangeY: 0 }
+                    moveProps: null
                 },
             ],
             treasures: [
@@ -565,7 +565,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: {isDisplayed: true, value: 1, color: "black", size: 16, yOffset: 15},
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: 15 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null

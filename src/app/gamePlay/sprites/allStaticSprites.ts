@@ -161,11 +161,11 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
             ],
             walls: [
                 {
-                    area: { x: 100, y: 600, width: 50, height: 10 },
+                    area: { x: 100, y: 550, width: 70, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
-                    moveProps: { velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 100 },
+                    moveProps: { startX: 100, startY: 150, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 450, drawLine: true, move: true },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 }
                 },
             ]
