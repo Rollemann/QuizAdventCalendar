@@ -1,5 +1,6 @@
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { currentLevel, inputsDisabled } from "./sprites/PlayerSprite";
+import { StaticSprite } from "./sprites/StaticSprite";
 import { InitializedSprites } from "./sprites/typesForSprites";
 
 let currentKey: string;
@@ -38,6 +39,16 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
             sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
                 if (treasure.toggleAnimation()) {
                     sprites.player.openTreasure();
+                }
+            });
+            sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
+                if (lever.toggleAnimation()) {
+                    sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
+                        trap.toggleMoveable();
+                    });
+                    sprites.levels[currentLevel].statics.walls.forEach((wall: StaticSprite) => {
+                        wall.toggleMoveable();
+                    });
                 }
             });
         }

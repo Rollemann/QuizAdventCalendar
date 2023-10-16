@@ -110,15 +110,16 @@ export class AnimationSprite {
             }
         }
 
-        if (this.moveProps && this.moveProps.move) {
-            const inXrange = this.position.x + this.moveProps.velocityX <= this.moveProps.startX + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.moveProps.startX;
-            this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
-            this.position.x = this.position.x + this.moveProps.velocityX;
+        if (this.moveProps) {
+            if (this.moveProps.move) {
+                const inXrange = this.position.x + this.moveProps.velocityX <= this.moveProps.startX + this.moveProps.rangeX && this.position.x + this.moveProps.velocityX >= this.moveProps.startX;
+                this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
+                this.position.x = this.position.x + this.moveProps.velocityX;
 
-            const inYrange = this.position.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.moveProps.startY;
-            this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
-            this.position.y = this.position.y + this.moveProps.velocityY;
-
+                const inYrange = this.position.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.moveProps.startY;
+                this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
+                this.position.y = this.position.y + this.moveProps.velocityY;
+            }
             if (this.moveProps.drawLine) {
                 this.ctx.strokeStyle = "black";
                 this.ctx.strokeRect(this.moveProps.startX + (this.imgWidth * this.scale) / 2, this.moveProps.startY + (this.imgHeight * this.scale) / 2, this.moveProps.rangeX, this.moveProps.rangeY);
@@ -146,10 +147,10 @@ export class AnimationSprite {
         }
     }
 
-    toggleMoveable(){
-        if(this.moveProps){
+    toggleMoveable() {
+        if (this.moveProps) {
             this.moveProps.move = !this.moveProps.move;
-            this.isStatic = ! this.isStatic;
+            this.toggleAnimation();
         }
     }
 

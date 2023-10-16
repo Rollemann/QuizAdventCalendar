@@ -429,7 +429,8 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
 
             ],
             traps: [],
-            treasures: []
+            treasures: [],
+            levers: []
         },
         {
             lights: [
@@ -570,6 +571,24 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
                 }
+            ],
+            levers: [
+                {
+                    position: { x: 100, y: 700 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/CandleSheet.png',
+                    scale: 0.5,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 100,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 5, y: 0 },
+                    moveProps: null
+                },
             ]
         }
     ]

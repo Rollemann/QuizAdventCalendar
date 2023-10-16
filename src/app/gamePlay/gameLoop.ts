@@ -22,7 +22,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
             wallAreas.push(wall.update());
         });
 
-        // update Animated
+        // update Animated independed of player position 
         sprites.levels[currentLevel].animated.lights.forEach((light: AnimationSprite) => {
             light.update();
         });
@@ -40,7 +40,11 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         });
 
         sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
-            treasure.updateInteractable(playerArea)
+            treasure.updateInteractable(playerArea);
+        });
+
+        sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
+            lever.updateInteractable(playerArea);
         });
 
         sprites.player.draw();
@@ -49,14 +53,14 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
             blackOutOpacity += 0.005;
             blackOutOpacity = blackOutOpacity < 1 ? blackOutOpacity : 1;
             ctx.globalAlpha = blackOutOpacity;
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalAlpha = 1.0;
         }
         else if (!blackOutLevel && blackOutOpacity > 0) {
             blackOutOpacity -= 0.01;
             blackOutOpacity = blackOutOpacity > 0 ? blackOutOpacity : 0;
             ctx.globalAlpha = blackOutOpacity;
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalAlpha = 1.0;
         }
     }

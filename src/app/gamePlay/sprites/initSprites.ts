@@ -36,8 +36,8 @@ function createStaticSprites(ctx: CanvasRenderingContext2D): StaticSprites[] {
     const allStaticProps: StaticTypesProps[] = allStaticSpritesProps(ctx);
     for (let i = 0; i < allStaticProps.length; ++i) {
         const currentStaticProps: StaticTypesProps = allStaticProps[i];
-        let grounds = createStaticSpriteType(currentStaticProps.grounds)
-        let walls = createStaticSpriteType(currentStaticProps.walls)
+        const grounds = createStaticSpriteType(currentStaticProps.grounds);
+        const walls = createStaticSpriteType(currentStaticProps.walls);
         levels.push({ grounds: grounds, walls: walls });
     }
     return levels;
@@ -49,12 +49,13 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
     const allAnimationProps: AnimationTypesProps[] = allAnimationSpritesProps(ctx);
     for (let i = 0; i < allAnimationProps.length; ++i) {
         const currentAnimationProps: AnimationTypesProps = allAnimationProps[i];
-        let lights = createAnimationSpriteType(currentAnimationProps.lights);
-        let doors = createAnimationSpriteType(currentAnimationProps.doors);
-        let items = createAnimationSpriteType(currentAnimationProps.items);
-        let traps = createAnimationSpriteType(currentAnimationProps.traps);
-        let treasures = createAnimationSpriteType(currentAnimationProps.treasures);
-        levels.push({ lights: lights, doors: doors, items: items, traps: traps, treasures: treasures })
+        const lights = createAnimationSpriteType(currentAnimationProps.lights);
+        const doors = createAnimationSpriteType(currentAnimationProps.doors);
+        const items = createAnimationSpriteType(currentAnimationProps.items);
+        const traps = createAnimationSpriteType(currentAnimationProps.traps);
+        const treasures = createAnimationSpriteType(currentAnimationProps.treasures);
+        const levers = createAnimationSpriteType(currentAnimationProps.levers); 
+        levels.push({ lights: lights, doors: doors, items: items, traps: traps, treasures: treasures, levers: levers });
     }
     return levels;
 }
@@ -62,7 +63,7 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
 function createAnimationSpriteType(properties: AnimationSpriteProps[]): AnimationSprite[] {
     let allObjects: AnimationSprite[] = [];
     properties.forEach((property: AnimationSpriteProps) => {
-        allObjects.push(new AnimationSprite(property))
+        allObjects.push(new AnimationSprite(property));
     });
     return allObjects;
 }
@@ -70,7 +71,7 @@ function createAnimationSpriteType(properties: AnimationSpriteProps[]): Animatio
 function createStaticSpriteType(properties: StaticSpriteProps[]): StaticSprite[] {
     let allObjects: StaticSprite[] = [];
     properties.forEach((property: StaticSpriteProps) => {
-        allObjects.push(new StaticSprite(property))
+        allObjects.push(new StaticSprite(property));
     });
     return allObjects;
 }

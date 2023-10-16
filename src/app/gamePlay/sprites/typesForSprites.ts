@@ -38,7 +38,8 @@ export type AnimationSprites = {
     doors: AnimationSprite[],
     items: AnimationSprite[],
     traps: AnimationSprite[],
-    treasures: AnimationSprite[]
+    treasures: AnimationSprite[],
+    levers: AnimationSprite[]
 };
 
 export type AnimationTypesProps = {
@@ -46,7 +47,8 @@ export type AnimationTypesProps = {
     doors: AnimationSpriteProps[],
     items: AnimationSpriteProps[],
     traps: AnimationSpriteProps[],
-    treasures: AnimationSpriteProps[]
+    treasures: AnimationSpriteProps[],
+    levers: AnimationSpriteProps[]
 }
 
 export type MoveProps = {

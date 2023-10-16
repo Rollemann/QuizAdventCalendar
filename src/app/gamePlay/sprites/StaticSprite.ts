@@ -67,6 +67,12 @@ export class StaticSprite {
         return this.hitBox;
     }
 
+    toggleMoveable(){
+        if(this.moveProps){
+            this.moveProps.move = !this.moveProps.move;
+        }
+    }
+
     updateHitBox() {
         this.hitBox = { x: this.area.x + this.hitBoxOffset.x, y: this.area.y + this.hitBoxOffset.y, width: this.area.width * this.scale + this.hitBoxOffset.width, height: this.area.height * this.scale + this.hitBoxOffset.height };
     }
