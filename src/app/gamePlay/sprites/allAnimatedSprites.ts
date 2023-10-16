@@ -430,7 +430,24 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             traps: [],
             treasures: [],
-            levers: []
+            levers: [
+                {
+                    position: { x: 100, y: 665 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/leversSprite.png',
+                    scale: 0.1,
+                    maxFrames: 2,
+                    maxAnimations: 1,
+                    frameRate: 100,
+                    animationFrames: [{ x: 1, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+            ]
         },
         {
             lights: [
@@ -574,19 +591,19 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             levers: [
                 {
-                    position: { x: 100, y: 700 },
+                    position: { x: 100, y: 665 },
                     ctx: ctx,
-                    imageSrc: './SpriteSheets/CandleSheet.png',
-                    scale: 0.5,
-                    maxFrames: 6,
+                    imageSrc: './SpriteSheets/leversSprite.png',
+                    scale: 0.1,
+                    maxFrames: 2,
                     maxAnimations: 1,
                     frameRate: 100,
-                    animationFrames: [{ x: 0, y: 0 }],
+                    animationFrames: [{ x: 1, y: 0 }],
                     repeatAnimation: false,
-                    startStatic: false,
+                    startStatic: true,
                     dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 5, y: 0 },
+                    staticFrame: { x: 0, y: 0 },
                     moveProps: null
                 },
             ]

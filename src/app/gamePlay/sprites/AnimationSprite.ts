@@ -119,13 +119,13 @@ export class AnimationSprite {
                 const inYrange = this.position.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.moveProps.startY;
                 this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
                 this.position.y = this.position.y + this.moveProps.velocityY;
+                this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
             }
             if (this.moveProps.drawLine) {
                 this.ctx.strokeStyle = "black";
                 this.ctx.strokeRect(this.moveProps.startX + (this.imgWidth * this.scale) / 2, this.moveProps.startY + (this.imgHeight * this.scale) / 2, this.moveProps.rangeX, this.moveProps.rangeY);
             }
 
-            this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
         }
 
         this.draw();
@@ -156,10 +156,13 @@ export class AnimationSprite {
 
     toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
-            if (this.dayNumber.value > 0) {
+            if (this.dayNumber.value >= 0) {
                 const date = new Date();
                 if (date.getDate() < this.dayNumber.value) {
                     return false;
+                }
+                if(!this.isStatic){
+                    return true;
                 }
             }
             this.isStatic = !this.isStatic;

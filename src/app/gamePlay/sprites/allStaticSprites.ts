@@ -178,7 +178,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
                     moveProps: null,
-                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 }
+                    hitBoxOffset: { x: 0, y: 5, width: 0, height: 0 }
                 },
                 {
                     area: { x: 270, y: 544, width: mainWidth, height: mainHeight },

@@ -49,26 +49,27 @@ export class StaticSprite {
 
     update(): SpriteArea {
         if (this.moveProps) {
-            const inXrange = this.area.x + this.moveProps.velocityX <= this.moveProps.startX + this.moveProps.rangeX && this.area.x + this.moveProps.velocityX >= this.moveProps.startX;
-            this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
-            this.area.x = this.area.x + this.moveProps.velocityX;
+            if (this.moveProps.move) {
+                const inXrange = this.area.x + this.moveProps.velocityX <= this.moveProps.startX + this.moveProps.rangeX && this.area.x + this.moveProps.velocityX >= this.moveProps.startX;
+                this.moveProps.velocityX = inXrange ? this.moveProps.velocityX : -this.moveProps.velocityX;
+                this.area.x = this.area.x + this.moveProps.velocityX;
 
-            const inYrange = this.area.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.area.y + this.moveProps.velocityY >= this.moveProps.startY;
-            this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
-            this.area.y = this.area.y + this.moveProps.velocityY;
-            this.updateHitBox();
-
+                const inYrange = this.area.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.area.y + this.moveProps.velocityY >= this.moveProps.startY;
+                this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
+                this.area.y = this.area.y + this.moveProps.velocityY;
+                this.updateHitBox();
+            }
             if (this.moveProps.drawLine) {
                 this.ctx.strokeStyle = "black";
-                this.ctx.strokeRect(this.moveProps.startX + this.area.width*this.scale / 2, this.moveProps.startY + this.area.height*this.scale / 2, this.moveProps.rangeX, this.moveProps.rangeY);
+                this.ctx.strokeRect(this.moveProps.startX + this.area.width * this.scale / 2, this.moveProps.startY + this.area.height * this.scale / 2, this.moveProps.rangeX, this.moveProps.rangeY);
             }
         }
         this.draw()
         return this.hitBox;
     }
 
-    toggleMoveable(){
-        if(this.moveProps){
+    toggleMoveable() {
+        if (this.moveProps) {
             this.moveProps.move = !this.moveProps.move;
         }
     }

@@ -46,7 +46,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
             lever.updateInteractable(playerArea);
         });
-
+        
         sprites.player.draw();
 
         if (blackOutLevel && blackOutOpacity <= 1) {

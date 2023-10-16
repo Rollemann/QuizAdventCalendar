@@ -16,7 +16,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 1;
+export let currentLevel: number = 0;
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
@@ -442,7 +442,7 @@ export class PlayerSprite {
         const topCollIndex = collisionCheck(topHitBox, solidAreas.wallAreas);
         if (topCollIndex >= 0) {
             this.position.y = solidAreas.wallAreas[topCollIndex].y + solidAreas.wallAreas[topCollIndex].height - this.hitBoxOffset.y;
-            this.velocity.y = 0;
+            this.velocity.y = 1; // cant be 0 because of animation fails
             this.updateHitBox();
         }
 
