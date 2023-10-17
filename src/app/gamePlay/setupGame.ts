@@ -1,4 +1,4 @@
-import { initSprites } from './sprites/initSprites';
+import { initSprites } from './initSprites';
 import { canvas } from '../page';
 import { initInputEvents } from './userInputs';
 

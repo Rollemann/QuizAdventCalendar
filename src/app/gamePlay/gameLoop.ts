@@ -46,6 +46,10 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
             lever.updateLever(playerArea);
         });
+
+        sprites.levels[currentLevel].animated.items.forEach((item: AnimationSprite) => {
+            item.updateLever(playerArea);
+        });
         
         sprites.player.draw();
 

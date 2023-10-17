@@ -1,9 +1,9 @@
-import { AnimationSprite, AnimationSpriteProps } from "./AnimationSprite";
-import { PlayerSprite } from "./PlayerSprite";
-import { StaticSprite, StaticSpriteProps } from "./StaticSprite";
-import { allAnimationSpritesProps } from "./allAnimatedSprites";
-import { allStaticSpritesProps } from "./allStaticSprites";
-import { AnimationSprites, AnimationTypesProps, InitializedSprites, StaticSprites, StaticTypesProps, nonePlayerSprites } from "./typesForSprites";
+import { AnimationSprite, AnimationSpriteProps } from "./sprites/AnimationSprite";
+import { PlayerSprite } from "./sprites/PlayerSprite";
+import { StaticSprite, StaticSpriteProps } from "./sprites/StaticSprite";
+import { allAnimationSpritesProps } from "./sprites/allAnimatedSprites";
+import { allStaticSpritesProps } from "./sprites/allStaticSprites";
+import { AnimationSprites, AnimationTypesProps, InitializedSprites, StaticSprites, StaticTypesProps, nonePlayerSprites } from "./sprites/typesForSprites";
 
 
 export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
