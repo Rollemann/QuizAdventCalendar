@@ -32,19 +32,19 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         // update Animated and depending on player position
         sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
-            door.updateInteractable(playerArea);
+            door.updateDoor(playerArea);
         });
 
         sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
-            trap.updateKillable(playerArea, sprites.player);
+            trap.updateTrap(playerArea, sprites.player);
         });
 
         sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
-            treasure.updateInteractable(playerArea);
+            treasure.updateTreasure(playerArea);
         });
 
         sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
-            lever.updateInteractable(playerArea);
+            lever.updateLever(playerArea);
         });
         
         sprites.player.draw();

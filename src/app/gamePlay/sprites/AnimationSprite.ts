@@ -131,19 +131,41 @@ export class AnimationSprite {
         this.draw();
     }
 
-    updateInteractable(playerArea: SpriteArea) {
+    updateDoor(playerArea: SpriteArea) {
         this.update();
         this.interactable = false;
-        if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
-            this.showEButton();
+        const date = new Date();
+        if (date.getDate() >= this.dayNumber.value && collisionCheck(playerArea, [this.hitBox]) >= 0) {
             this.interactable = true;
+            this.showEButton();
         }
     }
 
-    updateKillable(playerArea: SpriteArea, player: PlayerSprite) {
+    updateTreasure(playerArea: SpriteArea) {
         this.update();
+        this.interactable = false;
+        if (this.isStatic && collisionCheck(playerArea, [this.hitBox]) >= 0) {
+            this.interactable = true;
+            this.showEButton();
+        }
+    }
+
+    updateTrap(playerArea: SpriteArea, player: PlayerSprite) {
+        this.update();
+        if (this.moveProps && !this.moveProps.move) {
+            return;
+        }
         if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
             player.die();
+        }
+    }
+
+    updateLever(playerArea: SpriteArea) {
+        this.update();
+        this.interactable = false;
+        if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
+            this.interactable = true;
+            this.showEButton();
         }
     }
 
@@ -157,11 +179,7 @@ export class AnimationSprite {
     toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
             if (this.dayNumber.value >= 0) {
-                const date = new Date();
-                if (date.getDate() < this.dayNumber.value) {
-                    return false;
-                }
-                if(!this.isStatic){
+                if (!this.isStatic) {
                     return true;
                 }
             }
