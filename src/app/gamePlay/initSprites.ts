@@ -51,11 +51,11 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
         const currentAnimationProps: AnimationTypesProps = allAnimationProps[i];
         const lights = createAnimationSpriteType(currentAnimationProps.lights);
         const doors = createAnimationSpriteType(currentAnimationProps.doors);
-        const items = createAnimationSpriteType(currentAnimationProps.items);
+        const keys = createAnimationSpriteType(currentAnimationProps.keys);
         const traps = createAnimationSpriteType(currentAnimationProps.traps);
         const treasures = createAnimationSpriteType(currentAnimationProps.treasures);
         const levers = createAnimationSpriteType(currentAnimationProps.levers); 
-        levels.push({ lights: lights, doors: doors, items: items, traps: traps, treasures: treasures, levers: levers });
+        levels.push({ lights: lights, doors: doors, keys: keys, traps: traps, treasures: treasures, levers: levers });
     }
     return levels;
 }

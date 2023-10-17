@@ -425,7 +425,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 }
             ],
-            items: [
+            keys: [
                 {
                     position: { x: 100, y: 400 },
                     ctx: ctx,
@@ -517,7 +517,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 }
             ],
-            items: [
+            keys: [
 
             ],
             traps: [

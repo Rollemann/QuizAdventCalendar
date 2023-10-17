@@ -36,7 +36,7 @@ export type StaticTypesProps = {
 export type AnimationSprites = {
     lights: AnimationSprite[],
     doors: AnimationSprite[],
-    items: AnimationSprite[],
+    keys: AnimationSprite[],
     traps: AnimationSprite[],
     treasures: AnimationSprite[],
     levers: AnimationSprite[]
@@ -45,7 +45,7 @@ export type AnimationSprites = {
 export type AnimationTypesProps = {
     lights: AnimationSpriteProps[],
     doors: AnimationSpriteProps[],
-    items: AnimationSpriteProps[],
+    keys: AnimationSpriteProps[],
     traps: AnimationSpriteProps[],
     treasures: AnimationSpriteProps[],
     levers: AnimationSpriteProps[]
