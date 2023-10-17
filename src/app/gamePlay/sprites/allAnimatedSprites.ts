@@ -426,22 +426,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                 }
             ],
             keys: [
-                {
-                    position: { x: 100, y: 400 },
-                    ctx: ctx,
-                    imageSrc: './SpriteSheets/keySprite.png',
-                    scale: 0.05,
-                    maxFrames: 10,
-                    maxAnimations: 1,
-                    frameRate: 5,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 },{ x: 5, y: 0 },{ x: 6, y: 0 },{ x: 7, y: 0 },{ x: 8, y: 0 },{ x: 9, y: 0 }],
-                    repeatAnimation: true,
-                    startStatic: false,
-                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
-                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 100, startY: 400, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine:false, move: true}
-                },
+                
             ],
             traps: [],
             treasures: [],
@@ -518,7 +503,22 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                 }
             ],
             keys: [
-
+                {
+                    position: { x: 270, y: 500 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 },{ x: 5, y: 0 },{ x: 6, y: 0 },{ x: 7, y: 0 },{ x: 8, y: 0 },{ x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 100, startY: 400, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine:false, move: true}
+                }
             ],
             traps: [
                 {

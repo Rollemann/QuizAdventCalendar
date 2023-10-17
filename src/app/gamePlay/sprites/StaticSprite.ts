@@ -68,7 +68,7 @@ export class StaticSprite {
         return this.hitBox;
     }
 
-    toggleMoveable() {
+    toggleMovement() {
         if (this.moveProps) {
             this.moveProps.move = !this.moveProps.move;
         }

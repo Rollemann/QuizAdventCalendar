@@ -32,22 +32,22 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
         }
         if (pressedKey.toLowerCase() == 'e') {
             sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
-                if (door.toggleAnimation()) {
+                if (door.toggleDoor()) {
                     sprites.player.enterDoor(door.dayNumber.value);
                 }
             });
             sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
-                if (treasure.toggleAnimation()) {
+                if (treasure.toggleTreasure()) {
                     sprites.player.openTreasure();
                 }
             });
             sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
                 if (lever.toggleAnimation()) {
                     sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
-                        trap.toggleMoveable();
+                        trap.toggleMovement();
                     });
                     sprites.levels[currentLevel].statics.walls.forEach((wall: StaticSprite) => {
-                        wall.toggleMoveable();
+                        wall.toggleMovement();
                     });
                 }
             });

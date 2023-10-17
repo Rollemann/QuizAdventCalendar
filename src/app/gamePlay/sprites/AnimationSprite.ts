@@ -180,20 +180,31 @@ export class AnimationSprite {
         }
     }
 
-    toggleMoveable() {
+    toggleMovement() {
         if (this.moveProps) {
             this.moveProps.move = !this.moveProps.move;
             this.toggleAnimation();
         }
     }
 
+    toggleDoor(): boolean {
+        if (!this.isStatic) {
+            this.dayNumber.isDisplayed = false;
+            return true;
+        }
+        return this.toggleAnimation();
+    }
+
+    toggleTreasure(): boolean {
+        if (keysCollected[this.dayNumber.value]) {
+            this.dayNumber.isDisplayed = false;
+            return this.toggleAnimation();
+        }
+        return false;
+    }
+
     toggleAnimation(): boolean {
         if (this.staticFrame && this.interactable) {
-            if (this.dayNumber.value >= 0) {
-                if (!this.isStatic) {
-                    return true;
-                }
-            }
             this.isStatic = !this.isStatic;
             this.currentFrame = 0;
             if (this.isStatic) {
@@ -227,7 +238,7 @@ export class AnimationSprite {
     }
 
     drawDayNumber() {
-        if (this.dayNumber.isDisplayed && this.isStatic) {
+        if (this.dayNumber.isDisplayed) {
             const text = this.dayNumber.value == 0 ? 'Main' : this.dayNumber.value.toString();
             this.ctx.font = `${this.dayNumber.size}px Retro Gaming`;
             this.ctx.fillStyle = this.dayNumber.color;
