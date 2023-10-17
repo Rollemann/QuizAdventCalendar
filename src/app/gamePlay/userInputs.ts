@@ -52,6 +52,9 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
                 }
             });
             sprites.levels[currentLevel].animated.keys.forEach((key: AnimationSprite) => {
+                if (key.toggleAnimation()) {
+                    key.collectKey();
+                }
             });
         }
     }

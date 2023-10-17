@@ -48,7 +48,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         });
 
         sprites.levels[currentLevel].animated.keys.forEach((key: AnimationSprite) => {
-            key.updateLever(playerArea);
+            key.updateKey(playerArea);
         });
         
         sprites.player.draw();

@@ -27,7 +27,7 @@ export type AnimationSpriteProps = {
     moveProps: MoveProps | null;
 }
 
-
+let keysCollected: boolean[] = [];
 
 export class AnimationSprite {
     position: Point;
@@ -169,6 +169,17 @@ export class AnimationSprite {
         }
     }
 
+    updateKey(playerArea: SpriteArea) {
+        if (!keysCollected[this.dayNumber.value]) {
+            this.update();
+            this.interactable = false;
+            if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
+                this.interactable = true;
+                this.showEButton();
+            }
+        }
+    }
+
     toggleMoveable() {
         if (this.moveProps) {
             this.moveProps.move = !this.moveProps.move;
@@ -194,6 +205,10 @@ export class AnimationSprite {
             return true;
         }
         return false;
+    }
+
+    collectKey() {
+        keysCollected[this.dayNumber.value] = true;
     }
 
     showEButton() {
