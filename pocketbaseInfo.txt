@@ -1,3 +1,25 @@
 Run: ./pocketbase serve
 
 API Rules später anpassen, weil alles public ist. 
+
+
+- Chat: 
+    - Socket Anbindung für Real Time Datentransfer zwischen online usern. Optional autorefresh alle 2 Sekunden oder so.
+    - DB: Nachrichten, Benutzer, Timestamp(für richtige Reihenfolge),
+    - Wenn Nachricht geschrieben wurde in DB schreiben.
+    - Nur eine bestimmte Anzahl oder alle Nachrichten anzeigen?
+
+- Ranking:
+    - Rank, Name der Person, øZeit, Anzahl absolvierter Level; Sort by absolvierteLevel, øZeit
+
+- Rewards:
+    - Hardcoden was man mit welcher Platzierung gewinnen kann.
+    - Platzierung vom spieler markieren (wenn möglich)
+
+- Rules: Hardcoden mit bildern und alles. Da ändert sich nichts. schwör
+
+
+- Player: 
+    Username, ID, Liste mit allen abolvierten leveln mit Zeit (Object dayNumber:time);
+    Wenn zeit 00:00/null ist, dann noch nicht absolviert.
+    
