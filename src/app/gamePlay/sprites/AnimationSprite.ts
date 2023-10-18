@@ -131,7 +131,7 @@ export class AnimationSprite {
         this.draw();
     }
 
-    updateDoor(playerArea: SpriteArea) {
+    updateDoor(playerArea: SpriteArea, time: string | null) {
         this.update();
         this.interactable = false;
         const date = new Date();
@@ -139,14 +139,25 @@ export class AnimationSprite {
             this.interactable = true;
             this.showEButton();
         }
+        if (time) {
+            this.drawTime(time);
+        }
     }
 
-    updateTreasure(playerArea: SpriteArea) {
+    updateTreasure(playerArea: SpriteArea, time: string | null) {
         this.update();
         this.interactable = false;
         if (this.isStatic && collisionCheck(playerArea, [this.hitBox]) >= 0) {
             this.interactable = true;
             this.showEButton();
+        }
+        if (time && !keysCollected[this.dayNumber.value]) {
+            console.log("hi");
+
+            keysCollected[this.dayNumber.value] = true;
+            this.interactable = true;
+            this.frameRate = 1;
+            this.toggleTreasure();
         }
     }
 
@@ -188,17 +199,22 @@ export class AnimationSprite {
     }
 
     toggleDoor(): boolean {
-        if (!this.isStatic) {
-            this.dayNumber.isDisplayed = false;
-            return true;
+        if (this.interactable) {
+            if (!this.isStatic) {
+                this.dayNumber.isDisplayed = false;
+                return true;
+            }
+            return this.toggleAnimation();
         }
-        return this.toggleAnimation();
+        return false;
     }
 
     toggleTreasure(): boolean {
-        if (keysCollected[this.dayNumber.value]) {
-            this.dayNumber.isDisplayed = false;
-            return this.toggleAnimation();
+        if (this.interactable) {
+            if (keysCollected[this.dayNumber.value]) {
+                this.dayNumber.isDisplayed = false;
+                return this.toggleAnimation();
+            }
         }
         return false;
     }
@@ -246,5 +262,13 @@ export class AnimationSprite {
             const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
             this.ctx.fillText(text, posX, this.position.y + (this.dayNumber.yOffset * this.scale));
         }
+    }
+
+    drawTime(time: string) {
+        this.ctx.font = "16px Retro Gaming";
+        this.ctx.fillStyle = "black";
+        const numberW = this.ctx.measureText(time).width;
+        const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
+        this.ctx.fillText(time, posX, this.position.y - 1);
     }
 }

@@ -9,14 +9,19 @@ export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    canvas = canvasRef.current;
-    if (canvas) {
-      let setupResult = setup();
-      if (setupResult) {
-        let { ctx, sprites } = setupResult;
-        gameLoop(ctx, sprites);
-      }
-    }
+    fetch("http://localhost:8090/api/collections/player/records?filter=(id='dc0gs99jxiop3sa')", { cache: 'no-cache' })
+      .then((res) => res.json())
+      .then((data) => {
+        const playerInfos = data.items[0];        
+        canvas = canvasRef.current;
+        if (canvas) {
+          let setupResult = setup();
+          if (setupResult) {
+            let { ctx, sprites } = setupResult;
+            gameLoop(ctx, sprites, playerInfos);
+          }
+        }
+      })
   }, [])
 
 
