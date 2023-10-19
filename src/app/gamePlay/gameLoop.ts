@@ -1,4 +1,5 @@
 import { canvas } from "../page";
+import { levelTimer } from "./levelTimer";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { blackOutLevel, currentLevel } from "./sprites/PlayerSprite";
 import { StaticSprite } from "./sprites/StaticSprite";
@@ -6,14 +7,14 @@ import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
 
 let blackOutOpacity = 0;
 
-export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites, playerInfo: {Name: string, RoomTimes: any}) {
+export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites, playerInfo: { Name: string, RoomTimes: any }) {
     if (canvas) {
         window.requestAnimationFrame(() => gameLoop(ctx, sprites, playerInfo));
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
-        
+
         // update Statics
         sprites.levels[currentLevel].statics.grounds.forEach((ground: StaticSprite) => {
             groundAreas.push(ground.update());
@@ -50,8 +51,19 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         sprites.levels[currentLevel].animated.keys.forEach((key: AnimationSprite) => {
             key.updateKey(playerArea);
         });
-        
+
         sprites.player.draw();
+
+        if (levelTimer.isReady) {
+            const text = "Move to start the timer."
+            ctx.font = "60px Retro Gaming";
+            const numberW = ctx.measureText(text).width;
+            const posX =  canvas.width / 2 - numberW / 2;
+            ctx.fillStyle = "gray";
+            ctx.fillRect(posX, canvas.height/2-55, numberW, 60 );
+            ctx.fillStyle = "black";
+            ctx.fillText(text, posX, canvas.height/2);
+        }
 
         if (blackOutLevel && blackOutOpacity <= 1) {
             blackOutOpacity += 0.005;

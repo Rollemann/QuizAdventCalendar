@@ -1,5 +1,6 @@
 import { Point, SpriteArea } from "./typesForSprites";
 import { collisionCheck } from "../collisionCheck";
+import { levelTimer } from "../levelTimer";
 
 type PlayerSpriteProps = {
     position: Point | null,
@@ -392,6 +393,7 @@ export class PlayerSprite {
             currentLevel = this.nextLevel;
             this.position.x = this.startPos.x;
             this.position.y = this.startPos.y;
+            levelTimer.getReady();
             this.setIdleAnim();
         };
         this.setEnterDoorAnim();

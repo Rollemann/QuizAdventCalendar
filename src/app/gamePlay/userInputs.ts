@@ -1,3 +1,4 @@
+import { levelTimer } from "./levelTimer";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { currentLevel, inputsDisabled } from "./sprites/PlayerSprite";
 import { StaticSprite } from "./sprites/StaticSprite";
