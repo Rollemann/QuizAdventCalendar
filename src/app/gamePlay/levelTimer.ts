@@ -1,5 +1,5 @@
 class levelTimerClass {
-    currentLevel: number = 0;
+    currentLevel: number = 0; // TODO weiss nicht ob ich das brauche
     startTime: Date = new Date();    
     endTime: Date = new Date();
     isRunning: boolean = false;
@@ -15,15 +15,16 @@ class levelTimerClass {
 
     endTimer(){
         this.endTime = new Date();
-        this.isRunning = false;
+        this.isRunning = false;        
     }
 
-    getMillisecondsPast(): number{
-        return (this.endTime.getTime() - this.startTime.getTime())
+    getMillisecondsPastFromStart(): number{
+        const currentTime = new Date(); 
+        return (currentTime.getTime() - this.startTime.getTime())
     }
 
-    getTimeString(): string{
-        return (new Date(this.getMillisecondsPast()).toISOString().slice(14, 19));
+    getTimeString(): string{        
+        return (new Date(this.getMillisecondsPastFromStart()).toISOString().slice(14, 19));
     }
 
     getReady(){

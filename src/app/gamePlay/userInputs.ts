@@ -18,22 +18,28 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
         if (pressedKey == 'a' || pressedKey == 'arrowleft') {
             sprites.player.walkLeft();
             currentKey = pressedKey;
+            startLevelTimer();
         }
         if (pressedKey == 'd' || pressedKey == 'arrowright') {
             sprites.player.walkRight();
             currentKey = pressedKey;
+            startLevelTimer();
         }
         if (pressedKey == 'w' || pressedKey == ' ' || pressedKey == 'arrowup') {
             sprites.player.jump();
+            startLevelTimer();
         }
+
         if (pressedKey.toLowerCase() == 'f') {
+            levelTimer.endTimer();
             sprites.levels[currentLevel].animated.lights.forEach((light: AnimationSprite) => {
                 light.toggleAnimation();
             });
         }
+
         if (pressedKey.toLowerCase() == 'e') {
             sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
-                if (door.toggleDoor()) {
+                if (door.toggleDoor(currentLevel)) {
                     sprites.player.enterDoor(door.dayNumber.value);
                 }
             });
@@ -65,5 +71,11 @@ function keyupHandler(e: KeyboardEvent, sprites: any) {
     const pressedKey = e.key.toLowerCase();
     if (pressedKey == currentKey) {
         sprites.player.stop();
+    }
+}
+
+function startLevelTimer() {
+    if (levelTimer.isReady) {
+        levelTimer.startTimer();
     }
 }

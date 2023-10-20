@@ -54,30 +54,52 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         sprites.player.draw();
 
-        if (levelTimer.isReady) {
-            const text = "Move to start the timer."
-            ctx.font = "60px Retro Gaming";
-            const numberW = ctx.measureText(text).width;
-            const posX =  canvas.width / 2 - numberW / 2;
-            ctx.fillStyle = "gray";
-            ctx.fillRect(posX, canvas.height/2-55, numberW, 60 );
-            ctx.fillStyle = "black";
-            ctx.fillText(text, posX, canvas.height/2);
-        }
 
-        if (blackOutLevel && blackOutOpacity <= 1) {
-            blackOutOpacity += 0.005;
-            blackOutOpacity = blackOutOpacity < 1 ? blackOutOpacity : 1;
-            ctx.globalAlpha = blackOutOpacity;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = 1.0;
-        }
-        else if (!blackOutLevel && blackOutOpacity > 0) {
-            blackOutOpacity -= 0.01;
-            blackOutOpacity = blackOutOpacity > 0 ? blackOutOpacity : 0;
-            ctx.globalAlpha = blackOutOpacity;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = 1.0;
-        }
+        drawLevelTimerReadyInfo(ctx);
+        drawLevelTimerTime(ctx);
+        drawLevelBlackout(ctx);
+    }
+}
+
+function drawLevelTimerReadyInfo(ctx: CanvasRenderingContext2D) {
+    if (levelTimer.isReady) {
+        const text = "Move to start the timer.";
+        ctx.font = "60px Retro Gaming";
+        const numberW = ctx.measureText(text).width;
+        const posX = ctx.canvas.width / 2 - numberW / 2;
+        ctx.fillStyle = "gray";
+        ctx.fillRect(posX, ctx.canvas.height / 2 - 55, numberW, 60);
+        ctx.fillStyle = "black";
+        ctx.fillText(text, posX, ctx.canvas.height / 2);
+    }
+}
+
+function drawLevelTimerTime(ctx: CanvasRenderingContext2D){
+    if (levelTimer.isReady || levelTimer.isRunning) {
+        const timeText = levelTimer.isRunning? levelTimer.getTimeString() : "00:00";
+        ctx.font = "32px Retro Gaming";
+        const timeW = ctx.measureText(timeText).width;
+        const posX = ctx.canvas.width / 2 - timeW / 2;
+        ctx.fillStyle = "gray";
+        ctx.fillRect(ctx.canvas.width/2 - 55, 2, 112, 40);
+        ctx.fillStyle = "black";
+        ctx.fillText(timeText, posX, 34);
+    }
+}
+
+function drawLevelBlackout(ctx: CanvasRenderingContext2D) {
+    if (blackOutLevel && blackOutOpacity <= 1) {
+        blackOutOpacity += 0.005;
+        blackOutOpacity = blackOutOpacity < 1 ? blackOutOpacity : 1;
+        ctx.globalAlpha = blackOutOpacity;
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.globalAlpha = 1.0;
+    }
+    else if (!blackOutLevel && blackOutOpacity > 0) {
+        blackOutOpacity -= 0.01;
+        blackOutOpacity = blackOutOpacity > 0 ? blackOutOpacity : 0;
+        ctx.globalAlpha = blackOutOpacity;
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.globalAlpha = 1.0;
     }
 }

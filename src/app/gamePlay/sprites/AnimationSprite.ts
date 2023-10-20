@@ -144,16 +144,14 @@ export class AnimationSprite {
         }
     }
 
-    updateTreasure(playerArea: SpriteArea, time: string | null) {
+    updateTreasure(playerArea: SpriteArea, dbTime: string | null) {
         this.update();
         this.interactable = false;
         if (this.isStatic && collisionCheck(playerArea, [this.hitBox]) >= 0) {
             this.interactable = true;
             this.showEButton();
         }
-        if (time && !keysCollected[this.dayNumber.value]) {
-            console.log("hi");
-
+        if (dbTime && !keysCollected[this.dayNumber.value]) {
             keysCollected[this.dayNumber.value] = true;
             this.interactable = true;
             this.frameRate = 1;
@@ -198,8 +196,9 @@ export class AnimationSprite {
         }
     }
 
-    toggleDoor(): boolean {
-        if (this.interactable) {
+    toggleDoor(currentLevel: number): boolean {
+        const levelDoorCanBeOpened = currentLevel == 0 || keysCollected[currentLevel]
+        if (this.interactable && levelDoorCanBeOpened) {
             if (!this.isStatic) {
                 this.dayNumber.isDisplayed = false;
                 return true;

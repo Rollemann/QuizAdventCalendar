@@ -9,7 +9,8 @@ export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8090/api/collections/player/records?filter=(id='dc0gs99jxiop3sa')", { cache: 'no-cache' })
+    const userID = "f4tcj9ht56f842v" // "dc0gs99jxiop3sa"
+    fetch("http://localhost:8090/api/collections/player/records?filter=(id='f4tcj9ht56f842v')", { cache: 'no-cache' })
       .then((res) => res.json())
       .then((data) => {
         const playerInfos = data.items[0];        

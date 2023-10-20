@@ -377,8 +377,6 @@ export class PlayerSprite {
     }
 
     enterDoor(doorNumber: number) {
-        console.log(doorNumber);
-        
         this.velocity.x = 0;
         this.velocity.y = 0;
         inputsDisabled = true;
@@ -393,8 +391,8 @@ export class PlayerSprite {
             currentLevel = this.nextLevel;
             this.position.x = this.startPos.x;
             this.position.y = this.startPos.y;
-            levelTimer.getReady();
             this.setIdleAnim();
+            doorNumber > 0? levelTimer.getReady() : levelTimer.endTimer();
         };
         this.setEnterDoorAnim();
     }
