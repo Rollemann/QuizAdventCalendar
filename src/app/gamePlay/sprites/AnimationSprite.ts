@@ -211,6 +211,7 @@ export class AnimationSprite {
     toggleTreasure(): boolean {
         if (this.interactable) {
             if (keysCollected[this.dayNumber.value]) {
+                //TODO: hier muss die Tür freigegeben werden, weil man sonst die Tür nur mit dem Schlüssel öffnen kann.
                 this.dayNumber.isDisplayed = false;
                 return this.toggleAnimation();
             }
