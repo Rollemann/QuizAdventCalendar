@@ -44,7 +44,7 @@ export class StaticSprite {
             this.area.height * this.scale
         )
         this.ctx.strokeStyle = "green";
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
     }
 
     update(): SpriteArea {
