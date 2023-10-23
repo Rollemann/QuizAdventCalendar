@@ -31,7 +31,6 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
         }
 
         if (pressedKey.toLowerCase() == 'f') {
-            levelTimer.endTimer();
             sprites.levels[currentLevel].animated.lights.forEach((light: AnimationSprite) => {
                 light.toggleAnimation();
             });
