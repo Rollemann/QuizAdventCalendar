@@ -37,7 +37,7 @@ export class StaticSprite {
             0,
             0,
             this.area.width,
-            this.image.height,
+            this.area.height, // TODO: this.image.height für carpet
             this.area.x,
             this.area.y,
             this.area.width * this.scale,
@@ -45,6 +45,16 @@ export class StaticSprite {
         )
         this.ctx.strokeStyle = "green";
         //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        this.ctx.strokeRect(100, 0, 100,720);
+        this.ctx.strokeRect(300, 0, 100,720);
+        this.ctx.strokeRect(500, 0, 100,720);
+        this.ctx.strokeRect(700, 0, 100,720);
+        this.ctx.strokeRect(900, 0, 100,720);
+        this.ctx.strokeRect(1100, 0, 100,720);
+        this.ctx.strokeRect(0, 100, 1280,100);
+        this.ctx.strokeRect(0, 300, 1280,100);
+        this.ctx.strokeRect(0, 500, 1280,100);
+        this.ctx.strokeRect(0, 700, 1280,100);
     }
 
     update(): SpriteArea {
