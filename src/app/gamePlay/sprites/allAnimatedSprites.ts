@@ -3,7 +3,7 @@ import { AnimationTypesProps } from "./typesForSprites";
 
 export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): AnimationTypesProps[] {
     return [
-        {
+/*0*/   {
             lights: [
                 {
                     position: { x: 100, y: 100 },
@@ -426,7 +426,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                 }
             ],
             keys: [
-                
+
             ],
             traps: [],
             treasures: [],
@@ -449,7 +449,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                 },
             ]
         },
-        {
+/*1*/   {
             lights: [
                 {
                     position: { x: 100, y: 100 },
@@ -511,13 +511,13 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     maxFrames: 10,
                     maxAnimations: 1,
                     frameRate: 5,
-                    animationFrames: [{ x: 0, y: 0 },{ x: 1, y: 0 },{ x: 2, y: 0 },{ x: 3, y: 0 },{ x: 4, y: 0 },{ x: 5, y: 0 },{ x: 6, y: 0 },{ x: 7, y: 0 },{ x: 8, y: 0 },{ x: 9, y: 0 }],
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
                     dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 100, startY: 400, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine:false, move: true}
+                    moveProps: { startX: 100, startY: 400, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
                 }
             ],
             traps: [
@@ -595,7 +595,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     maxFrames: 12,
                     maxAnimations: 1,
                     frameRate: 14,
-                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 },{ x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 },{ x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 },{ x: 10, y: 0 }, { x: 11, y: 0 } ],
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
                     dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: 25 },
@@ -622,6 +622,190 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 },
             ]
+        },
+/*2*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*3*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*4*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*5*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*6*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*7*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*8*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*9*/   {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*10*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*11*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*12*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*13*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*14*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*15*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*16*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*17*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*18*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*19*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*20*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*21*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*22*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*23*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
+        },
+/*24*/  {
+            lights: [],
+            doors: [],
+            keys: [],
+            levers: [],
+            traps: [],
+            treasures: []
         }
     ]
 }
