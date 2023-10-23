@@ -4,7 +4,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
     const mainWidth = 90;
     const mainHeight = 10;
     return [
-        {
+/*0*/   {
             grounds: [
                 {
                     area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
@@ -170,7 +170,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                 },
             ]
         },
-        {
+/*1*/   {
             grounds: [
                 {
                     area: { x: 0, y: 710, width: ctx.canvas.width, height: 10 },
@@ -192,6 +192,98 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
             walls: [
 
             ]
+        },
+/*2*/   {
+            grounds: [],
+            walls: []
+        },
+/*3*/   {
+            grounds: [],
+            walls: []
+        },
+/*4*/   {
+            grounds: [],
+            walls: []
+        },
+/*5*/   {
+            grounds: [],
+            walls: []
+        },
+/*6*/   {
+            grounds: [],
+            walls: []
+        },
+/*7*/   {
+            grounds: [],
+            walls: []
+        },
+/*8*/   {
+            grounds: [],
+            walls: []
+        },
+/*9*/   {
+            grounds: [],
+            walls: []
+        },
+/*10*/  {
+            grounds: [],
+            walls: []
+        },
+/*11*/  {
+            grounds: [],
+            walls: []
+        },
+/*12*/  {
+            grounds: [],
+            walls: []
+        },
+/*13*/  {
+            grounds: [],
+            walls: []
+        },
+/*14*/  {
+            grounds: [],
+            walls: []
+        },
+/*15*/  {
+            grounds: [],
+            walls: []
+        },
+/*16*/  {
+            grounds: [],
+            walls: []
+        },
+/*17*/  {
+            grounds: [],
+            walls: []
+        },
+/*18*/  {
+            grounds: [],
+            walls: []
+        },
+/*19*/  {
+            grounds: [],
+            walls: []
+        },
+/*20*/  {
+            grounds: [],
+            walls: []
+        },
+/*21*/  {
+            grounds: [],
+            walls: []
+        },
+/*22*/  {
+            grounds: [],
+            walls: []
+        },
+/*23*/  {
+            grounds: [],
+            walls: []
+        },
+/*24*/  {
+            grounds: [],
+            walls: []
         }
     ]
 }
