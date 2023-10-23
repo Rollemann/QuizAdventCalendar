@@ -6,7 +6,8 @@ export type StaticSpriteProps = {
     imageSrc: string,
     scale: number,
     moveProps: MoveProps | null,
-    hitBoxOffset: SpriteArea
+    hitBoxOffset: SpriteArea,
+    imageWholeSize: {w:boolean, h: boolean}
 }
 
 export class StaticSprite {
@@ -18,6 +19,7 @@ export class StaticSprite {
     moveProps: MoveProps | null;
     hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
     hitBoxOffset: SpriteArea;
+    imageWholeSize: {w:boolean, h: boolean};
 
 
     constructor(spriteProps: StaticSpriteProps) {
@@ -27,6 +29,7 @@ export class StaticSprite {
         this.scale = spriteProps.scale;
         this.moveProps = spriteProps.moveProps;
         this.hitBoxOffset = spriteProps.hitBoxOffset;
+        this.imageWholeSize = spriteProps.imageWholeSize;
 
         this.updateHitBox();
     };
@@ -36,8 +39,8 @@ export class StaticSprite {
             this.image,
             0,
             0,
-            this.area.width,
-            this.area.height, // TODO: this.image.height für carpet
+            (this.imageWholeSize.w? this.image.width: this.area.width),
+            (this.imageWholeSize.h? this.image.height: this.area.height),
             this.area.x,
             this.area.y,
             this.area.width * this.scale,
