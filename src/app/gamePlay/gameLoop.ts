@@ -91,6 +91,7 @@ function drawLevelBlackout(ctx: CanvasRenderingContext2D) {
     if (blackOutLevel && blackOutOpacity <= 1) {
         blackOutOpacity += 0.005;
         blackOutOpacity = blackOutOpacity < 1 ? blackOutOpacity : 1;
+        ctx.fillStyle = "black";
         ctx.globalAlpha = blackOutOpacity;
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.globalAlpha = 1.0;
@@ -98,6 +99,7 @@ function drawLevelBlackout(ctx: CanvasRenderingContext2D) {
     else if (!blackOutLevel && blackOutOpacity > 0) {
         blackOutOpacity -= 0.01;
         blackOutOpacity = blackOutOpacity > 0 ? blackOutOpacity : 0;
+        ctx.fillStyle = "black";
         ctx.globalAlpha = blackOutOpacity;
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.globalAlpha = 1.0;

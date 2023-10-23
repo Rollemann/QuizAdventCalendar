@@ -27,7 +27,8 @@ export type AnimationSpriteProps = {
     moveProps: MoveProps | null;
 }
 
-let keysCollected: boolean[] = [];
+let keysCollected: boolean[] = [true]; // level 0 is Main and there is no key
+let doorCanBeOpened: boolean[] = [true]; // all doors of level 0 can be opened
 
 export class AnimationSprite {
     position: Point;
@@ -131,7 +132,7 @@ export class AnimationSprite {
         this.draw();
     }
 
-    updateDoor(playerArea: SpriteArea, time: string | null) {
+    updateDoor(playerArea: SpriteArea, dbTime: string | null) {
         this.update();
         this.interactable = false;
         const date = new Date();
@@ -139,8 +140,8 @@ export class AnimationSprite {
             this.interactable = true;
             this.showEButton();
         }
-        if (time) {
-            this.drawTime(time);
+        if (dbTime) {
+            this.drawTime(dbTime);
         }
     }
 
@@ -197,10 +198,9 @@ export class AnimationSprite {
     }
 
     toggleDoor(currentLevel: number): boolean {
-        const levelDoorCanBeOpened = currentLevel == 0 || keysCollected[currentLevel]
-        if (this.interactable && levelDoorCanBeOpened) {
+        if (this.interactable && doorCanBeOpened[currentLevel]) {
+            this.dayNumber.isDisplayed = false;
             if (!this.isStatic) {
-                this.dayNumber.isDisplayed = false;
                 return true;
             }
             return this.toggleAnimation();
@@ -211,7 +211,7 @@ export class AnimationSprite {
     toggleTreasure(): boolean {
         if (this.interactable) {
             if (keysCollected[this.dayNumber.value]) {
-                //TODO: hier muss die Tür freigegeben werden, weil man sonst die Tür nur mit dem Schlüssel öffnen kann.
+                doorCanBeOpened[this.dayNumber.value] = true;
                 this.dayNumber.isDisplayed = false;
                 return this.toggleAnimation();
             }
@@ -257,7 +257,7 @@ export class AnimationSprite {
         if (this.dayNumber.isDisplayed) {
             const text = this.dayNumber.value == 0 ? 'Main' : this.dayNumber.value.toString();
             this.ctx.font = `${this.dayNumber.size}px Retro Gaming`;
-            this.ctx.fillStyle = this.dayNumber.color;
+            this.ctx.fillStyle = "white"// this.dayNumber.color;
             const numberW = this.ctx.measureText(text).width;
             const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
             this.ctx.fillText(text, posX, this.position.y + (this.dayNumber.yOffset * this.scale));
