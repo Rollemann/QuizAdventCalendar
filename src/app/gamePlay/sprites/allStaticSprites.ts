@@ -237,6 +237,24 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
                     imageWholeSize: { w: false, h: true }
                 },
+                { // in M
+                    area: { x: 300, y: 300, width: 80, height: mainHeight },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
+                { // in M
+                    area: { x: 620, y: 300, width: 80, height: mainHeight },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
             ],
             walls: [
                 { //left |
@@ -303,11 +321,20 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: false }
                 },
                 { // left lift
-                    area: { x: 250, y: 330, width: 100, height: 20 },
+                    area: { x: 220, y: 330, width: 50, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
-                    moveProps: { startX: 400, startY: 330, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 300, drawLine: true, move: false },
+                    moveProps: { startX: 220, startY: 330, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 300, drawLine: true, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // right lift
+                    area: { x: 750, y: 330, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 750, startY: 330, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 300, drawLine: true, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
