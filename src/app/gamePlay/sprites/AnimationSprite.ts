@@ -6,7 +6,7 @@ type DayNumber = {
     isDisplayed: boolean
     value: number,
     size: number,
-    color: 'black',
+    color: 'black' | 'white',
     yOffset: number
 }
 
@@ -257,7 +257,7 @@ export class AnimationSprite {
         if (this.dayNumber.isDisplayed) {
             const text = this.dayNumber.value == 0 ? 'Main' : this.dayNumber.value.toString();
             this.ctx.font = `${this.dayNumber.size}px Retro Gaming`;
-            this.ctx.fillStyle = "white"// this.dayNumber.color;
+            this.ctx.fillStyle = this.dayNumber.color;
             const numberW = this.ctx.measureText(text).width;
             const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
             this.ctx.fillText(text, posX, this.position.y + (this.dayNumber.yOffset * this.scale));
