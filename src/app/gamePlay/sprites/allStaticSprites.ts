@@ -13,7 +13,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
                 {
                     area: { x: 270, y: 535, width: mainWidth, height: mainHeight },
@@ -186,7 +186,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: { startX: 100, startY: 150, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 450, drawLine: true, move: true },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
             ]
         },
@@ -199,7 +199,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true},
+                    imageWholeSize: { w: false, h: true },
                 },
                 {
                     area: { x: 100, y: 550, width: 100, height: mainHeight },
@@ -208,7 +208,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
                 {
                     area: { x: 0, y: 450, width: 100, height: mainHeight },
@@ -217,7 +217,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
                 {
                     area: { x: 100, y: 350, width: 100, height: mainHeight },
@@ -226,7 +226,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
                 {
                     area: { x: 0, y: 250, width: 100, height: mainHeight },
@@ -235,72 +235,81 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 10, y: 10, width: -20, height: -10 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: [
-                {
+                { //left |
                     area: { x: 200, y: 200, width: 20, height: 510 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { //right |
                     area: { x: 800, y: 200, width: 20, height: 510 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { // left -
                     area: { x: 200, y: 200, width: 180, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { // right -
                     area: { x: 620, y: 200, width: 180, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { // middle left |
                     area: { x: 380, y: 200, width: 20, height: 150 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { // middle right |
                     area: { x: 600, y: 200, width: 20, height: 150 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
-                {
+                { // middle lift
                     area: { x: 400, y: 330, width: 200, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
                     moveProps: { startX: 400, startY: 330, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 300, drawLine: true, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // left lift
+                    area: { x: 250, y: 330, width: 100, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 400, startY: 330, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 300, drawLine: true, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
                 },
             ]
         },
@@ -313,7 +322,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false},
+                    imageWholeSize: { w: false, h: false },
                 },
             ],
             walls: []
@@ -327,7 +336,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true},
+                    imageWholeSize: { w: false, h: true },
                 },
             ],
             walls: []
@@ -341,7 +350,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: false}
+                    imageWholeSize: { w: false, h: false }
                 },
             ],
             walls: []
@@ -355,7 +364,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -369,7 +378,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -383,7 +392,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -397,7 +406,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -411,7 +420,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -425,7 +434,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -439,7 +448,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -453,7 +462,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -467,7 +476,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -481,7 +490,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -495,7 +504,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -509,7 +518,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -523,7 +532,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -537,7 +546,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -551,7 +560,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -565,7 +574,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -579,7 +588,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -593,7 +602,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -607,7 +616,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
@@ -621,7 +630,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     scale: 1,
                     moveProps: null,
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
-                    imageWholeSize: {w: false, h: true}
+                    imageWholeSize: { w: false, h: true }
                 },
             ],
             walls: []
