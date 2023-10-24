@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
 
     (async () => {
-      const playerData = await getDBData(`player/records?filter=(id='${userID2}')`);
+      const playerData = await getDBData(`player/records?filter=(id='${userID1}')`);
       //setDBData(`Player/records/${userID2}`, {Name: "Rolfi"});
       canvas = canvasRef.current;
       if (canvas) {

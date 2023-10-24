@@ -1,4 +1,4 @@
-import { MoveProps, Point, SpriteArea } from "./typesForSprites";
+import { MoveProps, SpriteArea } from "./typesForSprites";
 
 export type StaticSpriteProps = {
     area: SpriteArea,

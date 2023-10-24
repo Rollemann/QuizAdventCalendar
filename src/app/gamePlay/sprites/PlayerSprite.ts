@@ -17,7 +17,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 1;
+export let currentLevel: number = 0;
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
@@ -81,15 +81,15 @@ export class PlayerSprite {
         )
 
         // TODO Hitboxen raus
-        const hitBoxW = 10;
+        const hitBoxW = 15;
         this.ctx.strokeStyle = "red";
         //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
         this.ctx.strokeStyle = "blue";
-        this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height + this.jumpVelocity);
+        this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity);
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity);
         this.ctx.strokeStyle = "yellow";
         this.ctx.strokeRect(this.hitBox.x + hitBoxW, this.hitBox.y, this.hitBox.width - (2 * hitBoxW), hitBoxW);
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height + this.jumpVelocity, this.hitBox.width, -this.jumpVelocity);
+        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity, this.hitBox.width, Math.abs(2 * this.velocity.y) - this.jumpVelocity);
     }
 
     update(solidObjectAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }): SpriteArea {
@@ -392,7 +392,7 @@ export class PlayerSprite {
             this.position.x = this.startPos.x;
             this.position.y = this.startPos.y;
             this.setIdleAnim();
-            doorNumber > 0? levelTimer.getReady() : levelTimer.endTimer();
+            doorNumber > 0 ? levelTimer.getReady() : levelTimer.endTimer();
         };
         this.setEnterDoorAnim();
     }
@@ -439,7 +439,7 @@ export class PlayerSprite {
         }
 
         // top collision
-        const hitBoxW: number = 12;
+        const hitBoxW: number = 15;
         const topHitBox: SpriteArea = { x: this.hitBox.x + hitBoxW, y: this.hitBox.y, width: this.hitBox.width - (2 * hitBoxW), height: hitBoxW };
         const topCollIndex = collisionCheck(topHitBox, solidAreas.wallAreas);
         if (topCollIndex >= 0) {
@@ -449,7 +449,7 @@ export class PlayerSprite {
         }
 
         // side collision
-        const leftHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height + this.jumpVelocity };
+        const leftHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity };
         const leftCollIndex = collisionCheck(leftHitBox, solidAreas.wallAreas);
         if (leftCollIndex >= 0) {
             const wall = solidAreas.wallAreas[leftCollIndex];
@@ -457,7 +457,7 @@ export class PlayerSprite {
             this.updateHitBox();
         }
         else {
-            const rightHitBox: SpriteArea = { x: this.hitBox.x + this.hitBox.width - hitBoxW, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height + this.jumpVelocity };
+            const rightHitBox: SpriteArea = { x: this.hitBox.x + this.hitBox.width - hitBoxW, y: this.hitBox.y, width: hitBoxW, height: this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity };
             const rightCollIndex = collisionCheck(rightHitBox, solidAreas.wallAreas);
             if (rightCollIndex >= 0) {
                 const wall = solidAreas.wallAreas[rightCollIndex];
@@ -468,7 +468,7 @@ export class PlayerSprite {
 
 
         // bottom collision
-        const bottomHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity, width: this.hitBox.width, height: -this.jumpVelocity };
+        const bottomHitBox: SpriteArea = { x: this.hitBox.x, y: this.hitBox.y + this.hitBox.height + this.jumpVelocity - Math.abs(2 * this.velocity.y), width: this.hitBox.width, height: Math.abs(2 * this.velocity.y) - this.jumpVelocity };
         const bottomCollIndexGround = collisionCheck(bottomHitBox, solidAreas.groundAreas);
         if (bottomCollIndexGround >= 0 && this.velocity.y > 0) {
             this.position.y = solidAreas.groundAreas[bottomCollIndexGround].y - this.hitBox.height - this.hitBoxOffset.y;
