@@ -425,9 +425,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 }
             ],
-            keys: [
-
-            ],
+            keys: [],
             traps: [],
             treasures: [],
             levers: [
@@ -753,187 +751,1377 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*2*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 480, y: 640 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 2, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 480, startY: 640, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 2, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: [
+                {
+                    position: { x: 0, y: 155 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/leversSprite.png',
+                    scale: 0.1,
+                    maxFrames: 2,
+                    maxAnimations: 1,
+                    frameRate: 100,
+                    animationFrames: [{ x: 1, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+            ]
         },
 /*3*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*4*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*5*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*6*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*7*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*8*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*9*/   {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*10*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*11*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*12*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*13*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*14*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*15*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*16*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*17*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*18*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*19*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*20*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*21*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*22*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*23*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         },
 /*24*/  {
             lights: [],
-            doors: [],
-            keys: [],
-            levers: [],
+            doors: [
+                {
+                    position: { x: 1025, y: (ctx.canvas.height - 124) },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/WoodDoorSheet.png',
+                    scale: 1,
+                    maxFrames: 6,
+                    maxAnimations: 1,
+                    frameRate: 10,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 0, color: "black", size: 16, yOffset: 45 },
+                    hitBoxOffset: { x: 20, y: 30, width: 40, height: 60 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            keys: [
+                {
+                    position: { x: 355, y: 260 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/keySprite.png',
+                    scale: 0.05,
+                    maxFrames: 10,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                }
+            ],
             traps: [],
-            treasures: []
+            treasures: [
+                {
+                    position: { x: 450, y: 365 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/treasureSprite.png',
+                    scale: 2,
+                    maxFrames: 12,
+                    maxAnimations: 1,
+                    frameRate: 14,
+                    animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ],
+            levers: []
         }
     ]
 }

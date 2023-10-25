@@ -22,7 +22,6 @@ export default function Home() {
         if (setupResult) {
           let { ctx, sprites } = setupResult;
           gameLoop(ctx, sprites, playerData.items[0]);
-          console.log(playerData.items[0].RoomTimes[1]);
         }
       }
     })();
