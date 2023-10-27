@@ -381,6 +381,24 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
+                { // lift middle
+                    area: { x: 510, y: 400, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 510, startY: 200, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 400, drawLine: true, move: true },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // lift right
+                    area: { x: 770, y: 400, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 770, startY: 200, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 400, drawLine: true, move: true },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
             ]
         },
 /*3*/   {
