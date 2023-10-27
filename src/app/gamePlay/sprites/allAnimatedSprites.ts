@@ -1015,13 +1015,62 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    dayNumber: { isDisplayed: true, value: 4, color: "black", size: 16, yOffset: -100 }, //TODO Value
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
                 }
             ],
-            traps: [],
+            traps: [
+                { // big saw
+                    position: { x: 530, y: 220 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/sawSprite.png',
+                    scale: 0.15,
+                    maxFrames: 5,
+                    maxAnimations: 1,
+                    frameRate: 2,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // saw
+                    position: { x: 20, y: 150 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/sawSprite.png',
+                    scale: 0.12,
+                    maxFrames: 5,
+                    maxAnimations: 1,
+                    frameRate: 2,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 20, startY: 150, velocityX: 0, velocityY: 2, rangeX: 0, rangeY: 400, drawLine: true, move: true }
+                },
+                { // saw
+                    position: { x: 150, y: 550 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/sawSprite.png',
+                    scale: 0.12,
+                    maxFrames: 5,
+                    maxAnimations: 1,
+                    frameRate: 2,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 150, startY: 150, velocityX: 0, velocityY: 2, rangeX: 0, rangeY: 400, drawLine: true, move: true }
+                },
+            ],
             treasures: [
                 {
                     position: { x: 450, y: 365 },
@@ -1034,7 +1083,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    dayNumber: { isDisplayed: true, value: 4, color: "white", size: 16, yOffset: 25 }, // TODO value
                     hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
