@@ -36,10 +36,6 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
             door.updateDoor(playerArea, playerInfo.RoomTimes[door.dayNumber.value]);
         });
 
-        sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
-            trap.updateTrap(playerArea, sprites.player);
-        });
-
         sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
             treasure.updateTreasure(playerArea, playerInfo.RoomTimes[treasure.dayNumber.value]);
         });
@@ -50,6 +46,10 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         sprites.levels[currentLevel].animated.keys.forEach((key: AnimationSprite) => {
             key.updateKey(playerArea);
+        });
+
+        sprites.levels[currentLevel].animated.traps.forEach((trap: AnimationSprite) => {
+            trap.updateTrap(playerArea, sprites.player);
         });
 
         sprites.player.draw();
