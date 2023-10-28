@@ -1742,7 +1742,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             treasures: [
                 {
-                    position: { x: 450, y: 365 },
+                    position: { x: 560, y: 610 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/treasureSprite.png',
                     scale: 2,
