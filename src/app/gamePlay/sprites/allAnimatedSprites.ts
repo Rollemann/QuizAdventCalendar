@@ -1643,7 +1643,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     staticFrame: { x: 0, y: 0 },
                     moveProps: { startX: 500, startY: 200, velocityX: 2, velocityY: 0, rangeX: 160, rangeY: 0, drawLine: false, move: false }
                 },
-                { // saw
+                { // saw right
                     position: { x: 700, y: 680 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/sawSprite.png',
@@ -1653,11 +1653,11 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     frameRate: 2,
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
-                    startStatic: false,
+                    startStatic: true,
                     dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 700, startY: 680, velocityX: 3, velocityY: 0, rangeX: 550, rangeY: 0, drawLine: false, move: true }
+                    moveProps: { startX: 700, startY: 680, velocityX: 3, velocityY: 0, rangeX: 550, rangeY: 0, drawLine: false, move: false }
                 },
                 {
                     position: { x: 50, y: 580 },
