@@ -1006,7 +1006,6 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             keys: [
                 {
                     position: { x: 518, y: 600 },
-                    position: { x: 518, y: 600 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/keySprite.png',
                     scale: 0.05,
