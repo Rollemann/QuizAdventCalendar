@@ -2256,7 +2256,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             keys: [
                 {
-                    position: { x: 355, y: 260 },
+                    position: { x: 20, y: 130 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/keySprite.png',
                     scale: 0.05,
@@ -2269,7 +2269,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                    moveProps: { startX: 20, startY: 130, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
                 }
             ],
             traps: [],
