@@ -398,7 +398,7 @@ export class PlayerSprite {
     }
 
     die() {
-        if (this.currentAnimation != "die") {
+        if (this.currentAnimation != "die" && !this.animationBlocked) {
             this.velocity.x = 0;
             inputsDisabled = true;
             this.animationBlocked = true;

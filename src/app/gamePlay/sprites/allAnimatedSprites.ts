@@ -1816,6 +1816,22 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                 }
             ],
             traps: [
+                { // saw
+                    position: { x: 700, y: 630 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/sawSprite.png',
+                    scale: 0.2,
+                    maxFrames: 5,
+                    maxAnimations: 1,
+                    frameRate: 2,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 700, startY: 630, velocityX: 6, velocityY: 0, rangeX: 460, rangeY: 0, drawLine: true, move: false }
+                },
                 {
                     position: { x: 420, y: 680 },
                     ctx: ctx,
@@ -1912,10 +1928,58 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
                 },
+                { // left
+                    position: { x: 200, y: 680 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/candyBarTrap.png',
+                    scale: 1,
+                    maxFrames: 13,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }, { x: 12, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // left
+                    position: { x: 235, y: 680 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/candyBarTrap.png',
+                    scale: 1,
+                    maxFrames: 13,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }, { x: 12, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // left
+                    position: { x: 270, y: 680 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/candyBarTrap.png',
+                    scale: 1,
+                    maxFrames: 13,
+                    maxAnimations: 1,
+                    frameRate: 5,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }, { x: 12, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
             ],
             treasures: [
                 {
-                    position: { x: 450, y: 365 },
+                    position: { x: 502, y: 325 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/treasureSprite.png',
                     scale: 2,
@@ -1931,7 +1995,24 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 }
             ],
-            levers: []
+            levers: [
+                {
+                    position: { x: 330, y: 660 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/leversSprite.png',
+                    scale: 0.1,
+                    maxFrames: 2,
+                    maxAnimations: 1,
+                    frameRate: 100,
+                    animationFrames: [{ x: 1, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                }
+            ]
         },
 /*6*/   {
             lights: [],
