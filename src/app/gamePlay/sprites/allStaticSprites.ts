@@ -796,6 +796,42 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
                     imageWholeSize: { w: false, h: true }
                 },
+                { // top O
+                    area: { x: 525, y: 350, width: 100, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
+                { // middle O
+                    area: { x: 420, y: 450, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
+                { // middle O
+                    area: { x: 650, y: 450, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
+                { // bottom O
+                    area: { x: 525, y: 550, width: 100, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true }
+                },
             ],
             walls: [
                 { // | left
@@ -821,7 +857,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
-                    moveProps: null,
+                    moveProps: { startX: 730, startY: 150, velocityX: 0, velocityY: 0.5, rangeX: 0, rangeY: 100, drawLine: false, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
