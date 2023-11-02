@@ -2287,7 +2287,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 105, startY: 340, velocityX: 1, velocityY: 0, rangeX: 200, rangeY: 0, drawLine: true, move: true }
+                    moveProps: { startX: 105, startY: 250, velocityX: 1, velocityY: 0, rangeX: 200, rangeY: 0, drawLine: true, move: true }
                 },
                 { // saw bottom
                     position: { x: 105, y: 400 },
@@ -2303,7 +2303,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 105, startY: 460, velocityX: 1, velocityY: 0, rangeX: 200, rangeY: 0, drawLine: true, move: true }
+                    moveProps: { startX: 105, startY: 400, velocityX: 1, velocityY: 0, rangeX: 200, rangeY: 0, drawLine: true, move: true }
                 },
                 {
                     position: { x: 420, y: 420 },
@@ -4149,7 +4149,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: { isDisplayed: true, value: 1, color: "black", size: 16, yOffset: -100 },
+                    dayNumber: { isDisplayed: true, value: 14, color: "black", size: 16, yOffset: -100 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: { startX: 340, startY: 260, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
@@ -4168,7 +4168,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 0 }, { x: 8, y: 0 }, { x: 9, y: 0 }, { x: 10, y: 0 }, { x: 11, y: 0 }],
                     repeatAnimation: false,
                     startStatic: true,
-                    dayNumber: { isDisplayed: true, value: 1, color: "white", size: 16, yOffset: 25 },
+                    dayNumber: { isDisplayed: true, value: 14, color: "white", size: 16, yOffset: 25 },
                     hitBoxOffset: { x: 0, y: 15, width: 0, height: 15 },
                     staticFrame: { x: 0, y: 0 },
                     moveProps: null
