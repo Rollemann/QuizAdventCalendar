@@ -17,7 +17,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 7;
+export let currentLevel: number = 14;
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
@@ -99,6 +99,10 @@ export class PlayerSprite {
         this.position.y += this.velocity.y;
         this.landingVelocity = Math.abs(this.velocity.y);
         this.updateHitBox();
+
+        if(this.position.y > 750){
+            this.die();
+        }
 
         this.adjustPositionOnCollision(solidObjectAreas)
 
