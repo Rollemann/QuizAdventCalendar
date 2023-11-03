@@ -1770,7 +1770,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: false }
                 },
                 { // lift right
-                    area: { x: 670, y: 610, width: 50, height: 20 },
+                    area: { x: 670, y: 210, width: 50, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
@@ -1791,8 +1791,90 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: true }
                 },
+                { // left C
+                    area: { x: 420, y: 300, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // right C
+                    area: { x: 620, y: 300, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // middle C
+                    area: { x: 420, y: 420, width: 120, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // middle C
+                    area: { x: 580, y: 420, width: 120, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // bottom C
+                    area: { x: 420, y: 540, width: 280, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
             ],
-            walls: []
+            walls: [
+                { // - top
+                    area: { x: 400, y: 200, width: 320, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // - bottom
+                    area: { x: 400, y: 690, width: 320, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // lift left
+                    area: { x: 350, y: 400, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 350, startY: 250, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 360, drawLine: true, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // |
+                    area: { x: 400, y: 220, width: 20, height: 470 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 400, startY: 220, velocityX: 0.7, velocityY: 0, rangeX: 300, rangeY: 0, drawLine: false, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+            ]
         },
 /*16*/  {
             grounds: [
@@ -1805,8 +1887,126 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: true }
                 },
+                { // in H top
+                    area: { x: 420, y: 300, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in H top
+                    area: { x: 560, y: 300, width: 90, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in H middle
+                    area: { x: 420, y: 430, width: 110, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in H middle
+                    area: { x: 590, y: 430, width: 60, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in H bottom
+                    area: { x: 420, y: 560, width: 70, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in H bottom
+                    area: { x: 550, y: 560, width: 100, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // right
+                    area: { x: 1000, y: 500, width: 140, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // right
+                    area: { x: 800, y: 350, width: 120, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // left
+                    area: { x: 0, y: 570, width: 120, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
             ],
-            walls: []
+            walls: [
+                { // -
+                    area: { x: 420, y: 480, width: 230, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 420, startY: 250, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 440, drawLine: false, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // | left
+                    area: { x: 400, y: 250, width: 20, height: 460 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // | right
+                    area: { x: 650, y: 250, width: 20, height: 460 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // lift left
+                    area: { x: 350, y: 400, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 350, startY: 250, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 360, drawLine: true, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+            ]
         },
 /*17*/  {
             grounds: [
@@ -1819,8 +2019,90 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     hitBoxOffset: { x: 0, y: 10, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: true }
                 },
+                { // in R
+                    area: { x: 420, y: 590, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // in R
+                    area: { x: 420, y: 490, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
             ],
-            walls: []
+            walls: [
+                { // | links
+                    area: { x: 400, y: 200, width: 20, height: 510 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // - oben
+                    area: { x: 420, y: 200, width: 200, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // - unten
+                    area: { x: 420, y: 400, width: 200, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // | rechts oben
+                    area: { x: 620, y: 200, width: 20, height: 220 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // | rechts mitte
+                    area: { x: 550, y: 420, width: 20, height: 145 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // | rechts unten
+                    area: { x: 570, y: 545, width: 20, height: 165 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalVSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 570, startY: 400, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 145, drawLine: false, move: false },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+                { // lift
+                    area: { x: 350, y: 200, width: 50, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/metalHSprite.png',
+                    scale: 1,
+                    moveProps: { startX: 350, startY: 200, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 400, drawLine: true, move: true },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    imageWholeSize: { w: false, h: false }
+                },
+            ]
         },
 /*18*/  {
             grounds: [

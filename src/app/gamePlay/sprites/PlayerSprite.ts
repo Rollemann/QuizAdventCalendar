@@ -17,7 +17,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 14;
+export let currentLevel: number = 17;
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
