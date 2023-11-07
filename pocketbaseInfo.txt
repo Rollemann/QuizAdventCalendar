@@ -1,8 +1,3 @@
-Run: ./pocketbase serve
-
-API Rules später anpassen, weil alles public ist. 
-
-
 - Chat: 
     - Socket Anbindung für Real Time Datentransfer zwischen online usern. Optional autorefresh alle 2 Sekunden oder so.
     - DB: Nachrichten, Benutzer, Timestamp(für richtige Reihenfolge),

@@ -1,9 +1,10 @@
 import React from 'react'
 
 async function getRules() {
-    const res = await fetch('http://localhost:8090/api/collections/rules/records?page=1', {cache:"no-cache"});
+    /* const res = await fetch('http://localhost:8090/api/collections/rules/records?page=1', {cache:"no-cache"});
     const data = await res.json();
-    return data.items;
+    return data.items; */
+    return [{text: "TODO"}]
 }
 
 async function RulesContent() {

@@ -5201,7 +5201,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 480, startY: 420, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 270, drawLine: true, move: true }
+                    moveProps: { startX: 480, startY: 420, velocityX: 0, velocityY: 0.8, rangeX: 0, rangeY: 270, drawLine: true, move: true }
                 },
                 {
                     position: { x: 420, y: 570 },
