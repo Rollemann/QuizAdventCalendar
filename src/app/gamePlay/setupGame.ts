@@ -1,8 +1,7 @@
 import { initSprites } from './initSprites';
-import { canvas } from '../page';
 import { initInputEvents } from './userInputs';
 
-export function setup(): {
+export function setup(canvas : HTMLCanvasElement | null): {
     ctx: CanvasRenderingContext2D,
     sprites: any;
 } | null {

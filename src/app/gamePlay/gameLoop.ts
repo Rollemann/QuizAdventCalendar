@@ -1,4 +1,3 @@
-import { canvas } from "../page";
 import { levelTimer } from "./levelTimer";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { blackOutLevel, currentLevel } from "./sprites/PlayerSprite";
@@ -8,9 +7,9 @@ import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
 let blackOutOpacity = 0;
 
 export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites, playerInfo: { Name: string, RoomTimes: any }) {
-    if (canvas) {
+    if (ctx.canvas) {
         window.requestAnimationFrame(() => gameLoop(ctx, sprites, playerInfo));
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
