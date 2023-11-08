@@ -5359,7 +5359,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
             ],
             keys: [
                 {
-                    position: { x: 35, y: 250 },
+                    position: { x: 255, y: 100 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/keySprite.png',
                     scale: 0.05,
@@ -5372,13 +5372,30 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     dayNumber: { isDisplayed: true, value: 18, color: "black", size: 16, yOffset: -100 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 0, y: 0 },
-                    moveProps: { startX: 35, startY: 250, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
+                    moveProps: { startX: 255, startY: 100, velocityX: 0, velocityY: 0.2, rangeX: 0, rangeY: 10, drawLine: false, move: true }
                 }
             ],
-            traps: [],
+            traps: [
+                { // saw
+                    position: { x: 50, y: 660 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/sawSprite.png',
+                    scale: 0.1,
+                    maxFrames: 5,
+                    maxAnimations: 1,
+                    frameRate: 2,
+                    animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: { startX: 50, startY: 660, velocityX: 1, velocityY: 0, rangeX: 200, rangeY: 0, drawLine: true, move: true }
+                },
+            ],
             treasures: [
                 {
-                    position: { x: 450, y: 365 },
+                    position: { x: 825, y: 75 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/treasureSprite.png',
                     scale: 2,
@@ -5394,7 +5411,24 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 }
             ],
-            levers: []
+            levers: [
+                {
+                    position: { x: 150, y: 660 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/leversSprite.png',
+                    scale: 0.1,
+                    maxFrames: 2,
+                    maxAnimations: 1,
+                    frameRate: 100,
+                    animationFrames: [{ x: 1, y: 0 }],
+                    repeatAnimation: false,
+                    startStatic: false,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+            ]
         },
 /*19*/  {
             lights: [],

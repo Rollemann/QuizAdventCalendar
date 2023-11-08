@@ -2170,7 +2170,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true }
                 },
                 { // left
-                    area: { x: 320, y: 590, width: 80, height: 20 },
+                    area: { x: 220, y: 590, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2179,7 +2179,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // left
-                    area: { x: 320, y: 490, width: 80, height: 20 },
+                    area: { x: 220, y: 490, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2188,7 +2188,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // left
-                    area: { x: 320, y: 390, width: 80, height: 20 },
+                    area: { x: 220, y: 390, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2197,7 +2197,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // left
-                    area: { x: 0, y: 300, width: 80, height: 20 },
+                    area: { x: 220, y: 150, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2206,7 +2206,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // right
-                    area: { x: 420, y: 590, width: 80, height: 20 },
+                    area: { x: 820, y: 590, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2215,7 +2215,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // right
-                    area: { x: 420, y: 590, width: 80, height: 20 },
+                    area: { x: 820, y: 490, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2224,7 +2224,16 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // right
-                    area: { x: 420, y: 590, width: 80, height: 20 },
+                    area: { x: 820, y: 390, width: 80, height: 20 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/carpetSprite.png',
+                    scale: 1,
+                    moveProps: null,
+                    hitBoxOffset: { x: 0, y: 10, width: 0, height: -10 },
+                    imageWholeSize: { w: false, h: true },
+                },
+                { // right
+                    area: { x: 820, y: 150, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2239,11 +2248,11 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalVSprite.png',
                     scale: 1,
-                    moveProps: null,
+                    moveProps: { startX: 300, startY: 310, velocityX: 2, velocityY: 0, rangeX: 600, rangeY: 0, drawLine: false, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
-                { // lift left
+                /* { // lift left
                     area: { x: 500, y: 310, width: 50, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
@@ -2251,7 +2260,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     moveProps: { startX: 500, startY: 310, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 350, drawLine: true, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
-                },
+                }, */
             ]
         },
 /*19*/  {

@@ -19,3 +19,28 @@
     Wenn zeit 00:00/null ist, dann noch nicht absolviert.
     
 https://christmas-advent-calenda-f1378.web.app
+
+Anfang und Ende vom level
+Anzahl tode pro level (liste appenden, oder eine Zahl hochzählen, wenns irgendwie geht)
+
+level:[
+    {
+        playerName,
+        time:{
+            start,
+            end
+        },
+        deaths:[1,1,1...]
+    },
+    {
+        ...
+    }
+]
+
+chat:[
+    {
+        playerName,
+        timeStamp,
+        text
+    }
+]
