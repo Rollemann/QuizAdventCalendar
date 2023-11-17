@@ -2197,7 +2197,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // left
-                    area: { x: 220, y: 150, width: 80, height: 20 },
+                    area: { x: 220, y: 145, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
@@ -2233,7 +2233,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     imageWholeSize: { w: false, h: true },
                 },
                 { // right
-                    area: { x: 820, y: 150, width: 80, height: 20 },
+                    area: { x: 820, y: 145, width: 80, height: 20 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/carpetSprite.png',
                     scale: 1,
