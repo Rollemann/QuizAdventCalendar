@@ -1,4 +1,4 @@
-import { useSpeachBubbleContext } from "@/app/contexts/speachBubbleContext";
+import { useSpeechBubbleContext } from "@/app/contexts/speechBubbleContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 
@@ -31,14 +31,14 @@ const rightHandleShape: number[] = [6, -1, 1, -2, -1, -1, -3];
 const rightHandle: string = shapeDrawer(rightHandleStart, rightHandleShape, pixelSize);
 
 const Rewards = () => {
-    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
 
-    function toggleSpeachBubble() {
-        speachBubble == 'rewards' ? setSpeachBubble(null) : setSpeachBubble('rewards');
+    function toggleSpeechBubble() {
+        speechBubble == 'rewards' ? setSpeechBubble(null) : setSpeechBubble('rewards');
     }
 
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeachBubble} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeechBubble} className="cursor-pointer">
             <defs>
                 <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
                     <stop offset="0%" stopColor="yellow" />

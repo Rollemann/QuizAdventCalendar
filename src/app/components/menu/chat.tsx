@@ -1,4 +1,4 @@
-import { useSpeachBubbleContext } from '@/app/contexts/speachBubbleContext'
+import { useSpeechBubbleContext } from '@/app/contexts/speechBubbleContext'
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 
@@ -8,31 +8,31 @@ const startX: number = 225;
 const width: number = 300;
 const height: number = 180;
 
-const speachBubbleIconStart: Position = { x: startX, y: height };
-const speachBubbleIconShape: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -18.5, -14, 30, 14, -7.5, 4.25];
-const speachBubbleIcon: string = shapeDrawer(speachBubbleIconStart, speachBubbleIconShape, pixelSize);
+const speechBubbleIconStart: Position = { x: startX, y: height };
+const speechBubbleIconShape: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -18.5, -14, 30, 14, -7.5, 4.25];
+const speechBubbleIcon: string = shapeDrawer(speechBubbleIconStart, speechBubbleIconShape, pixelSize);
 
 const Chat = () => {
-    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
 
-    function toggleSpeachBubble() {
-        speachBubble == 'chat' ? setSpeachBubble(null) : setSpeachBubble('chat');
+    function toggleSpeechBubble() {
+        speechBubble == 'chat' ? setSpeechBubble(null) : setSpeechBubble('chat');
     }
 
     return (
-        <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={toggleSpeachBubble} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={toggleSpeechBubble} className="cursor-pointer">
             <path // shadow
                 transform={`translate(15,15)`}
                 opacity={0.5}
                 fill='black'
-                d={speachBubbleIcon}
+                d={speechBubbleIcon}
             />
             <path // icon
                 transform='translate(5,5)'
                 stroke='black'
                 strokeWidth={5}
                 fill='#909090'
-                d={speachBubbleIcon}
+                d={speechBubbleIcon}
             />
             <path // 3 dots
                 stroke='black'

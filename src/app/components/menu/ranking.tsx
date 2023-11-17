@@ -1,4 +1,4 @@
-import { useSpeachBubbleContext } from "@/app/contexts/speachBubbleContext";
+import { useSpeechBubbleContext } from "@/app/contexts/speechBubbleContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 
@@ -16,14 +16,14 @@ const number1Shape: number[] = [7, -2, -2, -8, -3, 1, -2, 2, 2, 5, -2, 2];
 const number1: string = shapeDrawer(number1Start, number1Shape, pixelSize);
 
 const Ranking = () => {
-    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
 
-    function toggleSpeachBubble() {
-        speachBubble == 'ranking' ? setSpeachBubble(null) : setSpeachBubble('ranking');
+    function toggleSpeechBubble() {
+        speechBubble == 'ranking' ? setSpeechBubble(null) : setSpeechBubble('ranking');
     }
 
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={toggleSpeachBubble} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={toggleSpeechBubble} className="cursor-pointer">
             <defs>
                 <linearGradient id="GradientRanking">
                     <stop offset="0%" stopColor="#EEC900" />

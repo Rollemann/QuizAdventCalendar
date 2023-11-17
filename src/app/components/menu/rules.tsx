@@ -1,4 +1,4 @@
-import { useSpeachBubbleContext } from "@/app/contexts/speachBubbleContext";
+import { useSpeechBubbleContext } from "@/app/contexts/speechBubbleContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 
@@ -15,14 +15,14 @@ const dotShape: number[] = [5, 1, 1, 3, -1, 1, -5, -1, -1, -3, 1, -1];
 const dot: string = shapeDrawer(dotStart, dotShape, pixelSize);
 
 export default function Rules () {
-    const { speachBubble, setSpeachBubble } = useSpeachBubbleContext();
+    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
 
-    function toggleSpeachBubble() {
-        speachBubble == 'rules' ? setSpeachBubble(null) : setSpeachBubble('rules');
+    function toggleSpeechBubble() {
+        speechBubble == 'rules' ? setSpeechBubble(null) : setSpeechBubble('rules');
     }
 
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeachBubble} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeechBubble} className="cursor-pointer">
             <path // questionMark shadow
                 transform={`translate(15,15)`}
                 opacity={0.5}

@@ -1,4 +1,4 @@
-import { useSpeachBubbleContext } from '../contexts/speachBubbleContext';
+import { useSpeechBubbleContext } from '../contexts/speechBubbleContext';
 
 type Position = 'self-end' | '';
 
@@ -15,13 +15,13 @@ for (let i: number = 0; i < diagLength; ++i) {
     diagLine += `M ${startX + offset},${offset} ${qube}`;
 }
 
-const Speachbubble = () => {
-    const { speachBubble, setSpeachBubble, speachBubbleContent, setSpeachBubbleContent } = useSpeachBubbleContext();
+const Speechbubble = () => {
+    const { speechBubble, setSpeechBubble, speechBubbleContent, setSpeechBubbleContent } = useSpeechBubbleContext();
 
     let mirror: boolean = false;
     let position: Position = '';
 
-    switch (speachBubble) {
+    switch (speechBubble) {
         case 'chat':
             mirror = false;
             position = "self-end";
@@ -48,7 +48,7 @@ const Speachbubble = () => {
 
     return (
         <>
-            {speachBubble && <svg viewBox={`0 0 ${width} ${height}`} onClick={() => setSpeachBubble(null)} className={`${position} w-1/4`}>
+            {speechBubble && <svg viewBox={`0 0 ${width} ${height}`} onClick={() => setSpeechBubble(null)} className={`${position} w-1/4`}>
                 <path
                     transform={mirror ? 'scale(-1,1) translate(-300,0)' : ""}
                     stroke='black'
@@ -64,4 +64,4 @@ const Speachbubble = () => {
     )
 }
 
-export default Speachbubble
+export default Speechbubble

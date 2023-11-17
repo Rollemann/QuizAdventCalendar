@@ -3,10 +3,10 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Chat from "./components/menu/chat"
 import Rules from "./components/menu/rules"
-import Speachbubble from './components/speachbubble'
+import Speechbubble from './components/speechbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
-import SpeachBubbleContextProvider from './contexts/speachBubbleContext'
+import SpeechBubbleContextProvider from './contexts/speechBubbleContext'
 import Login from './components/menu/login'
 import RulesContent from './components/menuContent/rulesContent'
 
@@ -25,7 +25,7 @@ export default function RootLayout({
         <title>Big Baba Bubu Advent Calendar</title>
       </head>
       <body className={inter.className}>
-        <SpeachBubbleContextProvider>
+        <SpeechBubbleContextProvider>
           <header className='flex fixed w-screen flex-col top-5'>
             <div className='flex flex-row h-20'>
               <div className='flex justify-between w-11/12'>
@@ -42,10 +42,10 @@ export default function RootLayout({
             </div>
             <div className='flex flex-col w-11/12'>
               <RulesContent />
-              <Speachbubble />
+              <Speechbubble />
             </div>
           </header>
-        </SpeachBubbleContextProvider>
+        </SpeechBubbleContextProvider>
         <main className='flex justify-center'> {children} </main>
       </body>
     </html>
