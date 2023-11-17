@@ -6,9 +6,10 @@ import Rules from "./components/menu/rules"
 import Speechbubble from './components/speechbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
-import SpeechBubbleContextProvider from './contexts/speechBubbleContext'
+import { SpeechBubbleContextProvider } from './contexts/speechBubbleContext'
 import Login from './components/menu/login'
 import RulesContent from './components/menuContent/rulesContent'
+import { AuthContextProvider } from './contexts/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <title>Big Baba Bubu Advent Calendar</title>
       </head>
       <body className={inter.className}>
+        <AuthContextProvider>
         <SpeechBubbleContextProvider>
           <header className='flex fixed w-screen flex-col top-5'>
             <div className='flex flex-row h-20'>
@@ -46,6 +48,7 @@ export default function RootLayout({
             </div>
           </header>
         </SpeechBubbleContextProvider>
+        </AuthContextProvider>
         <main className='flex justify-center'> {children} </main>
       </body>
     </html>

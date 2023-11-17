@@ -15,7 +15,7 @@ type SpeechBubbleContext = {
 const SpeechBubbleContext = createContext<SpeechBubbleContext | null>(null);
 
 
-const SpeechBubbleContextProvider = ({ children }: SpeechBubbleContextProviderProps) => {
+export const SpeechBubbleContextProvider = ({ children }: SpeechBubbleContextProviderProps) => {
     const [speechBubble, setSpeechBubble] = useState<SpeechBubble>(null);
     const [speechBubbleContent, setSpeechBubbleContent] = useState(<></>); // TODO: Das hier könnte auch ein SVG Element sein (path, text). Mal schauen ob man hier auch scrollen kann oder wie oder wat
 
@@ -33,5 +33,3 @@ export const useSpeechBubbleContext = () => {
     }
     return context
 }
-
-export default SpeechBubbleContextProvider
