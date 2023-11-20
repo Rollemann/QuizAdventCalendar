@@ -1,4 +1,4 @@
-import { useContentContext } from '@/app/contexts/speechBubbleContext'
+import { useContentContext } from '@/app/contexts/ContentContext'
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from '@/app/contexts/AuthContext';

@@ -1,4 +1,4 @@
-import { useContentContext } from '../contexts/speechBubbleContext';
+import { useContentContext } from '../contexts/ContentContext';
 
 type Position = 'self-end' | '';
 

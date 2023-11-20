@@ -6,7 +6,7 @@ import Rules from "./components/menu/rules"
 import Speechbubble from './components/speechbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
-import { ContentContextProvider } from './contexts/speechBubbleContext'
+import { ContentContextProvider } from './contexts/ContentContext'
 import Login from './components/menu/login'
 import RulesContent from './components/menuContent/rulesContent'
 import { AuthContextProvider } from './contexts/AuthContext'
