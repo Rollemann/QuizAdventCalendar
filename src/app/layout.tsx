@@ -3,13 +3,12 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Chat from "./components/menu/chat"
 import Rules from "./components/menu/rules"
-import Speechbubble from './components/speechbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
 import { ContentContextProvider } from './contexts/ContentContext'
 import Login from './components/menu/login'
-import RulesContent from './components/menuContent/rulesContent'
 import { AuthContextProvider } from './contexts/AuthContext'
+import ContentContainer from './components/menuContent/contentContainer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -43,8 +42,7 @@ export default function RootLayout({
                 <Login />
               </div>
               <div className='flex flex-col w-11/12'>
-                <RulesContent />
-                {/* <Speechbubble /> */}
+                <ContentContainer />
               </div>
             </header>
           </ContentContextProvider>
