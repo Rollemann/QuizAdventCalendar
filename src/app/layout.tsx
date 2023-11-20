@@ -44,7 +44,7 @@ export default function RootLayout({
               </div>
               <div className='flex flex-col w-11/12'>
                 <RulesContent />
-                <Speechbubble />
+                {/* <Speechbubble /> */}
               </div>
             </header>
           </ContentContextProvider>

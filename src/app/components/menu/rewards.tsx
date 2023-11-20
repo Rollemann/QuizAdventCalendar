@@ -35,14 +35,14 @@ const Rewards = () => {
     const { content, setContent } = useContentContext();
     const { user } = useAuthContext();
 
-    function toggleSpeechBubble() {
-        connector == 'rewards' ? setContent(null) : setContent('rewards');
+    function toggleContent() {
+        content == 'rewards' ? setContent(null) : setContent('rewards');
     }
 
     return (
         <>
             {user &&
-                <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeechBubble} className="cursor-pointer">
+                <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleContent} className="cursor-pointer">
                     <defs>
                         <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
                             <stop offset="0%" stopColor="yellow" />

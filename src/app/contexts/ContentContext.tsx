@@ -17,7 +17,7 @@ const ContentContext = createContext<ContentContext | null>(null);
 
 export const ContentContextProvider = ({ children }: ContentContextProviderProps) => {
     const [content, setContent] = useState<Content>(null);
-    const [contentValue, setContentValue] = useState(<></>);
+    const [contentValue, setContentValue] = useState<React.JSX.Element>(<></>);
 
     return (
         <ContentContext.Provider value={{ content, setContent, contentValue, setContentValue }}>

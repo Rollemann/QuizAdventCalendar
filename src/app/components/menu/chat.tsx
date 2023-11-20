@@ -17,7 +17,7 @@ const Chat = () => {
     const { content, setContent } = useContentContext();
     const { user } = useAuthContext();
 
-    function toggleSpeechBubble() {
+    function toggleContent() {
         content == 'chat' ? setContent(null) : setContent('chat');
     }
 
@@ -25,7 +25,7 @@ const Chat = () => {
         <>
             {user ?
                 (
-                    <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={toggleSpeechBubble} className="cursor-pointer">
+                    <svg viewBox={`0 0 ${width + 15} ${height + 15}`} onClick={toggleContent} className="cursor-pointer">
                         <path // shadow
                             transform={`translate(15,15)`}
                             opacity={0.5}

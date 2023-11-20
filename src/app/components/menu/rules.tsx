@@ -17,12 +17,12 @@ const dot: string = shapeDrawer(dotStart, dotShape, pixelSize);
 export default function Rules () {
     const { content, setContent } = useContentContext();
 
-    function toggleSpeechBubble() {
+    function toggleContent() {
         content == 'rules' ? setContent(null) : setContent('rules');
     }
 
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleSpeechBubble} className="cursor-pointer">
+        <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleContent} className="cursor-pointer">
             <path // questionMark shadow
                 transform={`translate(15,15)`}
                 opacity={0.5}

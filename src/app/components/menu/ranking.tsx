@@ -20,14 +20,14 @@ const Ranking = () => {
     const { content, setContent } = useContentContext();
     const { user } = useAuthContext();
 
-    function toggleSpeechBubble() {
+    function toggleContent() {
         content == 'ranking' ? setContent(null) : setContent('ranking');
     }
 
     return (
         <>
             {user &&
-                <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={toggleSpeechBubble} className="cursor-pointer">
+                <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={toggleContent} className="cursor-pointer">
                     <defs>
                         <linearGradient id="GradientRanking">
                             <stop offset="0%" stopColor="#EEC900" />
