@@ -21,7 +21,7 @@ async function RulesContent() {
   return (
     <>
       <button onClick={writeToDB} className='bg-white w-max'>Add random stuff to DB</button>
-      <div>{rulesText[0].text}</div>
+      {/* <div className={'h-[17rem] bg-[url("/Speechbubble.svg")] bg-no-repeat'}>{rulesText[0].text}</div> */}
     </>
   )
 }

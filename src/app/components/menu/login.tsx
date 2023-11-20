@@ -1,5 +1,6 @@
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
+import { useAuthContext } from "@/app/contexts/AuthContext";
 
 const pixelSize: number = 10;
 const startX: number = 40;
@@ -15,37 +16,89 @@ const arrowShape: number[] = [7, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -1,
 const arrow: string = shapeDrawer(arrowStart, arrowShape, pixelSize);
 
 const Login = () => {
+    const { user, emailSignIn, logOut } = useAuthContext();
+
+    const handleSignIn = async () => {
+        try {
+            await emailSignIn("rolf.suslik@xmascalendar.com", "test1234");
+        } catch (error) {
+            console.log(error); // TODO: das noch ordentlich darstellen
+
+        }
+    }
+
+    const handleLogOut = async () => {
+        try {
+            await logOut();
+            console.log(user);
+        } catch (error) {
+            console.log(error); // TODO: das noch ordentlich darstellen
+        }
+    }
+
     return (
-        <svg viewBox={`0 0 ${width + 30} ${height + 15}`} className="cursor-pointer">
-            <path
-                transform={`translate(8,8)`}
-                opacity={0.5}
-                fill='black'
-                d={border}
-            />
-            <path
-                transform={`translate(-5,0)`}
-                stroke='black'
-                strokeWidth={5}
-                fill='black'
-                d={border}
-            />
-            <path
-                transform={`translate(8,8)`}
-                opacity={0.5}
-                stroke='black'
-                strokeWidth={2}
-                fill='black'
-                d={arrow}
-            />
-            <path
-                transform={`translate(-5,0)`}
-                stroke='black'
-                strokeWidth={5}
-                fill='black'
-                d={arrow}
-            />
-        </svg>
+        <>
+            {!user ? <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleSignIn} className="cursor-pointer">
+                <path
+                    transform={`translate(8,8)`}
+                    opacity={0.5}
+                    fill='black'
+                    d={border}
+                />
+                <path
+                    transform={`translate(-5,0)`}
+                    stroke='black'
+                    strokeWidth={5}
+                    fill='black'
+                    d={border}
+                />
+                <path
+                    transform={`translate(8,8)`}
+                    opacity={0.5}
+                    stroke='black'
+                    strokeWidth={2}
+                    fill='black'
+                    d={arrow}
+                />
+                <path
+                    transform={`translate(-5,0)`}
+                    stroke='black'
+                    strokeWidth={5}
+                    fill='black'
+                    d={arrow}
+                />
+            </svg> :
+                <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleLogOut} className="cursor-pointer">
+                    <path
+                        transform={`translate(8,8)`}
+                        opacity={0.5}
+                        fill='black'
+                        d={border}
+                    />
+                    <path
+                        transform={`translate(-5,0)`}
+                        stroke='black'
+                        strokeWidth={5}
+                        fill='black'
+                        d={border}
+                    />
+                    <path
+                        transform={`translate(108,159) rotate(180)`}
+                        opacity={0.5}
+                        stroke='black'
+                        strokeWidth={2}
+                        fill='black'
+                        d={arrow}
+                    />
+                    <path
+                        transform={`translate(95,151) rotate(180)`}
+                        stroke='black'
+                        strokeWidth={5}
+                        fill='black'
+                        d={arrow}
+                    />
+                </svg>}
+        </>
     )
 }
 

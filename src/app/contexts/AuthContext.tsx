@@ -1,6 +1,6 @@
 'use client'
 import { useContext, createContext, useEffect, useState } from 'react'
-import { signInWithPopup, signOut, onAuthStateChanged, EmailAuthProvider, User } from 'firebase/auth'
+import { signOut, onAuthStateChanged, signInWithEmailAndPassword, User } from 'firebase/auth'
 import { auth } from '../firebase';
 
 type AuthContextProviderProps = { children: React.ReactNode };
@@ -8,7 +8,7 @@ type UserT = User | null;
 
 type AuthContext = {
     user: UserT,
-    emailSignIn: () => void,
+    emailSignIn: (email: string, password: string) => void,
     logOut: () => void
 };
 
@@ -18,9 +18,8 @@ const AuthContext = createContext<AuthContext | null>(null);
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
     const [user, setUser] = useState<UserT>(null);
 
-    const emailSignIn = () => {
-        const provider: EmailAuthProvider = new EmailAuthProvider();
-        signInWithPopup(auth, provider);
+    const emailSignIn = (email: string, password: string) => {
+        signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
