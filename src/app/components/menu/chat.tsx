@@ -1,4 +1,4 @@
-import { useSpeechBubbleContext } from '@/app/contexts/speechBubbleContext'
+import { useContentContext } from '@/app/contexts/speechBubbleContext'
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from '@/app/contexts/AuthContext';
@@ -14,11 +14,11 @@ const speechBubbleIconShape: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -18.5, 
 const speechBubbleIcon: string = shapeDrawer(speechBubbleIconStart, speechBubbleIconShape, pixelSize);
 
 const Chat = () => {
-    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
+    const { content, setContent } = useContentContext();
     const { user } = useAuthContext();
 
     function toggleSpeechBubble() {
-        speechBubble == 'chat' ? setSpeechBubble(null) : setSpeechBubble('chat');
+        content == 'chat' ? setContent(null) : setContent('chat');
     }
 
     return (

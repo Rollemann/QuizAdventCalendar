@@ -1,4 +1,4 @@
-import { useSpeechBubbleContext } from "@/app/contexts/speechBubbleContext";
+import { useContentContext } from "@/app/contexts/speechBubbleContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 
@@ -15,10 +15,10 @@ const dotShape: number[] = [5, 1, 1, 3, -1, 1, -5, -1, -1, -3, 1, -1];
 const dot: string = shapeDrawer(dotStart, dotShape, pixelSize);
 
 export default function Rules () {
-    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
+    const { content, setContent } = useContentContext();
 
     function toggleSpeechBubble() {
-        speechBubble == 'rules' ? setSpeechBubble(null) : setSpeechBubble('rules');
+        content == 'rules' ? setContent(null) : setContent('rules');
     }
 
     return (

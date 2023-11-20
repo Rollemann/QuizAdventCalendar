@@ -1,4 +1,4 @@
-import { useSpeechBubbleContext } from "@/app/contexts/speechBubbleContext";
+import { useContentContext } from "@/app/contexts/speechBubbleContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from "@/app/contexts/AuthContext";
@@ -17,11 +17,11 @@ const number1Shape: number[] = [7, -2, -2, -8, -3, 1, -2, 2, 2, 5, -2, 2];
 const number1: string = shapeDrawer(number1Start, number1Shape, pixelSize);
 
 const Ranking = () => {
-    const { speechBubble, setSpeechBubble } = useSpeechBubbleContext();
+    const { content, setContent } = useContentContext();
     const { user } = useAuthContext();
 
     function toggleSpeechBubble() {
-        speechBubble == 'ranking' ? setSpeechBubble(null) : setSpeechBubble('ranking');
+        content == 'ranking' ? setContent(null) : setContent('ranking');
     }
 
     return (

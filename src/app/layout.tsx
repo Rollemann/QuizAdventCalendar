@@ -6,7 +6,7 @@ import Rules from "./components/menu/rules"
 import Speechbubble from './components/speechbubble'
 import Rewards from './components/menu/rewards'
 import Ranking from './components/menu/ranking'
-import { SpeechBubbleContextProvider } from './contexts/speechBubbleContext'
+import { ContentContextProvider } from './contexts/speechBubbleContext'
 import Login from './components/menu/login'
 import RulesContent from './components/menuContent/rulesContent'
 import { AuthContextProvider } from './contexts/AuthContext'
@@ -27,7 +27,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <AuthContextProvider>
-          <SpeechBubbleContextProvider>
+          <ContentContextProvider>
             <header className='flex fixed w-screen flex-col top-5'>
               <div className='flex flex-row h-20'>
                 <div className='flex justify-between w-11/12'>
@@ -47,7 +47,7 @@ export default function RootLayout({
                 <Speechbubble />
               </div>
             </header>
-          </SpeechBubbleContextProvider>
+          </ContentContextProvider>
           <main className='flex justify-center'> {children} </main>
         </AuthContextProvider>
       </body>

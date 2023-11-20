@@ -1,35 +1,35 @@
 'use client'
 import React, { createContext, useContext, useState } from 'react'
 
-type SpeechBubbleContextProviderProps = { children: React.ReactNode };
+type ContentContextProviderProps = { children: React.ReactNode };
 
-type SpeechBubble = 'chat' | 'ranking' | 'rewards' | 'rules' | null;
+type Content = 'chat' | 'ranking' | 'rewards' | 'rules' | null;
 
-type SpeechBubbleContext = {
-    speechBubble: SpeechBubble,
-    setSpeechBubble: React.Dispatch<React.SetStateAction<SpeechBubble>>,
-    speechBubbleContent: React.JSX.Element,
-    setSpeechBubbleContent: React.Dispatch<React.SetStateAction<React.JSX.Element>>
+type ContentContext = {
+    content: Content,
+    setContent: React.Dispatch<React.SetStateAction<Content>>,
+    contentValue: React.JSX.Element,
+    setContentValue: React.Dispatch<React.SetStateAction<React.JSX.Element>>
 }
 
-const SpeechBubbleContext = createContext<SpeechBubbleContext | null>(null);
+const ContentContext = createContext<ContentContext | null>(null);
 
 
-export const SpeechBubbleContextProvider = ({ children }: SpeechBubbleContextProviderProps) => {
-    const [speechBubble, setSpeechBubble] = useState<SpeechBubble>(null);
-    const [speechBubbleContent, setSpeechBubbleContent] = useState(<></>); // TODO: Das hier könnte auch ein SVG Element sein (path, text). Mal schauen ob man hier auch scrollen kann oder wie oder wat
+export const ContentContextProvider = ({ children }: ContentContextProviderProps) => {
+    const [content, setContent] = useState<Content>(null);
+    const [contentValue, setContentValue] = useState(<></>);
 
     return (
-        <SpeechBubbleContext.Provider value={{ speechBubble, setSpeechBubble, speechBubbleContent, setSpeechBubbleContent }}>
+        <ContentContext.Provider value={{ content, setContent, contentValue, setContentValue }}>
             {children}
-        </SpeechBubbleContext.Provider>
+        </ContentContext.Provider>
     )
 }
 
-export const useSpeechBubbleContext = () => {
-    const context = useContext(SpeechBubbleContext);
+export const useContentContext = () => {
+    const context = useContext(ContentContext);
     if (!context) {
-        throw new Error("useSpeechBubbleContext must be used within a SpeechBubbleContextProvider");
+        throw new Error("useContentContext must be used within a ContentContextProvider");
     }
     return context
 }
