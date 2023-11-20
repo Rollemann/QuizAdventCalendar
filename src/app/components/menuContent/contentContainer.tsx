@@ -35,7 +35,7 @@ export default function ContentContainer() {
 
     return (
         <>
-            {content && <div onClick={() => setContent(null)} className={`${position} w-max border-2 border-solid border-black`}>
+            {content && <div onClick={() => setContent(null)} className={`${position} mx-1 w-max`}>
                 {content == 'chat' ? (
                     <ChatContent />
                 ) :
