@@ -2,6 +2,7 @@ import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from "@/app/contexts/AuthContext";
 import { useContentContext } from "@/app/contexts/ContentContext";
+import { Tooltip } from "react-tooltip";
 
 const pixelSize: number = 10;
 const startX: number = 40;
@@ -35,66 +36,75 @@ const Login = () => {
 
     return (
         <>
-            {!user ? <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleSignIn} className="cursor-pointer">
-                <path
-                    transform={`translate(8,8)`}
-                    opacity={0.5}
-                    fill='black'
-                    d={border}
-                />
-                <path
-                    transform={`translate(-5,0)`}
-                    stroke='black'
-                    strokeWidth={5}
-                    fill='black'
-                    d={border}
-                />
-                <path
-                    transform={`translate(8,8)`}
-                    opacity={0.5}
-                    stroke='black'
-                    strokeWidth={2}
-                    fill='black'
-                    d={arrow}
-                />
-                <path
-                    transform={`translate(-5,0)`}
-                    stroke='black'
-                    strokeWidth={5}
-                    fill='black'
-                    d={arrow}
-                />
-            </svg> :
-                <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleLogOut} className="cursor-pointer">
-                    <path
-                        transform={`translate(8,8)`}
-                        opacity={0.5}
-                        fill='black'
-                        d={border}
-                    />
-                    <path
-                        transform={`translate(-5,0)`}
-                        stroke='black'
-                        strokeWidth={5}
-                        fill='black'
-                        d={border}
-                    />
-                    <path
-                        transform={`translate(108,159) rotate(180)`}
-                        opacity={0.5}
-                        stroke='black'
-                        strokeWidth={2}
-                        fill='black'
-                        d={arrow}
-                    />
-                    <path
-                        transform={`translate(95,151) rotate(180)`}
-                        stroke='black'
-                        strokeWidth={5}
-                        fill='black'
-                        d={arrow}
-                    />
-                </svg>}
+            {!user ? (
+                <>
+                    <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleSignIn} className="cursor-pointer" data-tooltip-id="login" data-tooltip-content="Login">
+                        <path
+                            transform={`translate(8,8)`}
+                            opacity={0.5}
+                            fill='black'
+                            d={border}
+                        />
+                        <path
+                            transform={`translate(-5,0)`}
+                            stroke='black'
+                            strokeWidth={5}
+                            fill='black'
+                            d={border}
+                        />
+                        <path
+                            transform={`translate(8,8)`}
+                            opacity={0.5}
+                            stroke='black'
+                            strokeWidth={2}
+                            fill='black'
+                            d={arrow}
+                        />
+                        <path
+                            transform={`translate(-5,0)`}
+                            stroke='black'
+                            strokeWidth={5}
+                            fill='black'
+                            d={arrow}
+                        />
+                    </svg>
+                    <Tooltip id="login" />
+                </>
+            ) : (
+                <>
+                    <svg viewBox={`0 0 ${width + 30} ${height + 15}`} onClick={handleLogOut} className="cursor-pointer" data-tooltip-id="logout" data-tooltip-content="Logout">
+                        <path
+                            transform={`translate(8,8)`}
+                            opacity={0.5}
+                            fill='black'
+                            d={border}
+                        />
+                        <path
+                            transform={`translate(-5,0)`}
+                            stroke='black'
+                            strokeWidth={5}
+                            fill='black'
+                            d={border}
+                        />
+                        <path
+                            transform={`translate(108,159) rotate(180)`}
+                            opacity={0.5}
+                            stroke='black'
+                            strokeWidth={2}
+                            fill='black'
+                            d={arrow}
+                        />
+                        <path
+                            transform={`translate(95,151) rotate(180)`}
+                            stroke='black'
+                            strokeWidth={5}
+                            fill='black'
+                            d={arrow}
+                        />
+                    </svg>
+                    <Tooltip id="logout" />
+                </>
+            )}
         </>
     )
 }

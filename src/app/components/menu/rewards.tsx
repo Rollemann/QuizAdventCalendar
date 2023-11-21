@@ -2,6 +2,7 @@ import { useContentContext } from "@/app/contexts/ContentContext";
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from "@/app/contexts/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const pixelSize: number = 10;
 const width: number = 330;
@@ -42,73 +43,76 @@ const Rewards = () => {
     return (
         <>
             {user &&
-                <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleContent} className="cursor-pointer">
-                    <defs>
-                        <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0%" stopColor="yellow" />
-                            <stop offset="100%" stopColor="#CDAD00" />
-                        </linearGradient>
-                    </defs>
-                    <path // connector shadow
-                        transform={`translate(15,15)`}
-                        opacity={0.5}
-                        fill='black'
-                        d={connector}
-                    />
-                    <path // feed shadow
-                        transform={`translate(15,15)`}
-                        opacity={0.5}
-                        fill='black'
-                        d={feed}
-                    />
-                    <path // connector
-                        stroke='black'
-                        strokeWidth={6}
-                        fill='gold'
-                        d={connector}
-                    />
-                    <path // feed
-                        stroke='black'
-                        strokeWidth={6}
-                        fill='grey'
-                        d={feed}
-                    />
-                    <path // bowl shadow
-                        transform={`translate(15,15)`}
-                        opacity={0.5}
-                        fill='black'
-                        d={bowl}
-                    />
-                    <path // bowl
-                        stroke='black'
-                        strokeWidth={6}
-                        fill='url(#bowlGradient)'
-                        d={bowl}
-                    />
-                    <path // hole
-                        stroke='black'
-                        strokeWidth={6}
-                        fill='url(#bowlGradient)'
-                        d={hole}
-                    />
-                    <path // writing
-                        stroke='black'
-                        strokeWidth={10}
-                        d="M 140,330 L 210,330"
-                    />
-                    <path // handle left
-                        stroke='black'
-                        strokeWidth={10}
-                        fillOpacity={0}
-                        d={leftHandle}
-                    />
-                    <path // handle right
-                        stroke='black'
-                        strokeWidth={10}
-                        fillOpacity={0}
-                        d={rightHandle}
-                    />
-                </svg>
+                <>
+                    <svg viewBox={`0 0 ${width + 30} ${height + 20}`} onClick={toggleContent} className="cursor-pointer" data-tooltip-id="rewards" data-tooltip-content="Rewards">
+                        <defs>
+                            <linearGradient id="bowlGradient" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stopColor="yellow" />
+                                <stop offset="100%" stopColor="#CDAD00" />
+                            </linearGradient>
+                        </defs>
+                        <path // connector shadow
+                            transform={`translate(15,15)`}
+                            opacity={0.5}
+                            fill='black'
+                            d={connector}
+                        />
+                        <path // feed shadow
+                            transform={`translate(15,15)`}
+                            opacity={0.5}
+                            fill='black'
+                            d={feed}
+                        />
+                        <path // connector
+                            stroke='black'
+                            strokeWidth={6}
+                            fill='gold'
+                            d={connector}
+                        />
+                        <path // feed
+                            stroke='black'
+                            strokeWidth={6}
+                            fill='grey'
+                            d={feed}
+                        />
+                        <path // bowl shadow
+                            transform={`translate(15,15)`}
+                            opacity={0.5}
+                            fill='black'
+                            d={bowl}
+                        />
+                        <path // bowl
+                            stroke='black'
+                            strokeWidth={6}
+                            fill='url(#bowlGradient)'
+                            d={bowl}
+                        />
+                        <path // hole
+                            stroke='black'
+                            strokeWidth={6}
+                            fill='url(#bowlGradient)'
+                            d={hole}
+                        />
+                        <path // writing
+                            stroke='black'
+                            strokeWidth={10}
+                            d="M 140,330 L 210,330"
+                        />
+                        <path // handle left
+                            stroke='black'
+                            strokeWidth={10}
+                            fillOpacity={0}
+                            d={leftHandle}
+                        />
+                        <path // handle right
+                            stroke='black'
+                            strokeWidth={10}
+                            fillOpacity={0}
+                            d={rightHandle}
+                        />
+                    </svg>
+                    <Tooltip id="rewards" />
+                </>
             }
         </>
     )
