@@ -24,7 +24,7 @@ export default function Home() {
       {user ? (
         <canvas ref={canvasRef} className='border-solid border-black border-2 bg-slate-300' />
       ) : (
-        <h1 className='mt-[25%]'>Please login with the provided credentials. A public version will be available soon.</h1>
+        <h1 className='mt-[25%] text-xl'>Please login with the provided credentials. A public version will be available soon.</h1>
       )
       }
     </>

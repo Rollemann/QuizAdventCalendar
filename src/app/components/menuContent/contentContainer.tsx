@@ -9,7 +9,7 @@ type Position = 'self-end' | '';
 
 
 export default function ContentContainer() {
-    const { content, setContent } = useContentContext();
+    const { content } = useContentContext();
 
     let position: Position = '';
     switch (content) {
@@ -34,20 +34,23 @@ export default function ContentContainer() {
     }
 
     return (
-        <>
-            {content && <div onClick={() => setContent(null)} className={`${position} mx-1 w-max`}>
-                {content == 'chat' ? (
-                    <ChatContent />
-                ) :
-                    content == 'ranking' ? (
-                        <RankingContent />
+        <div className='flex flex-col w-11/12'>
+            {content &&
+                <div className={`${position} mx-1 w-max`}>
+                    {content == 'chat' ? (
+                        <ChatContent />
                     ) :
-                        content == 'rewards' ? (
-                            <RewardsContent />
+                        content == 'ranking' ? (
+                            <RankingContent />
                         ) :
-                            <RulesContent />
+                            content == 'rewards' ? (
+                                <RewardsContent />
+                            ) :
+                                content == 'rules' ? (
+                                    <RulesContent />
+                                ) : null
                 }
-            </div>}
-        </>
+                </div>}
+        </div>
     )
 }

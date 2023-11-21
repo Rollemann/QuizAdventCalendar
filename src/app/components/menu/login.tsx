@@ -1,6 +1,7 @@
 import { shapeDrawer } from "@/app/components/svgDrawer";
 import { Position } from "@/app/components/svgDrawer";
 import { useAuthContext } from "@/app/contexts/AuthContext";
+import { useContentContext } from "@/app/contexts/ContentContext";
 
 const pixelSize: number = 10;
 const startX: number = 40;
@@ -16,15 +17,11 @@ const arrowShape: number[] = [7, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -1,
 const arrow: string = shapeDrawer(arrowStart, arrowShape, pixelSize);
 
 const Login = () => {
-    const { user, emailSignIn, logOut } = useAuthContext();
+    const { content, setContent } = useContentContext();
+    const { user, logOut } = useAuthContext();
 
     const handleSignIn = async () => {
-        try {
-            await emailSignIn("rolf.suslik@xmascalendar.com", "test1234");
-        } catch (error) {
-            console.log(error); // TODO: das noch ordentlich darstellen
-
-        }
+        content == 'login' ? setContent(null) : setContent('login'); // TODO: testen
     }
 
     const handleLogOut = async () => {

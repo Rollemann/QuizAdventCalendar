@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react'
 
 type ContentContextProviderProps = { children: React.ReactNode };
 
-type Content = 'chat' | 'ranking' | 'rewards' | 'rules' | null;
+type Content = 'chat' | 'ranking' | 'rewards' | 'rules' | 'login' | null;
 
 type ContentContext = {
     content: Content,

@@ -1,8 +1,9 @@
 import React from 'react'
 
+//TODO: Tabellen Style kopieren von rewards
 export default function RankingContent() {
     return (
-        <div className={'w-[24rem] h-[14.4rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover scale-x-[-1] flex justify-center'}>
+        <div className={'w-[30rem] h-[18rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover scale-x-[-1] flex justify-center'}>
             <table className='scale-x-[-1] text-xl border-collapse h-min self-center'>
                 <thead className=''>
                     <td>Place</td>

@@ -9,8 +9,7 @@ import { ContentContextProvider } from './contexts/ContentContext'
 import Login from './components/menu/login'
 import { AuthContextProvider } from './contexts/AuthContext'
 import ContentContainer from './components/menuContent/contentContainer'
-
-const inter = Inter({ subsets: ['latin'] })
+import LoginContent from './components/menuContent/loginContent'
 
 export default function RootLayout({
   children,
@@ -24,7 +23,7 @@ export default function RootLayout({
       <head>
         <title>Big Baba Bubu Advent Calendar</title>
       </head>
-      <body className={inter.className}>
+      <body className='flex items-center justify-center h-'>
         <AuthContextProvider>
           <ContentContextProvider>
             <header className='flex fixed w-screen flex-col top-5'>
@@ -35,16 +34,15 @@ export default function RootLayout({
                     <Ranking />
                   </div>
                   <div className='flex w-1/4 justify-around'>
-                    <Chat />
+                    {false && <Chat />}
                     <Rules />
                   </div>
                 </div>
                 <Login />
               </div>
-              <div className='flex flex-col w-11/12'>
-                <ContentContainer />
-              </div>
+              <ContentContainer />
             </header>
+            <LoginContent />
           </ContentContextProvider>
           <main className='flex justify-center'> {children} </main>
         </AuthContextProvider>
