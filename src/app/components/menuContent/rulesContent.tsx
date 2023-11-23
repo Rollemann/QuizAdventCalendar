@@ -1,7 +1,7 @@
 import React from 'react'
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '@/app/firebase';
-// TODO: font anpassen und Kommentare raus und BG Color ändern
+// TODO: Kommentare raus und BG Color ändern, vielleicht Style noch etwas anpassen vom Text
 function RulesContent() {
 
   /* const writeToDB = async () => {
