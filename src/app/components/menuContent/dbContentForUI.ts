@@ -37,6 +37,11 @@ type PlayerDeathCount = {
     deathCount: number
 }
 
+type GeneralPlayerObject = {
+    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    [key: string]: string | number 
+}
+
 export type PlayerContent = {
     id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
     name: string,
@@ -95,7 +100,7 @@ function getAllFinishedLevels(allPlayerTimes: PlayerTime[]): PlayerFinishedTime[
     return allPlayerTimes.filter((levelTime): levelTime is PlayerFinishedTime => { return levelTime.endTime != null });
 }
 
-function mergeObjectListsById(objListA, objListB) {
+function mergeObjectListsById(objListA: GeneralPlayerObject[], objListB: GeneralPlayerObject[]) {
     let merged = [];
     for (let i = 0; i < objListA.length; i++) {
         merged.push({
