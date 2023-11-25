@@ -1,4 +1,4 @@
-import { levelTimer } from "./levelTimer";
+import { levelTimer } from "./setupGame";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { currentLevel, inputsDisabled } from "./sprites/PlayerSprite";
 import { StaticSprite } from "./sprites/StaticSprite";
@@ -75,6 +75,6 @@ function keyupHandler(e: KeyboardEvent, sprites: any) {
 
 function startLevelTimer() {
     if (levelTimer.isReady) {
-        levelTimer.startTimer();
+        levelTimer.startTimer(currentLevel);
     }
 }

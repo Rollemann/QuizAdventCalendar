@@ -1,4 +1,4 @@
-import { levelTimer } from "./levelTimer";
+import { levelTimer } from "./setupGame";
 import { AnimationSprite } from "./sprites/AnimationSprite";
 import { blackOutLevel, currentLevel } from "./sprites/PlayerSprite";
 import { StaticSprite } from "./sprites/StaticSprite";

@@ -1,6 +1,9 @@
 import { Point, SpriteArea } from "./typesForSprites";
 import { collisionCheck } from "../collisionCheck";
-import { levelTimer } from "../levelTimer";
+
+import { levelTimer } from "../setupGame";
+import { addDeath } from "@/app/components/DBConnector";
+import { User } from "firebase/auth";
 
 type PlayerSpriteProps = {
     position: Point | null,
@@ -17,7 +20,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 18;
+export let currentLevel: number = 0;
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
@@ -53,7 +56,9 @@ export class PlayerSprite {
     newDirection: Direction = "middle";
     currentAnimation: Animation = null;
 
-    constructor(spriteProps: PlayerSpriteProps) {
+    user: User;
+
+    constructor(spriteProps: PlayerSpriteProps, user: User) {
         this.position = spriteProps.position || { x: 0, y: 0 };
         this.ctx = spriteProps.ctx;
         this.image.src = spriteProps.imageSrc;
@@ -65,6 +70,7 @@ export class PlayerSprite {
         this.hitBoxOffset = { x: (20 * this.scale), y: (7 * this.scale), width: -(40 * this.scale), height: - (9 * this.scale) };
         this.updateHitBox();
         this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
+        this.user = user;
     };
 
     draw() {
@@ -100,7 +106,7 @@ export class PlayerSprite {
         this.landingVelocity = Math.abs(this.velocity.y);
         this.updateHitBox();
 
-        if(this.position.y > 750){
+        if (this.position.y > 750) {
             this.die();
         }
 
@@ -392,11 +398,11 @@ export class PlayerSprite {
             inputsDisabled = false;
             blackOutLevel = false;
             this.animationBlocked = false;
+            doorNumber > 0 ? levelTimer.getReady() : levelTimer.endTimer(currentLevel);
             currentLevel = this.nextLevel;
             this.position.x = this.startPos.x;
             this.position.y = this.startPos.y;
             this.setIdleAnim();
-            doorNumber > 0 ? levelTimer.getReady() : levelTimer.endTimer();
         };
         this.setEnterDoorAnim();
     }
@@ -406,6 +412,7 @@ export class PlayerSprite {
             this.velocity.x = 0;
             inputsDisabled = true;
             this.animationBlocked = true;
+            addDeath(this.user.uid, currentLevel);
 
             this.actionFunctionAfter = () => {
                 inputsDisabled = false;

@@ -1,7 +1,12 @@
+import { User } from 'firebase/auth';
 import { initSprites } from './initSprites';
 import { initInputEvents } from './userInputs';
+import { levelTimerClass } from './levelTimer';
 
-export function setup(canvas : HTMLCanvasElement | null): {
+
+export let levelTimer: levelTimerClass;
+
+export function setup(canvas : HTMLCanvasElement | null, user: User): {
     ctx: CanvasRenderingContext2D,
     sprites: any;
 } | null {
@@ -14,8 +19,9 @@ export function setup(canvas : HTMLCanvasElement | null): {
         if (ctx) {
             ctx.canvas.width = 1280;
             ctx.canvas.height = 720;
-            const sprites = initSprites(ctx);
+            const sprites = initSprites(ctx, user);
             initInputEvents(sprites);
+            levelTimer = new levelTimerClass(user);
             return {
                 ctx: ctx,
                 sprites: sprites

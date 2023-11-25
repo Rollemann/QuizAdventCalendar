@@ -1,3 +1,4 @@
+import { User } from "firebase/auth";
 import { AnimationSprite, AnimationSpriteProps } from "./sprites/AnimationSprite";
 import { PlayerSprite } from "./sprites/PlayerSprite";
 import { StaticSprite, StaticSpriteProps } from "./sprites/StaticSprite";
@@ -6,13 +7,13 @@ import { allStaticSpritesProps } from "./sprites/allStaticSprites";
 import { AnimationSprites, AnimationTypesProps, InitializedSprites, StaticSprites, StaticTypesProps, nonePlayerSprites } from "./sprites/typesForSprites";
 
 
-export function initSprites(ctx: CanvasRenderingContext2D): InitializedSprites {
+export function initSprites(ctx: CanvasRenderingContext2D, user: User): InitializedSprites {
 
     const staticSprites: StaticSprites[] = createStaticSprites(ctx);
 
     const animationSprites: AnimationSprites[] = createAnimationSprites(ctx);
 
-    const player: PlayerSprite = createPlayerSprite(ctx);
+    const player: PlayerSprite = createPlayerSprite(ctx, user);
 
     let levels: nonePlayerSprites[] = []
     for (let i = 0; i < staticSprites.length; ++i) {
@@ -76,12 +77,13 @@ function createStaticSpriteType(properties: StaticSpriteProps[]): StaticSprite[]
     return allObjects;
 }
 
-function createPlayerSprite(ctx: CanvasRenderingContext2D): PlayerSprite {
+function createPlayerSprite(ctx: CanvasRenderingContext2D, user: User): PlayerSprite {
     const player = new PlayerSprite({
         position: { x: 0, y: 0 },
         ctx: ctx,
         imageSrc: './SpriteSheets/SantaSprite.png',
         scale: 1.5
-    });
+    },
+    user);
     return player;
 }

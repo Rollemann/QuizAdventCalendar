@@ -1,35 +1,40 @@
-class levelTimerClass {
-    currentLevel: number = 0; // TODO weiss nicht ob ich das brauche
-    startTime: Date = new Date();    
+import { User } from "firebase/auth";
+import { addTimeEnd, addTimeStart } from "../components/DBConnector";
+
+export class levelTimerClass {
+    startTime: Date = new Date();
     endTime: Date = new Date();
     isRunning: boolean = false;
     isReady: boolean = false;
+    user: User;
 
-    constructor(){}
+    constructor(user: User) {
+        this.user = user;
+    }
 
-    startTimer(){
+    startTimer(level: number) {
         this.isReady = false;
-        this.startTime = new Date(); 
+        this.startTime = new Date();
         this.isRunning = true;
+        addTimeStart(this.user.uid, level, this.startTime.getTime());
     }
 
-    endTimer(){
+    endTimer(level: number) {
         this.endTime = new Date();
-        this.isRunning = false;        
+        this.isRunning = false;
+        addTimeEnd(this.user.uid, level, this.endTime.getTime());
     }
 
-    getMillisecondsPastFromStart(): number{
-        const currentTime = new Date(); 
+    getMillisecondsPastFromStart(): number {
+        const currentTime = new Date();
         return (currentTime.getTime() - this.startTime.getTime())
     }
 
-    getTimeString(): string{        
+    getTimeString(): string {
         return (new Date(this.getMillisecondsPastFromStart()).toISOString().slice(14, 19));
     }
 
-    getReady(){
+    getReady() {
         this.isReady = true;
     }
 }
-
-export let levelTimer = new levelTimerClass();

@@ -10,8 +10,8 @@ export default function Home() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (canvas) {
-      let setupResult = setup(canvas);
+    if (canvas && user) {
+      let setupResult = setup(canvas, user);
       if (setupResult) {
         let { ctx, sprites } = setupResult;
         gameLoop(ctx, sprites, { Name: "", RoomTimes: [] }); // TODO Second argument anpassen

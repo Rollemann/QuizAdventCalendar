@@ -4,7 +4,8 @@ import { signOut, onAuthStateChanged, signInWithEmailAndPassword, User } from 'f
 import { auth } from '../firebase';
 
 type AuthContextProviderProps = { children: React.ReactNode };
-type UserT = User | null;
+
+export type UserT = User | null;
 
 type AuthContext = {
     user: UserT,

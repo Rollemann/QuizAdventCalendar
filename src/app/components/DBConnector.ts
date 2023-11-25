@@ -12,16 +12,21 @@ export async function addDeath(playerId: string, level: number) {
 }
 
 export async function addTimeStart(playerId: string, level: number, startTime: number) {
-    const startTimeObj: PlayerTime = { id: playerId, level: level, startTime: startTime, endTime: null };
-    await setDoc(doc(timeRef, (playerId + level)), startTimeObj);
+    const docSnap = await getDoc(doc(timeRef, (playerId + level)));
+    if (!docSnap.exists()) {
+        const startTimeObj: PlayerTime = { id: playerId, level: level, startTime: startTime, endTime: null };
+        await setDoc(doc(timeRef, (playerId + level)), startTimeObj);
+    }
 }
 
 export async function addTimeEnd(playerId: string, level: number, endTime: number) {
     const docSnap = await getDoc(doc(timeRef, (playerId + level)));
     if (docSnap.exists()) {
         const timeObj = docSnap.data();
-        timeObj.endTime = endTime;
-        await setDoc(doc(timeRef, (playerId + level)), timeObj);
+        if (!timeObj.endTime) {
+            timeObj.endTime = endTime;
+            await setDoc(doc(timeRef, (playerId + level)), timeObj);
+        }
     }
 }
 
