@@ -1,53 +1,53 @@
-type PlayerTime = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+export type PlayerTime = {
+    id: string,
     level: number,
     startTime: number, // TODO: den Typ hier vielleicht noch anpassen.
     endTime: number | null // TODO: den Typ hier vielleicht noch anpassen.
 }
 
-type PlayerDeath = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+export type PlayerDeath = {
+    id: string,
     level: number
 }
 
+export type PlayerName = {
+    id: string,
+    name: string
+}
+
+export type PlayerContent = {
+    id: string,
+    name: string,
+    levelFinished: number,
+    deathCount: number,
+    avgTime: number
+}
+
 type PlayerFinishedTime = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    id: string,
     level: number,
     startTime: number, // TODO: den Typ hier vielleicht noch anpassen.
     endTime: number // TODO: den Typ hier vielleicht noch anpassen.
 }
 
-type PlayerName = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
-    name: string
-}
-
 type PlayerLevelCount = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    id: string,
     levelFinished: number
 }
 
 type PlayerAvgTime = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    id: string,
     avgTime: number
 }
 
 type PlayerDeathCount = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    id: string,
     deathCount: number
 }
 
 type GeneralPlayerObject = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
+    id: string,
     [key: string]: string | number 
-}
-
-export type PlayerContent = {
-    id: string | number, // TODO: den Typ hier vielleicht noch anpassen.
-    name: string,
-    levelFinished: number,
-    deathCount: number,
-    avgTime: number
 }
 
 
@@ -57,7 +57,7 @@ export function getContentObjectForRanking(playerNames: PlayerName[], playerDeat
     const allDeaths = getAllPlayersDeathCounts(playerDeaths, playerNames);
     const namesFinished = mergeObjectListsById(playerNames, allFinished);
     const namesFinishedTimes = mergeObjectListsById(namesFinished, allAvgTimes);
-    const namesFinishedTimesDeaths = mergeObjectListsById(namesFinishedTimes, allDeaths);
+    const namesFinishedTimesDeaths: PlayerContent[] = mergeObjectListsById(namesFinishedTimes, allDeaths);
     return namesFinishedTimesDeaths;
 }
 
