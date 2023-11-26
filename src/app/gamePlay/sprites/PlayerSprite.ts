@@ -409,10 +409,13 @@ export class PlayerSprite {
 
     die() {
         if (this.currentAnimation != "die" && !this.animationBlocked) {
+            this.setDieAnim();
             this.velocity.x = 0;
             inputsDisabled = true;
             this.animationBlocked = true;
             if (currentLevel > 0){
+                console.log("tot");
+                
                 addDeath(this.user.uid, currentLevel);
             }
 
@@ -423,7 +426,7 @@ export class PlayerSprite {
                 this.animationBlocked = false;
                 this.setIdleAnim();
             }
-            this.setDieAnim();
+            
         }
     }
 

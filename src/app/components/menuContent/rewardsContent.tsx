@@ -4,8 +4,8 @@ export default function RewardsContent() {
     return (
         <div className={'w-[34rem] h-[20.4rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover flex justify-center'}>
             <table className='text-xl border-collapse h-min self-center w-[90%]'>
-                <thead className='border-b-2 border-dashed border-black [&>*]:border-x-2 [&>*]:border-dashed [&>*]:border-black [&>*]:text-center [&>*]:p-2 [&>*]:font-bold'>
-                    <tr>
+                <thead>
+                    <tr className='border-b-2 border-dashed border-black [&>*]:border-x-2 [&>*]:border-dashed [&>*]:border-black [&>*]:text-center [&>*]:p-2 [&>*]:font-bold'>
                         <th>Place</th>
                         <th>Time</th>
                         <th>Do not Die</th>

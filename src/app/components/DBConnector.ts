@@ -7,8 +7,14 @@ const timeRef = collection(db, 'PlayerTime');
 const nameRef = collection(db, 'PlayerName')
 
 export async function addDeath(playerId: string, level: number) {
-    const deathObj: PlayerDeath = { id: playerId, level: level };
-    await addDoc(deathRef, deathObj);
+    const docSnap = await getDoc(doc(timeRef, (playerId + level)));
+    if (docSnap.exists()) {
+        const timeObj = docSnap.data();
+        if (!timeObj.endTime) {
+            const deathObj: PlayerDeath = { id: playerId, level: level };
+            await addDoc(deathRef, deathObj);
+        }
+    }
 }
 
 export async function addTimeStart(playerId: string, level: number, startTime: number) {
