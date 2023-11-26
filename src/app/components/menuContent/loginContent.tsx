@@ -11,7 +11,6 @@ export default function LoginContent() {
 
     const handleSignIn = async () => {
         try {
-            //await emailSignIn("rolf.suslik@xmascalendar.com", "test1234");
             await emailSignIn(email, password); // TODO: das hier produktiv testen
             setContent(null);
         } catch (error) {

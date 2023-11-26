@@ -1,8 +1,8 @@
 export type PlayerTime = {
     id: string,
     level: number,
-    startTime: number, // TODO: den Typ hier vielleicht noch anpassen.
-    endTime: number | null // TODO: den Typ hier vielleicht noch anpassen.
+    startTime: number,
+    endTime: number | null
 }
 
 export type PlayerDeath = {
@@ -26,8 +26,8 @@ export type PlayerContent = {
 type PlayerFinishedTime = {
     id: string,
     level: number,
-    startTime: number, // TODO: den Typ hier vielleicht noch anpassen.
-    endTime: number // TODO: den Typ hier vielleicht noch anpassen.
+    startTime: number,
+    endTime: number
 }
 
 type PlayerLevelCount = {

@@ -22,13 +22,13 @@ const Login = () => {
     const { user, logOut } = useAuthContext();
 
     const handleSignIn = async () => {
-        content == 'login' ? setContent(null) : setContent('login'); // TODO: testen
+        content == 'login' ? setContent(null) : setContent('login');
     }
 
     const handleLogOut = async () => {
         try {
             await logOut();
-            console.log(user);
+
         } catch (error) {
             console.log(error); // TODO: das noch ordentlich darstellen
         }

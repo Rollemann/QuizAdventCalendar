@@ -11,16 +11,15 @@ type ListContent = {
     levelFinished: number,
 }
 
-//TODO: Tabellen Style kopieren von rewards
 export default function RankingContent() {
     const [listContent, setListContent] = useState<ListContent[]>([]);
 
     useEffect(() => {
         const getTableData = async () => {
             const tableData = [];
-            const allPlayerNames = await getAllNames();// [{ id: "1", name: "Adam" }, { id: "2", name: "Bernd" }]; // TODO: DB Abfrage hier oder lieber in der Funktion?
-            const allPlayerTimes = await getAllTimes();//[{ id: "1", level: 1, startTime: 0, endTime: 100 }, { id: "1", level: 2, startTime: 0, endTime: 200 }, { id: "2", level: 1, startTime: 0, endTime: 200 }, { id: "2", level: 2, startTime: 0, endTime: 400 }]; // TODO: DB abfrage hier;
-            const allPlayerDeaths = await getAllDeaths();//[{ id: "1", level: 1 }, { id: "1", level: 3 }, { id: "1", level: 3 }, { id: "2", level: 1 }, { id: "2", level: 1 }, { id: "1", level: 2 }, { id: "1", level: 1 }]; // TODO: DB abfrage hier;
+            const allPlayerNames = await getAllNames();
+            const allPlayerTimes = await getAllTimes();
+            const allPlayerDeaths = await getAllDeaths();
             const contentObject = getContentObjectForRanking(allPlayerNames, allPlayerDeaths, allPlayerTimes);
 
             // contentObject can't be sorted, so this workaround
@@ -48,7 +47,6 @@ export default function RankingContent() {
         getTableData();
     }, []);
 
-    //TODO: td aus Thead raus
     return (
         <div className={'w-[65rem] h-[39rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover scale-x-[-1] flex justify-center'}>
             {listContent.length > 0 ? (

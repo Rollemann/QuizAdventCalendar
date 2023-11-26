@@ -17,11 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  // TODO: titel anpassen
   return (
     <html lang="en">
       <head>
-        <title>Big Baba Bubu Advent Calendar</title>
+        <title>Jumping Santa Advent Calendar</title>
       </head>
       <body className='flex items-center justify-center h-'>
         <AuthContextProvider>
