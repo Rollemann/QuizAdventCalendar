@@ -31,7 +31,12 @@ export class levelTimerClass {
     }
 
     getTimeString(): string {
-        return (new Date(this.getMillisecondsPastFromStart()).toISOString().slice(14, 19));
+        const totalSeconds = Math.floor(this.getMillisecondsPastFromStart() / 1000);
+        let minutes: string | number = Math.floor(totalSeconds / 60);
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        let seconds: string | number = totalSeconds % 60;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
+        return `${minutes}:${seconds}`;
     }
 
     getReady() {

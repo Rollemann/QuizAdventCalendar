@@ -20,7 +20,7 @@ export type PlayerContent = {
     name: string,
     levelFinished: number,
     deathCount: number,
-    avgTime: number
+    avgTime: string
 }
 
 type PlayerFinishedTime = {
@@ -37,7 +37,7 @@ type PlayerLevelCount = {
 
 type PlayerAvgTime = {
     id: string,
-    avgTime: number
+    avgTime: string
 }
 
 type PlayerDeathCount = {
@@ -47,7 +47,7 @@ type PlayerDeathCount = {
 
 type GeneralPlayerObject = {
     id: string,
-    [key: string]: string | number 
+    [key: string]: string | number
 }
 
 
@@ -81,7 +81,8 @@ function getAllPlayersAvgTimes(allPlayerTimes: PlayerTime[], playerNames: Player
         const allFinishedPlayerLevel = allFinishedLevels.filter((levelTime) => { return levelTime.id == curPlayerID });
         const sumAllTimes = allFinishedPlayerLevel.reduce((prev, curTime) => { return prev + (curTime.endTime - curTime.startTime) }, 0)
         const avgTime = sumAllTimes / allFinishedPlayerLevel.length;
-        avgTimes.push({ id: curPlayerID, avgTime: avgTime });
+        const avgTimeString = getTimeString(avgTime);
+        avgTimes.push({ id: curPlayerID, avgTime: avgTimeString });
     }
     return avgTimes;
 }
@@ -110,4 +111,20 @@ function mergeObjectListsById(objListA: GeneralPlayerObject[], objListB: General
         );
     }
     return merged;
+}
+
+function getTimeString(ms: number): string {
+    const totalSeconds = Math.floor(ms / 1000);
+    let minutes: string | number = Math.floor(totalSeconds / 60);
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    let seconds: string | number = totalSeconds % 60;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    return `${minutes}:${seconds}`;
+}
+
+export function getSecondsFromTimeString(minutesSecondString: string): number {
+    const times = minutesSecondString.split(':');
+    const minutes = parseInt(times[0]);
+    const seconds = parseInt(times[1]);
+    return (60 * minutes + seconds);
 }
