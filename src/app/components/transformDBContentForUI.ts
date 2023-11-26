@@ -57,10 +57,12 @@ export function getContentObjectForRanking(playerNames: PlayerName[], playerDeat
     const allDeaths = getAllPlayersDeathCounts(playerDeaths, playerNames);
     const namesFinished = mergeObjectListsById(playerNames, allFinished);
     const namesFinishedTimes = mergeObjectListsById(namesFinished, allAvgTimes);
-    const namesFinishedTimesDeaths: PlayerContent[] = mergeObjectListsById(namesFinishedTimes, allDeaths);
-    return namesFinishedTimesDeaths;
+    const namesFinishedTimesDeaths = mergeObjectListsById(namesFinishedTimes, allDeaths);
+    const allContent: PlayerContent[] = namesFinishedTimesDeaths.map((obj) => {
+        return { id: obj.id.toString(), name: obj.name.toString(), levelFinished: Number(obj.levelFinished), deathCount: Number(obj.deathCount), avgTime: obj.avgTime.toString() }
+    });
+    return allContent;
 }
-
 
 function getAllPlayerFinishedLevelCount(allPlayerTimes: PlayerTime[], playerNames: PlayerName[]): PlayerLevelCount[] {
     let count: PlayerLevelCount[] = [];
@@ -114,12 +116,15 @@ function mergeObjectListsById(objListA: GeneralPlayerObject[], objListB: General
 }
 
 function getTimeString(ms: number): string {
-    const totalSeconds = Math.floor(ms / 1000);
-    let minutes: string | number = Math.floor(totalSeconds / 60);
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    let seconds: string | number = totalSeconds % 60;
-    seconds = seconds < 10 ? `0${seconds}` : seconds;
-    return `${minutes}:${seconds}`;
+    if (ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        let minutes: string | number = Math.floor(totalSeconds / 60);
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        let seconds: string | number = totalSeconds % 60;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
+        return `${minutes}:${seconds}`;
+    }
+    return '00:00' 
 }
 
 export function getSecondsFromTimeString(minutesSecondString: string): number {

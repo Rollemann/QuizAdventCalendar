@@ -40,8 +40,9 @@ export async function getAllNames(): Promise<PlayerName[]> {
     let allNames: PlayerName[] = []
     const querySnapshot = await getDocs(nameRef);
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        allNames.push(doc.data());
+        const dbObj = doc.data();
+        const playerNameObj: PlayerName = {id: dbObj.id, name: dbObj.name};
+        allNames.push(playerNameObj);
     });
     return allNames;
 }
@@ -50,8 +51,9 @@ export async function getAllTimes(): Promise<PlayerTime[]> {
     const querySnapshot = await getDocs(timeRef);
     let allTimes: PlayerTime[] = []
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        allTimes.push(doc.data());
+        const dbObj = doc.data();
+        const playerTimeObj: PlayerTime = {id: dbObj.id, level: dbObj.level, startTime: dbObj.startTime, endTime: dbObj.endTime};
+        allTimes.push(playerTimeObj);
     });
     return allTimes;
 }
@@ -60,8 +62,9 @@ export async function getAllDeaths(): Promise<PlayerDeath[]> {
     const querySnapshot = await getDocs(deathRef);
     let allDeaths: PlayerDeath[] = []
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        allDeaths.push(doc.data());
+        const dbObj = doc.data();
+        const playerDeathObj: PlayerDeath = {id: dbObj.id, level: dbObj.level};
+        allDeaths.push(playerDeathObj);
     });
     return allDeaths;
 }
