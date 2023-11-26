@@ -412,7 +412,9 @@ export class PlayerSprite {
             this.velocity.x = 0;
             inputsDisabled = true;
             this.animationBlocked = true;
-            addDeath(this.user.uid, currentLevel);
+            if (currentLevel > 0){
+                addDeath(this.user.uid, currentLevel);
+            }
 
             this.actionFunctionAfter = () => {
                 inputsDisabled = false;
