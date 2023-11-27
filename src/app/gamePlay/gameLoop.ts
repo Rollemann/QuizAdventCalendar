@@ -61,7 +61,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 }
 
 function drawLevelTimerReadyInfo(ctx: CanvasRenderingContext2D) {
-    if (levelTimer.isReady) {
+    if (levelTimer.isReady && !levelTimer.startTime) {
         const text = "Move to start the timer.";
         ctx.font = "60px Retro Gaming";
         const numberW = ctx.measureText(text).width;
