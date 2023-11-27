@@ -3,20 +3,24 @@ import { useEffect, useRef } from 'react'
 import { setup } from './gamePlay/setupGame';
 import { gameLoop } from './gamePlay/gameLoop';
 import { useAuthContext } from './contexts/AuthContext';
+import { getAllTimesByUserId } from './components/DBConnector';
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { user } = useAuthContext();
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas && user) {
-      let setupResult = setup(canvas, user);
-      if (setupResult) {
-        let { ctx, sprites } = setupResult;
-        gameLoop(ctx, sprites, { Name: "", RoomTimes: [] }); // TODO Second argument anpassen
+    (async () => {
+      const canvas = canvasRef.current;
+      if (canvas && user) {
+        const allUserTimes = await getAllTimesByUserId(user.uid);
+        let setupResult = await setup(canvas, user, allUserTimes);
+        if (setupResult) {
+          let { ctx, sprites } = setupResult;
+          gameLoop(ctx, sprites);
+        }
       }
-    }
+    })();
   }, [user])
 
   return (

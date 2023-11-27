@@ -1,4 +1,6 @@
+import { getTimeString } from "@/app/components/transformDBContentForUI";
 import { collisionCheck } from "../collisionCheck";
+import { levelTimer } from "../setupGame";
 import { PlayerSprite } from "./PlayerSprite";
 import { MoveProps, Point, SpriteArea } from "./typesForSprites";
 
@@ -132,7 +134,7 @@ export class AnimationSprite {
         this.draw();
     }
 
-    updateDoor(playerArea: SpriteArea, dbTime: string | null) {
+    updateDoor(playerArea: SpriteArea) {
         this.update();
         this.interactable = false;
         const date = new Date();
@@ -140,19 +142,21 @@ export class AnimationSprite {
             this.interactable = true;
             this.showEButton();
         }
-        if (dbTime) {
-            this.drawTime(dbTime);
-        }
+        const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
+        if (curTime && curTime.endTime) {
+            this.drawTime(getTimeString(curTime.endTime - curTime.startTime));
+        } //TODO: das hier wieder reinnehmen 
     }
 
-    updateTreasure(playerArea: SpriteArea, dbTime: string | null) {
+    updateTreasure(playerArea: SpriteArea) {
         this.update();
         this.interactable = false;
         if (this.isStatic && collisionCheck(playerArea, [this.hitBox]) >= 0) {
             this.interactable = true;
             this.showEButton();
         }
-        if (dbTime && !keysCollected[this.dayNumber.value]) {
+        const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
+        if (curTime && curTime.endTime && !keysCollected[this.dayNumber.value]) { // TODO: das hier wieder richtig machen
             keysCollected[this.dayNumber.value] = true;
             this.interactable = true;
             this.frameRate = 1;

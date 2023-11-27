@@ -414,8 +414,6 @@ export class PlayerSprite {
             inputsDisabled = true;
             this.animationBlocked = true;
             if (currentLevel > 0){
-                console.log("tot");
-                
                 addDeath(this.user.uid, currentLevel);
             }
 

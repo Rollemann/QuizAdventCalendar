@@ -1,6 +1,6 @@
-import { addDoc, doc, collection, getDoc, getDocs, setDoc } from 'firebase/firestore';
+import { addDoc, doc, collection, getDoc, getDocs, setDoc, query, where } from 'firebase/firestore';
 import { db } from '@/app/firebase';
-import { PlayerDeath, PlayerName, PlayerTime } from './transformDBContentForUI';
+import { PlayerDeath, PlayerDeathWithTime, PlayerName, PlayerTime } from './transformDBContentForUI';
 
 const deathRef = collection(db, 'PlayerDeath');
 const timeRef = collection(db, 'PlayerTime');
@@ -11,7 +11,7 @@ export async function addDeath(playerId: string, level: number) {
     if (docSnap.exists()) {
         const timeObj = docSnap.data();
         if (!timeObj.endTime) {
-            const deathObj: PlayerDeath = { id: playerId, level: level };
+            const deathObj: PlayerDeathWithTime = { id: playerId, level: level, time: (new Date()).getTime() };
             await addDoc(deathRef, deathObj);
         }
     }
@@ -37,7 +37,7 @@ export async function addTimeEnd(playerId: string, level: number, endTime: numbe
 }
 
 export async function getAllNames(): Promise<PlayerName[]> {
-    let allNames: PlayerName[] = []
+    let allNames: PlayerName[] = [];
     const querySnapshot = await getDocs(nameRef);
     querySnapshot.forEach((doc) => {
         const dbObj = doc.data();
@@ -49,7 +49,19 @@ export async function getAllNames(): Promise<PlayerName[]> {
 
 export async function getAllTimes(): Promise<PlayerTime[]> {
     const querySnapshot = await getDocs(timeRef);
-    let allTimes: PlayerTime[] = []
+    let allTimes: PlayerTime[] = [];
+    querySnapshot.forEach((doc) => {
+        const dbObj = doc.data();
+        const playerTimeObj: PlayerTime = {id: dbObj.id, level: dbObj.level, startTime: dbObj.startTime, endTime: dbObj.endTime};
+        allTimes.push(playerTimeObj);
+    });
+    return allTimes;
+}
+
+export async function getAllTimesByUserId(userId: string): Promise<PlayerTime[]> {
+    const q = query(timeRef, where("id", "==", userId));
+    const querySnapshot = await getDocs(q);
+    let allTimes: PlayerTime[] = [];
     querySnapshot.forEach((doc) => {
         const dbObj = doc.data();
         const playerTimeObj: PlayerTime = {id: dbObj.id, level: dbObj.level, startTime: dbObj.startTime, endTime: dbObj.endTime};
@@ -60,7 +72,7 @@ export async function getAllTimes(): Promise<PlayerTime[]> {
 
 export async function getAllDeaths(): Promise<PlayerDeath[]> {
     const querySnapshot = await getDocs(deathRef);
-    let allDeaths: PlayerDeath[] = []
+    let allDeaths: PlayerDeath[] = [];
     querySnapshot.forEach((doc) => {
         const dbObj = doc.data();
         const playerDeathObj: PlayerDeath = {id: dbObj.id, level: dbObj.level};

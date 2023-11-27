@@ -6,9 +6,9 @@ import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
 
 let blackOutOpacity = 0;
 
-export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites, playerInfo: { Name: string, RoomTimes: any }) {
+export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites) {
     if (ctx.canvas) {
-        window.requestAnimationFrame(() => gameLoop(ctx, sprites, playerInfo));
+        window.requestAnimationFrame(() => gameLoop(ctx, sprites));
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
         let groundAreas: SpriteArea[] = [];
@@ -32,11 +32,11 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         // update Animated and depending on player position
         sprites.levels[currentLevel].animated.doors.forEach((door: AnimationSprite) => {
-            door.updateDoor(playerArea, playerInfo.RoomTimes[door.dayNumber.value]);
+            door.updateDoor(playerArea);
         });
 
         sprites.levels[currentLevel].animated.treasures.forEach((treasure: AnimationSprite) => {
-            treasure.updateTreasure(playerArea, playerInfo.RoomTimes[treasure.dayNumber.value]);
+            treasure.updateTreasure(playerArea);
         });
 
         sprites.levels[currentLevel].animated.levers.forEach((lever: AnimationSprite) => {
@@ -73,14 +73,14 @@ function drawLevelTimerReadyInfo(ctx: CanvasRenderingContext2D) {
     }
 }
 
-function drawLevelTimerTime(ctx: CanvasRenderingContext2D){
+function drawLevelTimerTime(ctx: CanvasRenderingContext2D) {
     if (levelTimer.isReady || levelTimer.isRunning) {
-        const timeText = levelTimer.isRunning? levelTimer.getTimeString() : "00:00";
+        const timeText = levelTimer.isRunning ? levelTimer.getTimeString() : levelTimer.getInitialTimeOfLevel(currentLevel);
         ctx.font = "32px Retro Gaming";
         const timeW = ctx.measureText(timeText).width;
         const posX = ctx.canvas.width / 2 - timeW / 2;
         ctx.fillStyle = "gray";
-        ctx.fillRect(ctx.canvas.width/2 - 55, 2, 112, 40);
+        ctx.fillRect(ctx.canvas.width / 2 - 55, 2, 112, 40);
         ctx.fillStyle = "black";
         ctx.fillText(timeText, posX, 34);
     }

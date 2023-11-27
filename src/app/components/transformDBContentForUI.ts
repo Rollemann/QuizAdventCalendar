@@ -10,6 +10,12 @@ export type PlayerDeath = {
     level: number
 }
 
+export type PlayerDeathWithTime = {
+    id: string,
+    level: number,
+    time: number
+}
+
 export type PlayerName = {
     id: string,
     name: string
@@ -115,7 +121,7 @@ function mergeObjectListsById(objListA: GeneralPlayerObject[], objListB: General
     return merged;
 }
 
-function getTimeString(ms: number): string {
+export function getTimeString(ms: number): string {
     if (ms) {
         const totalSeconds = Math.floor(ms / 1000);
         let minutes: string | number = Math.floor(totalSeconds / 60);
