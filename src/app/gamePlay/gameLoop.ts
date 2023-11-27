@@ -1,6 +1,6 @@
 import { levelTimer } from "./setupGame";
 import { AnimationSprite } from "./sprites/AnimationSprite";
-import { blackOutLevel, currentLevel } from "./sprites/PlayerSprite";
+import { PlayerSprite, blackOutLevel, currentLevel } from "./sprites/PlayerSprite";
 import { StaticSprite } from "./sprites/StaticSprite";
 import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
 
@@ -56,7 +56,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         drawLevelTimerReadyInfo(ctx);
         drawLevelTimerTime(ctx);
-        drawLevelBlackout(ctx);
+        drawLevelBlackout(ctx, sprites.player);
     }
 }
 
@@ -86,7 +86,7 @@ function drawLevelTimerTime(ctx: CanvasRenderingContext2D) {
     }
 }
 
-function drawLevelBlackout(ctx: CanvasRenderingContext2D) {
+function drawLevelBlackout(ctx: CanvasRenderingContext2D, player: PlayerSprite) {
     if (blackOutLevel && blackOutOpacity <= 1) {
         blackOutOpacity += 0.005;
         blackOutOpacity = blackOutOpacity < 1 ? blackOutOpacity : 1;
@@ -102,5 +102,7 @@ function drawLevelBlackout(ctx: CanvasRenderingContext2D) {
         ctx.globalAlpha = blackOutOpacity;
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.globalAlpha = 1.0;
+        player.position.x = player.startPos.x; // to make sure the player really starts in the left corner even when its buggy
+        player.position.y = player.startPos.y;
     }
 }

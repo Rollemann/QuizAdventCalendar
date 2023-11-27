@@ -18,6 +18,7 @@ export class levelTimerClass {
     startTimer(level: number) {
         this.isReady = false;
         this.isRunning = true;
+        this.endTime = null;
         if (!this.startTime) {
             this.startTime = new Date();
         }
@@ -27,6 +28,7 @@ export class levelTimerClass {
     endTimer(level: number) {
         this.endTime = new Date();
         this.isRunning = false;
+        this.startTime = null;
         this.setEndTime(level, this.endTime.getTime());
     }
 
