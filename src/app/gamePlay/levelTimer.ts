@@ -27,7 +27,7 @@ export class levelTimerClass {
     endTimer(level: number) {
         this.endTime = new Date();
         this.isRunning = false;
-        this.setStartTime(level, this.endTime.getTime());
+        this.setEndTime(level, this.endTime.getTime());
     }
 
     getMillisecondsPastFromStart(): number {

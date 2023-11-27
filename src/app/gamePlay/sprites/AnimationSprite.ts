@@ -8,7 +8,7 @@ type DayNumber = {
     isDisplayed: boolean
     value: number,
     size: number,
-    color: 'black' | 'white',
+    color: 'black' | 'white' | "darkred",
     yOffset: number
 }
 
@@ -143,9 +143,14 @@ export class AnimationSprite {
             this.showEButton();
         }
         const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
-        if (curTime && curTime.endTime) {
-            this.drawTime(getTimeString(curTime.endTime - curTime.startTime));
-        } //TODO: das hier wieder reinnehmen 
+        if (curTime) {
+            if (curTime.endTime) {
+                this.drawTime(getTimeString(curTime.endTime - curTime.startTime));
+            }
+            else{
+                this.dayNumber.color = "darkred";
+            }
+        }
     }
 
     updateTreasure(playerArea: SpriteArea) {
