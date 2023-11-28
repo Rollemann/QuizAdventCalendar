@@ -102,7 +102,8 @@ function drawLevelBlackout(ctx: CanvasRenderingContext2D, player: PlayerSprite) 
         ctx.globalAlpha = blackOutOpacity;
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.globalAlpha = 1.0;
-        player.position.x = player.startPos.x; // to make sure the player really starts in the left corner even when its buggy
+        // to make sure the player really starts in the left corner even when its buggy
+        player.position.x = player.startPos.x;
         player.position.y = player.startPos.y;
     }
 }

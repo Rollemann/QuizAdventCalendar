@@ -5,7 +5,7 @@ import { useState } from 'react'
 export default function LoginContent() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<any>(null); // TODO: hier den type von any ändern. 
+    const [error, setError] = useState<any>(null);
     const { emailSignIn } = useAuthContext(); 4
     const { content, setContent } = useContentContext();
 

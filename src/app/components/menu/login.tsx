@@ -30,7 +30,7 @@ const Login = () => {
             await logOut();
 
         } catch (error) {
-            console.log(error); // TODO: das noch ordentlich darstellen
+            console.log(error);
         }
     }
 

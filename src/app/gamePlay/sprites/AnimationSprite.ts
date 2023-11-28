@@ -161,7 +161,7 @@ export class AnimationSprite {
             this.showEButton();
         }
         const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
-        if (curTime && curTime.endTime && !keysCollected[this.dayNumber.value]) { // TODO: das hier wieder richtig machen
+        if (curTime && curTime.endTime && !keysCollected[this.dayNumber.value]) {
             keysCollected[this.dayNumber.value] = true;
             this.interactable = true;
             this.frameRate = 1;
