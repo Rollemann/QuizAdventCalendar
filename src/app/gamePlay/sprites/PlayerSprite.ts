@@ -29,8 +29,8 @@ export class PlayerSprite {
     velocity: Point = { x: 0, y: 0 };
     time: number = 0;
     image: HTMLImageElement = new Image();
-    imgWidth: number;
-    imgHeight: number;
+    imgWidth: number = 0;
+    imgHeight: number = 0;
     scale: number;
     walkVelocity: number = 3;
     jumpVelocity: number = -10;
@@ -46,7 +46,7 @@ export class PlayerSprite {
     hitBoxOffset: SpriteArea;
     hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
     nextLevel: number = 0;
-    startPos: Point;
+    startPos: Point = { x: 0, y: 0 };
     animationBlocked: boolean = false;
     landingVelocity: number = 0;
     jumpCounter: number = allowedJumps;
@@ -63,15 +63,24 @@ export class PlayerSprite {
         this.ctx = spriteProps.ctx;
         this.image.src = spriteProps.imageSrc;
         this.scale = spriteProps.scale;
-        this.imgWidth = this.image.width / this.maxFrames;
-        this.imgHeight = this.image.height / this.maxAnimations;
         this.setIdleAnim();
 
         this.hitBoxOffset = { x: (20 * this.scale), y: (7 * this.scale), width: -(40 * this.scale), height: - (9 * this.scale) };
         this.updateHitBox();
-        this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
+
         this.user = user;
+
+        this.image.onload = (() => {
+            this.setImgWidthAndHeight();
+        });
     };
+
+    setImgWidthAndHeight() {
+        this.imgWidth = this.image.width / this.maxFrames;
+        this.imgHeight = this.image.height / this.maxAnimations;
+        this.startPos = { x: 0, y: this.ctx.canvas.height - (this.imgHeight * this.scale) };
+        this.updateHitBox();
+    }
 
     draw() {
         this.ctx.drawImage(
@@ -84,7 +93,7 @@ export class PlayerSprite {
             this.position.y,
             this.imgWidth * this.scale,
             this.imgHeight * this.scale
-        )
+        );
 
         // TODO Hitboxen raus
         const hitBoxW = 15;
@@ -413,7 +422,7 @@ export class PlayerSprite {
             this.velocity.x = 0;
             inputsDisabled = true;
             this.animationBlocked = true;
-            if (currentLevel > 0){
+            if (currentLevel > 0) {
                 addDeath(this.user.uid, currentLevel);
             }
 
@@ -424,7 +433,7 @@ export class PlayerSprite {
                 this.animationBlocked = false;
                 this.setIdleAnim();
             }
-            
+
         }
     }
 

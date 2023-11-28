@@ -50,12 +50,12 @@ export class AnimationSprite {
     repeatAnimation: boolean;
     interactable: boolean = true;
     dayNumber: DayNumber;
-    hitBox: SpriteArea;
+    hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
     hitBoxOffset: SpriteArea;
     moveProps: MoveProps | null;
 
-    imgWidth: number;
-    imgHeight: number;
+    imgWidth: number = 0;
+    imgHeight: number = 0;
 
     constructor(spriteProps: AnimationSpriteProps) {
         this.position = spriteProps.position || { x: 0, y: 0 };
@@ -73,12 +73,19 @@ export class AnimationSprite {
         this.hitBoxOffset = spriteProps.hitBoxOffset;
         this.moveProps = spriteProps.moveProps;
 
+        this.updateHitBox();
+        this.currentFrames = (this.isStatic && this.staticFrame) ? [this.staticFrame] : this.animationFrames;
+
+        this.image.onload = (() => {
+            this.setImgWidthAndHeight();
+        });
+    };
+
+    setImgWidthAndHeight() {
         this.imgWidth = this.image.width / this.maxFrames;
         this.imgHeight = this.image.height / this.maxAnimations;
-        this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
-
-        this.currentFrames = (this.isStatic && this.staticFrame) ? [this.staticFrame] : this.animationFrames;
-    };
+        this.updateHitBox();
+    }
 
     draw() {
         this.ctx.drawImage(
@@ -91,7 +98,7 @@ export class AnimationSprite {
             this.position.y,
             (this.image.width / this.maxFrames) * this.scale,
             (this.image.height / this.maxAnimations) * this.scale
-        )
+        );
 
         this.drawDayNumber();
 
@@ -122,7 +129,7 @@ export class AnimationSprite {
                 const inYrange = this.position.y + this.moveProps.velocityY <= this.moveProps.startY + this.moveProps.rangeY && this.position.y + this.moveProps.velocityY >= this.moveProps.startY;
                 this.moveProps.velocityY = inYrange ? this.moveProps.velocityY : -this.moveProps.velocityY;
                 this.position.y = this.position.y + this.moveProps.velocityY;
-                this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
+                this.updateHitBox();
             }
             if (this.moveProps.drawLine) {
                 this.ctx.strokeStyle = "black";
@@ -147,7 +154,7 @@ export class AnimationSprite {
             if (curTime.endTime) {
                 this.drawTime(getTimeString(curTime.endTime - curTime.startTime));
             }
-            else{
+            else {
                 this.dayNumber.color = "darkred";
             }
         }
@@ -279,5 +286,9 @@ export class AnimationSprite {
         const numberW = this.ctx.measureText(time).width;
         const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
         this.ctx.fillText(time, posX, this.position.y - 1);
+    }
+
+    updateHitBox() {
+        this.hitBox = { x: this.position.x + (this.hitBoxOffset.x * this.scale), y: this.position.y + (this.hitBoxOffset.y * this.scale), width: (this.imgWidth - this.hitBoxOffset.width) * this.scale, height: (this.imgHeight - this.hitBoxOffset.height) * this.scale };
     }
 }

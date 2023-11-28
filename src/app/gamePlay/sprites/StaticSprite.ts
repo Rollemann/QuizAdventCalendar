@@ -7,7 +7,7 @@ export type StaticSpriteProps = {
     scale: number,
     moveProps: MoveProps | null,
     hitBoxOffset: SpriteArea,
-    imageWholeSize: {w:boolean, h: boolean}
+    imageWholeSize: { w: boolean, h: boolean }
 }
 
 export class StaticSprite {
@@ -19,7 +19,7 @@ export class StaticSprite {
     moveProps: MoveProps | null;
     hitBox: SpriteArea = { x: 0, y: 0, width: 0, height: 0 };
     hitBoxOffset: SpriteArea;
-    imageWholeSize: {w:boolean, h: boolean};
+    imageWholeSize: { w: boolean, h: boolean };
 
 
     constructor(spriteProps: StaticSpriteProps) {
@@ -39,27 +39,27 @@ export class StaticSprite {
             this.image,
             0,
             0,
-            (this.imageWholeSize.w? this.image.width: this.area.width),
-            (this.imageWholeSize.h? this.image.height: this.area.height),
+            (this.imageWholeSize.w ? this.image.width : this.area.width),
+            (this.imageWholeSize.h ? this.image.height : this.area.height),
             this.area.x,
             this.area.y,
             this.area.width * this.scale,
             this.area.height * this.scale
-        )
+        );
 
         // TODO: hitboxen raus
         this.ctx.strokeStyle = "green";
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
-        this.ctx.strokeRect(100, 0, 100,720);
-        this.ctx.strokeRect(300, 0, 100,720);
-        this.ctx.strokeRect(500, 0, 100,720);
-        this.ctx.strokeRect(700, 0, 100,720);
-        this.ctx.strokeRect(900, 0, 100,720);
-        this.ctx.strokeRect(1100, 0, 100,720);
-        this.ctx.strokeRect(0, 100, 1280,100);
-        this.ctx.strokeRect(0, 300, 1280,100);
-        this.ctx.strokeRect(0, 500, 1280,100);
-        this.ctx.strokeRect(0, 700, 1280,100);
+        this.ctx.strokeRect(100, 0, 100, 720);
+        this.ctx.strokeRect(300, 0, 100, 720);
+        this.ctx.strokeRect(500, 0, 100, 720);
+        this.ctx.strokeRect(700, 0, 100, 720);
+        this.ctx.strokeRect(900, 0, 100, 720);
+        this.ctx.strokeRect(1100, 0, 100, 720);
+        this.ctx.strokeRect(0, 100, 1280, 100);
+        this.ctx.strokeRect(0, 300, 1280, 100);
+        this.ctx.strokeRect(0, 500, 1280, 100);
+        this.ctx.strokeRect(0, 700, 1280, 100);
     }
 
     update(): SpriteArea {
