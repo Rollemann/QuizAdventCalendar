@@ -206,6 +206,13 @@ export class AnimationSprite {
         }
     }
 
+    updateLight(){
+        if(this.dayNumber.value > (new Date()).getDate() && !this.isStatic){
+            this.toggleAnimation();
+        }
+        this.update();
+    }
+
     updateGift(){
         if(this.dayNumber.value >= 0){
             const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];

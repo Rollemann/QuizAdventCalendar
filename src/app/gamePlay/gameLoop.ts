@@ -27,7 +27,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
 
         // update Animated independed of player position 
         sprites.levels[currentLevel].animated.lights.forEach((light: AnimationSprite) => {
-            light.update();
+            light.updateLight();
         });
 
         sprites.levels[currentLevel].animated.gifts.forEach((gift: AnimationSprite) => {
