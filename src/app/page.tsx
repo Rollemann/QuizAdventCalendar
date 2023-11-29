@@ -16,8 +16,8 @@ export default function Home() {
         const allUserTimes = await getAllTimesByUserId(user.uid);
         let setupResult = await setup(canvas, user, allUserTimes);
         if (setupResult) {
-          let { ctx, sprites } = setupResult;
-          gameLoop(ctx, sprites);
+          let { ctx, sprites, background} = setupResult;
+          gameLoop(ctx, sprites, background);
         }
       }
     })();

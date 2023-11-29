@@ -6,10 +6,13 @@ import { InitializedSprites, SpriteArea } from "./sprites/typesForSprites";
 
 let blackOutOpacity = 0;
 
-export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites) {
+export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSprites, background: HTMLImageElement) {
     if (ctx.canvas) {
-        window.requestAnimationFrame(() => gameLoop(ctx, sprites));
+        window.requestAnimationFrame(() => gameLoop(ctx, sprites, background));
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.globalAlpha = 0.85;
+        ctx.drawImage(background, 0, 0);
+        ctx.globalAlpha = 1;
 
         let groundAreas: SpriteArea[] = [];
         let wallAreas: SpriteArea[] = [];
@@ -103,7 +106,9 @@ function drawLevelBlackout(ctx: CanvasRenderingContext2D, player: PlayerSprite) 
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.globalAlpha = 1.0;
         // to make sure the player really starts in the left corner even when its buggy
-        player.position.x = player.startPos.x;
-        player.position.y = player.startPos.y;
+        if (blackOutOpacity > 0.9) {
+            player.position.x = player.startPos.x;
+            player.position.y = player.startPos.y;
+        }
     }
 }

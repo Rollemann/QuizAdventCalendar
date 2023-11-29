@@ -9,7 +9,8 @@ export let levelTimer: levelTimerClass;
 
 export function setup(canvas: HTMLCanvasElement | null, user: User, allUserTimes: PlayerTime[]): {
     ctx: CanvasRenderingContext2D,
-    sprites: any;
+    sprites: any,
+    background: HTMLImageElement
 } | null {
 
     if (canvas) {
@@ -22,9 +23,12 @@ export function setup(canvas: HTMLCanvasElement | null, user: User, allUserTimes
             const sprites = initSprites(ctx, user);
             initInputEvents(sprites);
             levelTimer = new levelTimerClass(user, allUserTimes);
+            let background = new Image();
+            background.src = './SpriteSheets/BrickWallSprite.png';
             return {
                 ctx: ctx,
-                sprites: sprites
+                sprites: sprites,
+                background: background
             };
         }
     }
