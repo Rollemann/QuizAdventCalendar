@@ -104,7 +104,7 @@ export class AnimationSprite {
 
         //TODO Hitbox raus
         this.ctx.strokeStyle = "yellow";
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
+        //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
     }
 
     update() {
@@ -202,6 +202,15 @@ export class AnimationSprite {
             if (collisionCheck(playerArea, [this.hitBox]) >= 0) {
                 this.interactable = true;
                 this.showEButton();
+            }
+        }
+    }
+
+    updateGift(){
+        if(this.dayNumber.value >= 0){
+            const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
+            if(curTime && curTime.endTime){
+                this.draw();
             }
         }
     }

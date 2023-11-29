@@ -51,12 +51,13 @@ function createAnimationSprites(ctx: CanvasRenderingContext2D): AnimationSprites
     for (let i = 0; i < allAnimationProps.length; ++i) {
         const currentAnimationProps: AnimationTypesProps = allAnimationProps[i];
         const lights = createAnimationSpriteType(currentAnimationProps.lights);
+        const gifts = createAnimationSpriteType(currentAnimationProps.gifts);
         const doors = createAnimationSpriteType(currentAnimationProps.doors);
         const keys = createAnimationSpriteType(currentAnimationProps.keys);
         const traps = createAnimationSpriteType(currentAnimationProps.traps);
         const treasures = createAnimationSpriteType(currentAnimationProps.treasures);
-        const levers = createAnimationSpriteType(currentAnimationProps.levers); 
-        levels.push({ lights: lights, doors: doors, keys: keys, traps: traps, treasures: treasures, levers: levers });
+        const levers = createAnimationSpriteType(currentAnimationProps.levers);
+        levels.push({ lights: lights, gifts: gifts, doors: doors, keys: keys, traps: traps, treasures: treasures, levers: levers });
     }
     return levels;
 }
@@ -84,6 +85,6 @@ function createPlayerSprite(ctx: CanvasRenderingContext2D, user: User): PlayerSp
         imageSrc: './SpriteSheets/SantaSprite.png',
         scale: 1.5
     },
-    user);
+        user);
     return player;
 }

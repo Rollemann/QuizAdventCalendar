@@ -5,7 +5,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
     return [
 /*0*/   {
             lights: [
-                {
+                { // candle
                     position: { x: 100, y: 100 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/CandleSheet.png',
@@ -21,7 +21,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
                 },
-                {
+                { // candle
                     position: { x: 130, y: 100 },
                     ctx: ctx,
                     imageSrc: './SpriteSheets/CandleSheet.png',
@@ -36,8 +36,585 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
-
-                }
+                },
+                { // Shelf
+                    position: { x: 1150, y: 650 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 595 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 540 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 485 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 430 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 375 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 320 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 265 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 210 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 155 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 100 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+                { // Shelf
+                    position: { x: 1150, y: 45 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/ShelfSprite.png',
+                    scale: 1.5,
+                    maxFrames: 1,
+                    maxAnimations: 1,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 0 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: -1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 0 },
+                    moveProps: null
+                },
+            ],
+            gifts: [
+                {
+                    position: { x: 1163, y: 618 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 1, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 618 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 2, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 563 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 3, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 563 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 4, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 508 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 5, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 508 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 6, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 453 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 7, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 453 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 8, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 398 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 9, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 398 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 10, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 343 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 11, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 343 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 12, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 288 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 13, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 288 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 14, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 233 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 15, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 233 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 16, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 178 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 17, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 178 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 18, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 123 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 19, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 123 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 20, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 68 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 21, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 68 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value:22, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1163, y: 13 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 23, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
+                {
+                    position: { x: 1202, y: 13 },
+                    ctx: ctx,
+                    imageSrc: './SpriteSheets/XmasSprites.png',
+                    scale: 1,
+                    maxFrames: 15,
+                    maxAnimations: 3,
+                    frameRate: 1000,
+                    animationFrames: [{ x: 0, y: 1 }],
+                    repeatAnimation: true,
+                    startStatic: true,
+                    dayNumber: { isDisplayed: false, value: 24, color: "black", size: 0, yOffset: 0 },
+                    hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
+                    staticFrame: { x: 0, y: 1 },
+                    moveProps: null
+                },
             ],
             doors: [
                 {
@@ -449,6 +1026,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*1*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -621,6 +1199,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*2*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -985,6 +1564,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*3*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -1590,6 +2170,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*4*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -1779,6 +2360,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*5*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -2016,6 +2598,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*6*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -2236,6 +2819,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*7*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -2425,6 +3009,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*8*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -2742,6 +3327,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*9*/   {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -3156,6 +3742,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     moveProps: null
                 },
             ],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -3457,6 +4044,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*11*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -3694,6 +4282,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*12*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -3882,6 +4471,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*13*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -4135,6 +4725,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*14*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -4516,6 +5107,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*15*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -4753,6 +5345,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*16*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5150,6 +5743,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*17*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5339,6 +5933,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*18*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5560,6 +6155,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*19*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5749,6 +6345,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*20*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5808,6 +6405,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*21*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5867,6 +6465,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*22*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5926,6 +6525,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*23*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },
@@ -5985,6 +6585,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
         },
 /*24*/  {
             lights: [],
+            gifts:[],
             doors: [
                 {
                     position: { x: 1025, y: (ctx.canvas.height - 124) },

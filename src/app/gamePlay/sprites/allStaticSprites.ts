@@ -188,7 +188,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     moveProps: { startX: 100, startY: 150, velocityX: 0, velocityY: 1, rangeX: 0, rangeY: 450, drawLine: true, move: true },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
-                },
+                }
             ]
         },
 /*1*/   {

@@ -10,7 +10,7 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
     if (ctx.canvas) {
         window.requestAnimationFrame(() => gameLoop(ctx, sprites, background));
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        ctx.globalAlpha = 0.85;
+        ctx.globalAlpha = 0.75;
         ctx.drawImage(background, 0, 0);
         ctx.globalAlpha = 1;
 
@@ -28,6 +28,10 @@ export function gameLoop(ctx: CanvasRenderingContext2D, sprites: InitializedSpri
         // update Animated independed of player position 
         sprites.levels[currentLevel].animated.lights.forEach((light: AnimationSprite) => {
             light.update();
+        });
+
+        sprites.levels[currentLevel].animated.gifts.forEach((gift: AnimationSprite) => {
+            gift.updateGift();
         });
 
         // update Player
