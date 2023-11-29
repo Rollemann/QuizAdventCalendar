@@ -64,7 +64,7 @@ export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): Animati
                     animationFrames: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }],
                     repeatAnimation: true,
                     startStatic: false,
-                    dayNumber: { isDisplayed: false, value: 30, color: "black", size: 0, yOffset: 0 },
+                    dayNumber: { isDisplayed: false, value: 24, color: "black", size: 0, yOffset: 0 },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     staticFrame: { x: 5, y: 0 },
                     moveProps: null
