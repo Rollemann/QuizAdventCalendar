@@ -34,11 +34,10 @@ export default function LoginContent() {
                             <label htmlFor="email" className='justify-self-end col-span-1'>E-Mail:</label>
                             <input onChange={(event) => { setEmail(event.target.value) }} type="email" name="email" id="email" />
                             <label htmlFor="password" className='justify-self-end col-span-1'>Password:</label >
-                            <input onChange={(event) => { setPassword(event.target.value) }} type="password" name="password" id="password" />
+                            <input onChange={(event) => { setPassword(event.target.value) }} onKeyDown={(event) => { if (event.key === 'Enter') { handleSignIn() } }} type="password" name="password" id="password" />
                             <button onClick={handleSignIn} className='col-span-5 border-4 border-dashed border-black w-max justify-self-center p-2 bg-slate-700 text-white'>Login</button>
                         </div>
-                    )
-                    }
+                    )}
                 </>)
             }
         </>
