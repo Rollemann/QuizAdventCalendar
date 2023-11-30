@@ -206,17 +206,17 @@ export class AnimationSprite {
         }
     }
 
-    updateLight(){
-        if(this.dayNumber.value > (new Date()).getDate() && !this.isStatic){
+    updateLight() {
+        if (!this.isStatic && this.dayNumber.value > (new Date()).getDate()) {
             this.toggleAnimation();
         }
         this.update();
     }
 
-    updateGift(){
-        if(this.dayNumber.value >= 0){
+    updateGift() {
+        if (this.dayNumber.value >= 0) {
             const curTime = levelTimer.allUserTimesByLevel[this.dayNumber.value];
-            if(curTime && curTime.endTime){
+            if (curTime && curTime.endTime) {
                 this.draw();
             }
         }
@@ -301,6 +301,7 @@ export class AnimationSprite {
         this.ctx.fillStyle = "black";
         const numberW = this.ctx.measureText(time).width;
         const posX = this.hitBox.x + this.hitBox.width / 2 - numberW / 2;
+        this.ctx.fillStyle = 'white';
         this.ctx.fillText(time, posX, this.position.y - 1);
     }
 
