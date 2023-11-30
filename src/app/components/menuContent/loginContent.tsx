@@ -11,7 +11,7 @@ export default function LoginContent() {
 
     const handleSignIn = async () => {
         try {
-            await emailSignIn(email, password); // TODO: das hier produktiv testen
+            await emailSignIn(email, password);
             setContent(null);
         } catch (error) {
             setContent("login"); // funktioniert nicht

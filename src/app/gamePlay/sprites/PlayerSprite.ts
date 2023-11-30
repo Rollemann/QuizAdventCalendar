@@ -20,7 +20,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 2; // TODO: Set to 0
+export let currentLevel: number = 0; // TODO: Set to 0
 const allowedJumps: number = 1;
 
 export class PlayerSprite {
@@ -96,7 +96,7 @@ export class PlayerSprite {
         );
 
         // TODO Hitboxen raus
-        const hitBoxW = 15;
+        /* const hitBoxW = 15;
         this.ctx.strokeStyle = "red";
         //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
         this.ctx.strokeStyle = "blue";
@@ -105,6 +105,7 @@ export class PlayerSprite {
         this.ctx.strokeStyle = "yellow";
         this.ctx.strokeRect(this.hitBox.x + hitBoxW, this.hitBox.y, this.hitBox.width - (2 * hitBoxW), hitBoxW);
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity, this.hitBox.width, Math.abs(2 * this.velocity.y) - this.jumpVelocity);
+        */
     }
 
     update(solidObjectAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }): SpriteArea {

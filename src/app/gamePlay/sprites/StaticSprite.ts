@@ -48,7 +48,7 @@ export class StaticSprite {
         );
 
         // TODO: hitboxen raus
-        this.ctx.strokeStyle = "green";
+        /* this.ctx.strokeStyle = "green";
         this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
         this.ctx.strokeRect(100, 0, 100, 720);
         this.ctx.strokeRect(300, 0, 100, 720);
@@ -59,7 +59,7 @@ export class StaticSprite {
         this.ctx.strokeRect(0, 100, 1280, 100);
         this.ctx.strokeRect(0, 300, 1280, 100);
         this.ctx.strokeRect(0, 500, 1280, 100);
-        this.ctx.strokeRect(0, 700, 1280, 100);
+        this.ctx.strokeRect(0, 700, 1280, 100); */
     }
 
     update(): SpriteArea {

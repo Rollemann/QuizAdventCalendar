@@ -103,7 +103,7 @@ export class AnimationSprite {
         this.drawDayNumber();
 
         //TODO Hitbox raus
-        this.ctx.strokeStyle = "yellow";
+        //this.ctx.strokeStyle = "yellow";
         //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
     }
 
