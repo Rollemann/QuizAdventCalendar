@@ -84,7 +84,7 @@ export default function RankingContent() {
                     </tbody>
                 </table>
             ) :
-                <span className='scale-x-[-1] text-xl border-collapse h-min self-center'>
+                <span className='text-xl border-collapse h-min self-center'>
                     LOADING...
                 </span>
             }
