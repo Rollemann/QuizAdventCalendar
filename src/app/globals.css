@@ -13,6 +13,10 @@ body {
   font-family: 'Retro Gaming';
 }
 
+*,*:focus,*:hover{
+  outline:none;
+}
+
 /*
 :root {
   --foreground-rgb: 0, 0, 0;

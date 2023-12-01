@@ -25,21 +25,23 @@ export default function RootLayout({
       <body className='flex items-center justify-center h-'>
         <AuthContextProvider>
           <ContentContextProvider>
-            <header className='flex fixed w-screen flex-col top-5'>
-              <div className='flex flex-row h-20'>
-                <div className='flex justify-between w-11/12'>
-                  <div className='flex w-1/4 justify-around'>
-                    <Rewards />
-                    <Ranking />
-                  </div>
-                  <div className='flex w-1/4 justify-around'>
-                    {false && <Chat />}
-                    <Rules />
-                  </div>
-                </div>
+            <header className='grid grid-cols-12 grid-rows-2 fixed w-screen top-5 h-1/5 [&>*]:h-min'>
+              <div className='[&>*]: w-24'>
+                <Rewards />
+              </div>
+              <div className='col-start-3 [&>*]: w-24'>
+                <Ranking />
+              </div>
+              {false && <Chat />}
+              <div className='col-start-10 [&>*]: w-20'>
+                <Rules />
+              </div>
+              <div className='col-start-12 [&>*]: w-24'>
                 <Login />
               </div>
-              <ContentContainer />
+              <div className='row-start-2 col-span-full'>
+                <ContentContainer />
+              </div>
             </header>
             <LoginContent />
           </ContentContextProvider>

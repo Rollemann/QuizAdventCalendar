@@ -5,7 +5,7 @@ import React from 'react'
 import RankingContent from './rankingContent';
 import RewardsContent from './rewardsContent';
 
-type Position = 'self-end' | '';
+type Position = string;
 
 
 export default function ContentContainer() {
@@ -14,19 +14,19 @@ export default function ContentContainer() {
     let position: Position = '';
     switch (content) {
         case 'chat':
-            position = "self-end";
+            position = "col-start-10";
             break;
 
         case 'ranking':
-            position = '';
+            position = 'col-start-2';
             break;
 
         case 'rewards':
-            position = '';
+            position = 'col-start-1';
             break;
 
         case 'rules':
-            position = 'self-end';
+            position = 'col-start-8';
             break;
 
         default:
@@ -34,9 +34,9 @@ export default function ContentContainer() {
     }
 
     return (
-        <div className='flex flex-col w-11/12'>
+        <div className='grid grid-cols-12'>
             {content &&
-                <div className={`${position} mx-1 w-max`}>
+                <div className={`${position}`}>
                     {content == 'chat' ? (
                         <ChatContent />
                     ) :

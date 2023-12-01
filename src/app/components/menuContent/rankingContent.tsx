@@ -57,9 +57,9 @@ export default function RankingContent() {
     }, []);
 
     return (
-        <div className={'w-[65rem] h-[39rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover scale-x-[-1] flex justify-center'}>
+        <div className={'w-[65rem] h-[39rem] m-2 bg-[url("/Speechbubble.svg")] bg-no-repeat bg-cover flex justify-center'}>
             {listContent.length > 0 ? (
-                <table className='scale-x-[-1] text-xl border-collapse h-min self-center w-[90%]'>
+                <table className='text-xl border-collapse h-min self-center w-[90%]'>
                     <thead>
                         <tr className='border-b-2 border-dashed border-black [&>*]:border-x-2 [&>*]:border-dashed [&>*]:border-black [&>*]:text-center [&>*]:p-2 [&>*]:font-bold'>
                             <th>&#127941;</th>
