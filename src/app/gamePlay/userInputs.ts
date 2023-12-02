@@ -15,7 +15,7 @@ export function initInputEvents(sprites: InitializedSprites) {
 function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
     if (!inputsDisabled) {
         const pressedKey = e.key.toLowerCase();
-        if (pressedKey == 'a' || pressedKey == 'arrowleft') {
+        if (pressedKey == 'a' || pressedKey == 'q' || pressedKey == 'arrowleft') {
             sprites.player.walkLeft();
             currentKey = pressedKey;
             startLevelTimer();
@@ -25,7 +25,7 @@ function keydownHandler(e: KeyboardEvent, sprites: InitializedSprites) {
             currentKey = pressedKey;
             startLevelTimer();
         }
-        if (pressedKey == 'w' || pressedKey == ' ' || pressedKey == 'arrowup') {
+        if (pressedKey == 'w' || pressedKey == 'z' || pressedKey == ' ' || pressedKey == 'arrowup') {
             sprites.player.jump();
             startLevelTimer();
         }

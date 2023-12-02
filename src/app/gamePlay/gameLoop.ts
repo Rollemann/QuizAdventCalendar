@@ -73,10 +73,12 @@ function drawLevelTimerReadyInfo(ctx: CanvasRenderingContext2D) {
         ctx.font = "60px Retro Gaming";
         const numberW = ctx.measureText(text).width;
         const posX = ctx.canvas.width / 2 - numberW / 2;
+        ctx.globalAlpha = 0.7;
         ctx.fillStyle = "gray";
         ctx.fillRect(posX, ctx.canvas.height / 2 - 55, numberW, 60);
         ctx.fillStyle = "black";
         ctx.fillText(text, posX, ctx.canvas.height / 2);
+        ctx.globalAlpha = 1;
     }
 }
 
