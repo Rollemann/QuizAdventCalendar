@@ -989,7 +989,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
-                    moveProps: { startX: 380, startY: 580, velocityX: 0.2, velocityY: 0, rangeX: 20, rangeY: 0, drawLine: false, move: false },
+                    moveProps: { startX: 340, startY: 580, velocityX: 0.2, velocityY: 0, rangeX: 60, rangeY: 0, drawLine: false, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
@@ -998,7 +998,7 @@ export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticType
                     ctx: ctx,
                     imageSrc: './SpriteSheets/metalHSprite.png',
                     scale: 1,
-                    moveProps: { startX: 380, startY: 380, velocityX: 0.2, velocityY: 0, rangeX: 20, rangeY: 0, drawLine: false, move: false },
+                    moveProps: { startX: 340, startY: 380, velocityX: 0.2, velocityY: 0, rangeX: 60, rangeY: 0, drawLine: false, move: false },
                     hitBoxOffset: { x: 0, y: 0, width: 0, height: 0 },
                     imageWholeSize: { w: false, h: false }
                 },
