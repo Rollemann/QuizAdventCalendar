@@ -20,7 +20,7 @@ const GRAVITY: number = 0.3;
 
 export let inputsDisabled = false;
 export let blackOutLevel: boolean = false;
-export let currentLevel: number = 0; // TODO: Set to 0 //S4
+export let currentLevel: number = 0; // TODO: Set to 0
 const allowedJumps: number = 1; // TODO set auf 1
 
 export class PlayerSprite {
