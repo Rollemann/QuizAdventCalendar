@@ -1,6 +1,5 @@
 import { StaticTypesProps } from "./typesForSprites";
 
-//TODO: Check all carpets are right displayed; lifts cant put him underground; Alle Figuren stehen bis zur hälfte in den Boden rein, schlater auf rot oder grün je nach dem ob sich alles bewegt oder nicht
 export function allStaticSpritesProps(ctx: CanvasRenderingContext2D): StaticTypesProps[] {
     const mainWidth = 90;
     const mainHeight = 20;

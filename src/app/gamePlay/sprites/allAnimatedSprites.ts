@@ -1,6 +1,5 @@
 import { AnimationTypesProps } from "./typesForSprites";
 
-// TODO: Check all Keys are in Motion; Zuckerstangen im Teppich drin und nicht drüber am schweben
 export function allAnimationSpritesProps(ctx: CanvasRenderingContext2D): AnimationTypesProps[] {
     return [
 /*0*/   {

@@ -94,18 +94,6 @@ export class PlayerSprite {
             this.imgWidth * this.scale,
             this.imgHeight * this.scale
         );
-
-        // TODO Hitboxen raus
-        /* const hitBoxW = 15;
-        this.ctx.strokeStyle = "red";
-        //this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, this.hitBox.width, this.hitBox.height);
-        this.ctx.strokeStyle = "blue";
-        this.ctx.strokeRect(this.hitBox.x + this.hitBox.width - hitBoxW, this.hitBox.y, hitBoxW, this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity);
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y, hitBoxW, this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity);
-        this.ctx.strokeStyle = "yellow";
-        this.ctx.strokeRect(this.hitBox.x + hitBoxW, this.hitBox.y, this.hitBox.width - (2 * hitBoxW), hitBoxW);
-        this.ctx.strokeRect(this.hitBox.x, this.hitBox.y + this.hitBox.height - Math.abs(2 * this.velocity.y) + this.jumpVelocity, this.hitBox.width, Math.abs(2 * this.velocity.y) - this.jumpVelocity);
-        */
     }
 
     update(solidObjectAreas: { groundAreas: SpriteArea[], wallAreas: SpriteArea[] }): SpriteArea {
